@@ -1,0 +1,271 @@
+.sign-up-page {
+    margin-top: 12rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.rainbow-card:after,
+.rainbow-card:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 1em
+}
+
+.rainbow-card:after {
+    bottom: 2px;
+    top: 2px;
+    left: 1px;
+    right: 1px;
+    height: auto;
+    width: auto;
+    margin: 3px;
+    background: inherit
+}
+
+.rainbow-card:before {
+    animation: rainbow-border 4s linear infinite;
+    background: linear-gradient(70deg, #0ebeff, #ffdd40, #ae63e4, #47cf73, #0ebeff, #ffdd40, #ae63e4, #47cf73);
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    top: 0;
+    left: 0;
+    background-size: 200% 200%;
+}
+
+@keyframes rainbow-border {
+    100% {
+        background-position-x: +200%;
+    }
+}
+
+.rainbow-card-ik:after,
+.rainbow-card-ik:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 1em
+}
+
+.rainbow-card-ik:after {
+    bottom: 2px;
+    top: 2px;
+    left: 1px;
+    right: 1px;
+    height: auto;
+    width: auto;
+    margin: 3px;
+    background: inherit
+}
+
+.rainbow-card-ik:before {
+    content: '';
+    animation: rainbow-border 4s linear infinite;
+    background: linear-gradient(135deg, #1e0f41, #0fcdfa, #87ff87, #1e0f41, #0fcdfa, #87ff87);
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    top: 0;
+    left: 0;
+    background-size: 100% 200%;
+}
+
+.rainbow-card .tobeto-logo {
+    position: absolute;
+    top: 100;
+    left: 0;
+    bottom: 600;
+    right: 0;
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    margin: auto;
+    display: block;
+    width: 200px;
+    height: 120px;
+}
+
+
+.rainbow-card {
+    position: sticky;
+    background: #fff;
+    color: #282828;
+    border-radius: 40px;
+    min-height: 300px;
+    padding: 16px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    height: 100%;
+    text-align: center;
+    width: 538px;
+    height: 687px;
+    letter-spacing: normal;
+
+}
+
+.rainbow-card .sign-up-form {
+
+    top: 200px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 127px;
+    margin-bottom: -93px;
+}
+
+
+.rainbow-card .sign-up-form .field input {
+
+    display: block;
+    width: 285px;
+    height: 47px;
+    background-color: #fff;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border-radius: 5px;
+    padding: 14px 24px;
+    font-family: 'Poppins-Regular';
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25;
+    border: 1px solid #e7e5e4;
+    letter-spacing: normal;
+}
+
+.rainbow-card .sign-up-form .rainbow-card-button:hover {
+    cursor: pointer;
+}
+
+.rainbow-card .rainbow-card-button {
+    border-radius: 20px;
+    color: #fff;
+    background-color: #93f;
+    border-color: #93f;
+}
+
+.rainbow-card-ik {
+    position: sticky;
+    background: #fff;
+    color: #282828;
+    display: flex;
+    font-family: 'Poppins, sans-serif';
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 40px;
+    min-height: 300px;
+    padding: 16px 48px;
+    flex-direction: column;
+    gap: 120px;
+    height: 100%;
+    text-align: center;
+    width: 538px;
+    height: 687px;
+    letter-spacing: normal;
+
+}
+
+.rainbow-card-ik .istanbul-kodluyor-logo {
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.rainbow-card-ik .rainbow-card-ik-button {
+    margin-top: 1.25rem;
+    color: #0fcdfa;
+    background: #1e0f41;
+    text-align: center;
+    vertical-align: middle;
+    width: 140px;
+    height: 35px;
+    font-family: ' Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    border-radius: 25px;
+    margin-left: 191px;
+    margin: 191px;
+    margin-top: 401px;
+    margin-bottom: 161px;
+    padding: 0.5rem, 1rem;
+    min-width: 140px;
+}
+
+.rainbow-card-ik .banner-vertical {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: block;
+    width: 3em;
+    height: auto;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    margin: auto;
+}
+
+.rainbow-card-ik .banner-horizontal {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: block;
+    width: 3em;
+    height: auto;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    margin: auto;
+}
+
+.sign-up-page .decorated-text-login {
+    background: transparent;
+    color: #282828;
+    font-weight: 600;
+}
+
+.sign-up-page .decorated-text-login:hover {
+    cursor: pointer;
+}
+
+
+.sign-up-page .rainbow-card button:hover {
+    background-color: #822bd9;
+}
+
+.sign-up-form .field input:focus {
+    border-color: #c9f !important;
+    box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+    outline: 0;
+}
+
+.sign-up-form span {
+    font-family: 'Poppins-Bold';
+    font-size: 36px;
+    line-height: 43.2px;
+    font-weight: 700;
+}
+
+.sign-up-page .rainbow-card-2 {
+    margin-top: 1.5rem;
+}
+
+.sign-up-page .login-page-ik {
+    height: 687px;
+}

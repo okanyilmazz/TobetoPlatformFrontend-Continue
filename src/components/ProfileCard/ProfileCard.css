@@ -1,0 +1,25 @@
+.pf-card{
+    background-color:white;
+    box-shadow: 0 7px 29px rgba(0,0,0,.13);
+    border-radius: 12px;
+    margin-top: 1em;
+    padding: 22px;
+    width: auto;
+    height: auto;
+}
+
+.pf-card .pf-header span{
+    font-weight: 600;
+    font-size: 18px;
+    color: #323232;
+    font-family: 'Poppins-bold';
+}
+
+.pf-line{
+    margin: 0.5rem 0!important;
+    color: rgba(153,51,255,.4)!important;
+    opacity: .4;
+    border-bottom: 2px solid rgba(153,51,255,.4);
+   
+}
+

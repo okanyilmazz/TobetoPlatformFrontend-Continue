@@ -1,0 +1,101 @@
+.formik-form button {
+  background-color: #93f;
+  padding: 6px 12px;
+  border-radius: 999px;
+
+}
+
+.experience-page-content {
+  margin-top: 36px !important;
+  padding-left: 20px !important;
+}
+
+.grade-delete-btn img {
+  background-color: #fc6d6d !important;
+  border: none;
+  border-radius: 50px !important;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.my-grade {
+  box-shadow: 0 10px 24px 0 hsla(0, 0%, 9%, .05);
+  background-color: #fff;
+  padding: 12px 18px;
+  margin-top: 8px;
+}
+
+.grade-date {
+  display: flex;
+  color: rgba(153, 51, 255, .66);
+
+  font-size: 14px;
+  font-weight: bold;
+  border-color: #93f;
+}
+
+.formik-form button:hover {
+  background-color: #822bd9;
+  border-color: #822bd9;
+}
+
+.formik-form .field input:focus {
+  border-color: #c9f !important;
+  box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+  outline: 0;
+}
+
+.formik-form .field input {
+  width: 100%;
+  border: solid #e7e5e4;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.formik-form .field select {
+  width: 100%;
+  border: solid #e7e5e4;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  font-family: 'Poppins-Regular';
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.formik-form .field select:focus {
+  border-color: #c9f !important;
+  box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+  outline: 0;
+}
+
+
+.user-modal-footer-button button {
+  background-color: #93f;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  margin-left: 400px;
+}
+
+.user-modal-footer-button button:hover {
+  background-color: #93f;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  margin-left: 400px;
+}
+
+.ui.pointing.label {
+  margin-top: -10px !important;
+  margin-bottom: 10px;
+}

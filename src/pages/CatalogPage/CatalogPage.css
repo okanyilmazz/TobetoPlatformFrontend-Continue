@@ -1,0 +1,141 @@
+.catalog-page {
+    background-image: url("https://tobeto.com/_next/static/media/edu-banner2.8923a47d.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 0;
+    min-height: 300px;
+    padding: 3.5em;
+    margin-bottom: 24px;
+
+}
+
+.catalog {
+    margin-top: 12rem;
+}
+
+.catalog-search {
+    background: rgba(0, 0, 0, .4);
+    border-radius: 16px;
+    padding: 2em !important;
+    min-width: 50%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.catalog-search h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 48px;
+    word-spacing: 5px;
+    font-family: 'Poppins-Regular';
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 2em;
+    color: #555;
+}
+
+.catalog-search input {
+    border-radius: 50px;
+    padding: 12px 24px;
+    outline: none;
+    font-size: 16px;
+    padding-right: 50px;
+
+}
+
+.catalog-search input::placeholder {
+    color: #959595;
+}
+
+.catalog-page-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    height: 100%;
+}
+
+.catalog-page-content img {
+    width: 260px;
+}
+
+.catalog-page-content p {
+    color: white;
+}
+
+.catalog-page-content .pagination-area .pagination {
+    justify-content: center;
+}
+
+.catalog-page-content .pagination-area .page-item {
+    background-color: #09050f !important;
+    border-radius: 10px !important;
+    display: flex;
+    align-items: center;
+
+
+    width: 32px;
+    justify-content: center;
+}
+
+.catalog-page-content .pagination-area .page-item .page-link {
+    color: #282828;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 8px !important;
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff !important;
+    border: 1px solid #00000011;
+    font-weight: 600;
+}
+
+.catalog-page-content .pagination-area .pagination {
+    gap: 5px;
+}
+
+
+.catalog-page-content .pagination-area .pagination-prev-next .page-link {
+    border: none;
+    background-color: #09050f !important;
+    color: #fff;
+}
+
+
+.pagination-area .page-item.active {
+    background-color: transparent !important;
+    color: #fff;
+}
+
+.pagination-area .page-item.active .page-link {
+    background-color: #4c4141 !important;
+    border: none;
+    color: #fff;
+}
+
+.pagination-area .pagination-prev-next span {
+    font-size: 20px;
+}
+
+.catalog-page-content .no-result-message {
+    color: rgb(148, 148, 148);
+}

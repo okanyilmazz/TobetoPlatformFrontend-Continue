@@ -1,0 +1,59 @@
+#buttonStyle {
+    padding: 12px 24px;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 999px;
+    font-family: 'Poppins-Regular';
+
+}
+
+.btn-rainbow {
+    position: sticky;
+    background: #181717 !important;
+    color: #fff !important;
+    font-family: 'Poppins-Regular' !important;
+}
+
+.btn-rainbow:before {
+    animation: rainbow-border 1.5s linear infinite;
+    background: linear-gradient(70deg, #0ebeff, #ffdd40, #ae63e4, #47cf73, #0ebeff, #ffdd40, #ae63e4, #47cf73);
+    width: 100%;
+    height: 100%;
+    background-size: 200% 200%;
+}
+
+.btn-rainbow:after {
+    bottom: 0;
+    right: 0;
+    height: auto;
+    width: auto;
+    margin: 3px;
+    background: inherit;
+}
+
+.btn-rainbow:hover {
+    color: #000;
+    background: none;
+}
+
+.sign-out {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+
+}
+
+.sign-out .register {
+    padding: 0.9em 1.5em 0.785714em !important;
+}
+
+/* .ui.button {
+    color: white !important;
+} */
+
+
+@keyframes rainbow-border {
+    100% {
+        background-position-x: +200%;
+    }
+}

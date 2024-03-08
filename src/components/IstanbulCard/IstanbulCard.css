@@ -1,0 +1,115 @@
+.ik-card {
+    background-image: url('../../../public/assets/images/ik-card.png') !important;
+    background-size: cover !important;
+    border-radius: 15px !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.ik-card .content {
+    display: grid;
+    grid-template-rows: 60% 40%;
+    padding-left: 0 !important;
+}
+
+.ik-card .content-top {
+    display: grid;
+    grid-template-columns: 68% auto;
+    align-items: end;
+    column-gap: 5%;
+    margin-bottom: 15px;
+}
+
+
+
+.ik-card .content-bottom {
+    justify-self: center;
+    margin-top: 1rem;
+}
+
+.ik-card .content-bottom Button {
+    background-color: #0fcdfa;
+    color: #1d1141;
+    border: 0;
+    border-radius: 50px;
+    line-height: 18px;
+    min-width: 100px;
+    font-family: 'Poppins-Bold';
+    font-size: 14px;
+    padding: 8px 37px;
+}
+
+.ik-card .content-bottom Button:hover,
+.ik-card .content-bottom Button:active,
+.ik-card .content-bottom Button:focus {
+    background-color: #0fcdfa;
+}
+
+.ik-card::before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    width: 25px;
+    height: 25px;
+    background: url(../../../public/assets/images/doth1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ik-card::after {
+
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    width: 40px !important;
+    height: 40px !important;
+    background: url(../../../public/assets/images/doth2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    visibility: visible !important;
+}
+
+.quote {
+    color: rgb(0, 176, 120) !important;
+}
+
+#left-quote {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+#right-quote {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+
+.ik-card .text-ik {
+    background-color: #fff;
+    height: 50px;
+    border-radius: 0 30px 30px 0;
+    display: grid;
+    grid-template-columns: 80% auto;
+}
+
+.ik-card .text-ik #circle {
+
+    width: 35px;
+    height: 35px;
+    background: #1d1141;
+    border-radius: 100%;
+    justify-self: end;
+    align-self: center;
+    margin-right: 1rem;
+}
+
+.ik-card .text-ik span {
+    font-family: 'Poppins-Bold';
+    font-weight: 700;
+    color: #1d1141;
+    font-size: 20px;
+    align-self: center;
+    text-align: end;
+}

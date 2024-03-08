@@ -1,0 +1,650 @@
+.lesson-card-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.lesson-card-btn-2 {
+    margin-left: 520px;
+    margin-top: -130px;
+    width: 150px;
+    height: 40px;
+    background-color: #9a36ff !important;
+    border: #9a36ff !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+}
+
+.lesson-card-btn {
+    width: 150px;
+    height: 40px;
+    background-color: white !important;
+    border-color: #9a36ff !important;
+    color: #9a36ff !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.lesson-card-btn-3 {
+    margin-left: 520px;
+    margin-top: -75px;
+    width: 150px;
+    height: 40px;
+    background-color: white !important;
+    border-color: #9a36ff !important;
+    color: #9a36ff !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+}
+
+.lesson-card-area .card-body {
+    position: relative;
+}
+
+.lesson-card-area .lesson-card-content img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.lesson-card-video {
+    height: 400px;
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+}
+
+.lesson-card-icon-first {
+    color: #818181;
+    margin-left: 15px;
+
+}
+
+.lesson-card-title {
+    margin-top: 20px;
+    width: 75%;
+}
+
+.lesson-card-text {
+    margin-top: 20px;
+}
+
+
+.lesson-title {
+    font-weight: 600;
+    font-size: medium;
+    width: 70%;
+}
+
+.lesson-text {
+    color: #818181;
+}
+
+
+.education-program-content {
+    box-shadow: 0 7px 29px rgba(0, 0, 0, .13);
+    border-radius: 12px;
+
+}
+
+
+
+/*EDUCATION DRAWER */
+
+.ant-drawer-content-wrapper {
+    width: 53.5% !important;
+}
+
+.education-drawer .ant-drawer-close {
+    color: #fff !important;
+    position: absolute;
+    left: -30px;
+    top: 10px;
+    background-color: #9933FF !important;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px 0px 0px 20px;
+    font-size: 15px;
+}
+
+.education-drawer .ant-drawer-header {
+    border-bottom: 0;
+}
+
+.education-drawer .education-drawer-content-middle .education-title span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    font-family: 'Poppins-Regular';
+}
+
+.education-drawer .ant-drawer-body {
+    padding-top: 0;
+}
+
+.education-drawer-content {
+    display: grid;
+    grid-template-columns: 15% auto auto;
+    padding: 10px;
+}
+
+.education-drawer-content-left img {
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+    padding-top: 0;
+}
+
+.education-drawer-content-middle {
+    display: grid;
+    align-content: space-evenly;
+}
+
+.education-drawer-content-middle .education-sub-details {
+    display: grid;
+    grid-template-columns: max-content repeat(2, 60px);
+    grid-template-rows: 30px;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.tag-blue {
+    background-color: #549be6;
+    border: 1px solid #549be6;
+    color: #fff;
+    border-radius: 5px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: max-content;
+    padding: 0 5px;
+}
+
+.education-drawer-content-middle .education-sub-details .course-detail-info span {
+    font-size: 14px;
+    font-family: 'Poppins-Regular';
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.education-drawer-content-middle {
+    margin-left: 10px;
+}
+
+.education-drawer-content-right {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 60px 30px;
+}
+
+.ed-drawer-top-content {
+    display: flex;
+    justify-content: end;
+}
+
+.ed-drawer-top-content .ed-drawer-button-area .go-education {
+    background: #9933FF !important;
+    border-color: #9933FF !important;
+    font-family: 'Poppins-Bold';
+    font-size: 16px;
+    padding: 6.428571428571429px 15px;
+}
+
+.ed-drawer-top-content .ed-drawer-button-area .more {
+    background-color: transparent;
+    color: #000;
+    margin-left: 5px;
+    border: 0;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+.ed-drawer-sub-content .unit-icon,
+.lesson-text .unit-icon {
+    width: 13px;
+
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 100% !important;
+    margin-right: 5px;
+
+}
+
+.ed-drawer-sub-content .unit-ongoing,
+.lesson-text .unit-ongoing,
+.lesson-info .unit-ongoing,
+.unit-ongoing {
+    background: url(/public/assets/Icons/unit-ongoing.svg) no-repeat;
+}
+
+.lesson-text .unit-ongoing,
+.ed-drawer-course-status-info .unit-ongoing {
+    height: 14px;
+    width: 14px;
+}
+
+.lesson-info .unit-ongoing {
+    height: 14px;
+    width: 14px;
+    z-index: 99;
+}
+
+.lesson-text .unit-ongoing {
+    margin-left: 15px;
+}
+
+.lesson-text span {
+    align-items: center;
+}
+
+.ed-drawer-course-status-info {
+    display: flex;
+    align-items: center;
+    color: #818181;
+    font-family: 'Poppins-Regular';
+}
+
+.ed-drawer-course-status-score {
+    font-family: 'Poppins-Bold';
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.ed-drawer-sub-content .ed-drawer-text-area {
+    display: flex;
+}
+
+.not-start {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.not-start span {
+    margin-left: 5px;
+}
+
+
+.unit-end {
+    margin-left: 15px;
+    color: #3DCB79;
+    display: flex;
+}
+
+.ed-drawer-course-status-info .unit-end-text {
+    color: #3DCB79;
+}
+
+/*Lesson Area*/
+
+.lessons-area {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.accordion-education-program-lesson .lesson-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins-Medium';
+    font-size: 16px;
+    position: relative;
+    width: 98%;
+}
+
+.accordion-education-program-lesson .lesson-info .unit-end,
+.accordion-education-program-lesson .lesson-info .unit-ongoing {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+
+.accordion-education-program-lesson .lesson-type-info {
+    color: #818181;
+    font-weight: 500;
+    font-size: 12px;
+    font-family: 'Poppins-Regular';
+}
+
+.accordion-education-program-lesson .active-accordion {
+    background-color: #F2F2F2;
+}
+
+.accordion-education-program-lesson .accordion-item .accordion-header .accordion-button {
+    background: transparent !important;
+    padding-left: 25px;
+    padding-bottom: 5px;
+    font-family: 'Poppins-Bold';
+}
+
+.accordion-education-program-lesson .accordion-item .accordion-header .accordion-button:not(.collapsed)::after,
+.accordion-education-program-lesson .accordion-item .accordion-header .accordion-button::after {
+    position: absolute;
+    left: 0;
+}
+
+
+.accordion-education-program-lesson .accordion-item {
+    border: 0;
+
+}
+
+.accordion-education-program-lesson .accordion-body {
+    padding: 5px;
+    height: max-content;
+    align-items: center;
+}
+
+.lesson-panel.active {
+    background-color: #F2F2F2
+}
+
+.lessons-area .lesson-type-info {
+    color: #818181;
+    font-weight: 500;
+    font-size: 12px;
+    font-family: 'Poppins-Regular';
+}
+
+/*DRAWER LIKE AREA */
+
+.education-drawer-like-area {
+    display: flex;
+    align-items: center;
+}
+
+.education-drawer-like-area .like-button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+.education-drawer-like-area .liked {
+    fill: red;
+    animation: liked 1s;
+    color: red;
+}
+
+.education-drawer-like-area .no-like {
+    fill: white;
+    stroke: #000;
+    stroke-width: 10px;
+    animation: no-like 1s;
+}
+
+.education-drawer-like-area .like-button:hover,
+.education-drawer-like-area .like-button:active,
+.education-drawer-like-area .like-button:focus {
+    background: transparent !important;
+}
+
+.education-drawer-like-area .like-button svg {
+    width: 30px;
+    height: 30px;
+}
+
+.education-drawer-like-area .like-text:hover {
+    cursor: pointer;
+}
+
+.education-drawer-like-area .like-text span {
+    font-size: 22px;
+    font-family: 'Poppins-Regular';
+
+}
+
+@keyframes liked {
+    0% {
+        transform: scale(.8);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+
+}
+
+@keyframes no-like {
+    0% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+
+}
+
+
+
+
+
+/*Education Info*/
+
+
+.education-drawer-content-bottom {
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 25px;
+    padding: 15px;
+}
+
+.education-drawer-info {
+    display: grid;
+    grid-template-columns: 150px auto;
+    justify-content: start;
+}
+
+.education-drawer-info:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.education-drawer-info .title span {
+    font-size: 14px;
+    font-family: 'Poppins-Regular';
+    font-weight: 600;
+}
+
+/* .education-drawer-info .education-drawer-lesson-description-title span {
+    font-size: 16px;
+} */
+
+.education-drawer-info .title svg {
+    margin-right: 5px;
+}
+
+.education-drawer-info span {
+    font-size: 14px;
+    font-family: 'Poppins-Regular';
+    font-weight: 600;
+}
+
+.education-drawer-info .education-drawer-lesson-description span {
+    font-weight: normal;
+}
+
+/*EDUCATION DRAWER */
+
+
+/* ActivityDetailHeader */
+.activity-image {
+    width: 80px;
+    border-radius: 7px !important;
+}
+
+.progress-wrapper {
+    width: 100% !important;
+    background-color: linear-gradient(to right, #2ddfff, #b7df2d) !important;
+}
+
+.ui.progress {
+    height: 6px;
+}
+
+.ui.progress .bar {
+    display: block;
+    line-height: 1;
+    position: relative;
+    width: 0%;
+    min-width: 2em;
+    background: linear-gradient(to right, #2ddfff, #b7df2d) !important;
+    border-radius: 0.28571429rem;
+    transition: width .1s ease, background-color .1s ease;
+}
+
+
+.activity-title h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    font-family: 'Poppins-Medium';
+}
+
+.date-info {
+    margin-top: 15px;
+    font-weight: 700;
+    display: flex;
+    color: #2372ba !important;
+    width: 30%;
+}
+
+.date-info-container .date-info .tooltip-congrats-text {
+    margin-left: 10px;
+    color: #3DCB79;
+    font-family: 'Poppins-Bold';
+}
+
+.activity-score {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+.activity-button {
+    font-size: 16px;
+    background-color: #549be6;
+    color: #ffffff;
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-right: 10px;
+    margin-left: 0px;
+    font-family: 'Poppins-Medium';
+}
+
+
+.activity-score img {
+    width: 35px;
+}
+
+.clicked-image {
+    filter: brightness(80%);
+}
+
+.tooltip-color {
+    padding: 6px 8px;
+    background-color: #ffffff;
+    color: black;
+    font-family: 'Poppins-Medium';
+    font-size: 14px;
+}
+
+.question-icon {
+    color: #7a8292;
+    padding-left: 10px;
+}
+
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-progress .ant-progress-bg {
+    position: relative;
+    background: linear-gradient(to right, #2ddfff, #b7df2d) !important;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+
+.tooltip {
+    padding: 0 !important;
+    --bs-tooltip-max-width: 500px !important;
+}
+
+
+.tooltip-inner {
+    --bs-tooltip-bg: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.075) !important;
+}
+
+.tooltip-arrow {
+    --bs-tooltip-bg: rgba(0, 0, 0, 0.027) !important;
+}
+
+.date-tooltip {
+    color: #000;
+    font-family: 'Poppins-Medium';
+    width: 380px !important;
+}
+
+.lesson1 {
+    text-align: left;
+}
+
+.activity-score .education-drawer-like-area .like-button svg {
+    width: 40px;
+    height: 40px;
+}
+
+.activity-score .education-drawer-like-area .like-text span {
+    font-size: 30px;
+}
+
+.activity-score .education-drawer-like-area {
+    align-items: end;
+    gap: 10px;
+}
+
+.education-drawer-lesson-description-title .tag-list {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+
+
+}
+
+.education-drawer-lesson-description-title .tag-list .tag-link {
+    padding: 6px 8px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #d6d9de;
+    color: #444 !important;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+
+/* ActivityDetailHeader */

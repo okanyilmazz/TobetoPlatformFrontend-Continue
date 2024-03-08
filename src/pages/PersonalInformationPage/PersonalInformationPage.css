@@ -1,0 +1,90 @@
+.personal-information-page {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.profile-details-img {
+    display: flex;
+    justify-content: center;
+    height: 148px;
+    object-fit: cover;
+    position: relative;
+}
+
+.profile-details-img img {
+    border-radius: 50%;
+}
+
+.profile-img-delete {
+    position: absolute;
+    background-color: transparent;
+    top: 72%;
+    right: 54%;
+}
+
+.profile-img-edit {
+    position: absolute;
+    background-color: transparent;
+    top: 72%;
+    right: 43%;
+
+}
+
+.profile-img-edit::after {
+    content: url("https://tobeto.com/edit.svg");
+    width: 30px;
+    height: 30px;
+    padding-top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.profile-img-delete::after {
+    content: url("https://tobeto.com/trash.svg");
+    background-color: #fc6d6d;
+    width: 30px;
+    height: 30px;
+    padding-top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.profile-details-page .formik-form .field input {
+    border-radius: 8px;
+}
+
+.login-form .form-control:focus {
+    border-color: #c9f !important;
+    box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+    outline: 0;
+}
+
+.login-form .form-control::placeholder {
+    color: #ccc;
+    font-size: 14px;
+    font-family: "Poppins-Regular";
+}
+
+.login-form .form-control {
+    padding: 12px 24px;
+
+}
+
+.input-area-title {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    color: #828282;
+}
+
+.id-required-info {
+    display: block;
+    margin-top: -10px !important;
+    margin-bottom: 24px;
+    color: #fc5c46;
+}

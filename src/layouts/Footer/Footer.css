@@ -1,0 +1,78 @@
+.fontFooter {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: black;
+  font-display: swap;
+  background-color: #181717;
+  margin-top: 6rem;
+}
+
+.fontFooter>hr {
+  color: White;
+}
+
+.fontFooter ul li {
+  margin-bottom: 20px;
+}
+
+.fontFooter a {
+  color: white;
+  text-decoration: none;
+}
+
+.custom-class {
+  padding: 50px 0;
+  border-top: 1px solid gray;
+}
+
+.icons a {
+  margin-left: 20px;
+}
+
+/*Footer2*/
+.fontFooter.small {
+  background-color: #93ff;
+  margin-top: 40rem !important;
+}
+
+
+.footer-tobeto-logo img {
+  margin-left: 85px;
+  width: 25%;
+  height: auto;
+
+}
+
+.footer-tobeto-contact-button {
+  margin-right: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 16px;
+  padding-left: 16px;
+  float: right;
+  border-radius: 22px;
+  border: 0ch;
+  font-size: 14px;
+  color: #181717;
+  background-color: white;
+
+  max-width: 100%;
+  overflow: hidden;
+
+
+  text-decoration: none;
+}
+
+.footer-tobeto-contact-button a {
+  background-color: white;
+  font-family: "Poppins-Bold";
+}
+
+
+
+.footer-tobeto-contact-button a:link,
+.footer-tobeto-contact-button a:visited {
+  color: black;
+
+}

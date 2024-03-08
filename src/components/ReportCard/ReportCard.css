@@ -1,0 +1,80 @@
+.report-card .report-title h1 {
+    font-family: 'Poppins-Medium';
+    color: #8a2ee6;
+    font-size: 20px !important;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.report-card .text-bg-secondary {
+    color: #8a2ee6 !important;
+    margin-right: 50px;
+}
+
+.report-card .badge {
+    background-color: #9933FF;
+
+}
+
+.report-card .report {
+    align-items: center;
+    size: 10px;
+}
+
+
+.report-card .accordion-button {
+    color: #8a2ee6;
+    background-color: #f5ebff !important;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .13);
+    font-weight: bolder;
+    font-size: 16px !important;
+}
+
+.report-card .accordion-button:focus {
+    border-color: #f5ebff !important;
+}
+
+.report-card .accordion1 {
+    font-size: 20px;
+}
+
+.report-card .accordion2 ul {
+    display: block;
+    /* padding: 1 1.5 5 5rem; */
+    text-align: justify !important;
+    line-height: 1.2;
+    font-family: Poppins !important;
+    font-size: 20px;
+}
+
+
+
+.report-card .accordion span {
+    display: block;
+    padding: var(--bs-accordion-body-padding-y) var(--bs-accordion-body-padding-x);
+    text-align: justify !important;
+    line-height: 1.2;
+    font-family: Poppins !important;
+}
+
+.report-card .accordion-title {
+    color: black;
+}
+
+.report-card .accordion-title .collapsed {
+    color: black;
+}
+
+.report-card .accordion-button:not(.collapsed) {
+    color: #9933FF !important;
+}
+
+.report-card .justify-content-between {
+    margin-top: 30px;
+    padding: 1.5rem;
+}
+
+.report-card-content {
+    padding-left: 2px;
+    font-size: x-large;
+}

@@ -1,0 +1,59 @@
+.announcement-card-content {
+    justify-content: space-between;
+    padding-bottom: 0;
+}
+
+.announcement-card-content .content {
+    display: grid;
+    grid-template-rows: 30% 50% 20%;
+    grid-template-columns: 22rem;
+    border-left: 6px solid #00956e;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 1px 15px 1px rgba(0, 0, 0, .25);
+    padding: 1rem;
+    width: fit-content;
+    height: 10rem;
+}
+
+.announcement-card-content .content .announcement-header {
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 10px;
+    color: #00956E;
+    font-family: 'Poppins-Medium';
+}
+
+.announcement-card-content .content .announcement-header span:last-child {
+    text-align: end;
+}
+
+.announcement-card-content .content .announcement-name {
+    font-family: 'Poppins-Bold' !important;
+    font-size: 14px;
+    color: #767676;
+    font-weight: 600px;
+}
+
+.announcement-card-content .content .announcement-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #9397a0;
+    font-size: 12px;
+    font-family: 'Poppins-Medium';
+
+}
+
+.announcement-card-content .content .announcement-footer span {
+    display: flex;
+}
+
+.announcement-card-content .content .announcement-footer span:first-child::before {
+    content: url(https://tobeto.com/_next/static/media/noty-date.c4b4d342.svg);
+    margin-right: 6px;
+}
+
+.announcement-footer span:last-child {
+    cursor: pointer;
+}

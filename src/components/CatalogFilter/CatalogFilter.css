@@ -1,0 +1,122 @@
+.catalog-filter-content {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    width: 300px !important;
+    background-color: #282828;
+    border-radius: 24px;
+}
+
+.catalog-filter-content .accordion .accordion-header .accordion-button {
+    border-radius: 24px !important;
+    background-color: #847b8d !important;
+    border: none;
+    color: white;
+    font-family: "Poppins-Bold";
+}
+
+.catalog-filter-content h2:first-child {
+    padding-top: 12px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+
+.accordion-hr {
+    color: white;
+}
+
+.catalog-filter-content .accordion-item:first-of-type .accordion-button:active {
+    background-color: #93f !important;
+}
+
+.catalog-filter-content .accordion .accordion-forMe .accordion-button {
+    background-color: #93f !important;
+    border: 1px solid #93f;
+}
+
+.catalog-filter-content .accordion-forMe .accordion-collapse {
+    display: none !important;
+}
+
+.catalog-filter-content .accordion-forMe .accordion-button::after {
+    display: none !important;
+}
+
+.catalog-filter-content .accordion .accordion-button:after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.catalog-filter-content .accordion .accordion-forMe .accordion-button:not(.collapsed) {
+    background-color: white !important;
+    color: #181818;
+}
+
+.catalog-filter-content .accordion .accordion-button:not(.collapsed) {
+    background-color: #93f !important;
+}
+
+.catalog-filter-content input[type=text] {
+    width: 100%;
+    padding: 8px 16px;
+}
+
+.catalog-filter-content input[type=text]:focus {
+    border-color: #c9f;
+    box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+}
+
+.catalog-filter-content .form-check {
+    margin-top: 12px;
+    display: flex !important;
+    gap: 12px;
+    margin-right: 2rem !important;
+}
+
+.catalog-filter-content .form-check-input:checked {
+    background-color: #93f !important;
+    border-color: #93f !important;
+}
+
+.catalog-filter-content .accordion-title {
+    margin-bottom: 10px !important;
+    margin-top: 12px;
+}
+
+.catalog-filter-content h2:last-child {
+    font-weight: bold !important;
+}
+
+.catalog-filter-content .filter-title {
+    font-size: 18px;
+    color: #181818;
+    font-weight: 600;
+}
+
+
+
+.catalog-filter-content .accordion-item {
+    border: 0 !important;
+    background-color: transparent;
+}
+
+.catalog-filter-content .filter-title {
+    padding: 12px;
+}
+
+.catalog-filter-content .scrollable-content {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.catalog-filter-content ::-webkit-scrollbar {
+    width: 4px;
+}
+
+.catalog-filter-content ::-webkit-scrollbar-thumb {
+    background-color: #93f;
+    border-radius: 6px;
+}
+
+.catalog-filter-content ::-webkit-scrollbar-thumb:hover {
+    background-color: #93fc;
+}

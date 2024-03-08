@@ -1,0 +1,90 @@
+.sign-in {
+    display: flex;
+    justify-content: end;
+}
+
+.sign-in .sign-tobeto-icon {
+    background: url(https://tobeto.com/_next/static/media/tbtlogo-gradient.7979f966.svg);
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 0;
+    align-self: center;
+}
+
+.sign-in .dropdown Button {
+    margin-left: 1rem;
+    border-radius: 25px;
+    background: #fff;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .05);
+    border-radius: 35px;
+    padding: 7px 10px;
+    display: inline-flex;
+    align-items: center;
+    border-color: #00000000;
+    color: #828282;
+    font-family: 'Poppins-Regular';
+}
+
+.sign-in .dropdown span {
+    margin-left: 1rem;
+}
+
+.sign-in .dropdown img {
+    width: 36px;
+}
+
+.sign-in .dropdown .dropdown-toggle::after {
+    border-top: 0.4em solid;
+    border-right: 0.4em solid transparent;
+    border-bottom: 0;
+    border-left: 0.4em solid transparent;
+}
+
+.sign-in .dropdown button:active,
+.sign-in .dropdown button:focus,
+.sign-in .dropdown button:hover {
+    background-color: #fff;
+    color: #828282;
+}
+
+.sign-in .dropdown .dropdown-menu {
+    height: 98px;
+    width: 177px;
+    transform: translate(18px, 55px);
+    background-color: #9933FF;
+}
+
+.sign-in .dropdown .dropdown-menu:hover {
+    color: #828282;
+}
+
+.sign-in .dropdown .dropdown-menu .dropdown-item {
+    background-color: #9933FF;
+    height: 30px;
+    width: 175px;
+    color: #FBF9FC;
+    font-family: 'Poppins-Regular';
+    align-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.sign-in .dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: #fff !important;
+    color: #000;
+}
+
+.sign-in .dropdown .dropdown-menu .divider-1 {
+
+    background: #9933FF;
+    background-color: #ccc;
+
+}
+
+.sign-in .dropdown .dropdown-menu .divider-2 {
+    background: #9933FF;
+    background-color: rgba(100, 100, 100, .5);
+
+}

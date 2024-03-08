@@ -1,0 +1,61 @@
+.catalog-card-subtitle {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 260px;
+    height: 90px;
+    border-radius: 12px;
+
+}
+
+.catalog-cart-title {
+
+    font-size: 12px !important;
+    font-family: "Poppins-Regular";
+    margin-bottom: 10px !important;
+    margin-left: 10px;
+    display: flex;
+    gap: 4px;
+
+}
+
+.catalog-cart-text {
+    font-size: 16px;
+    font-family: "Poppins-Regular";
+    font-weight: bold;
+    margin-left: 10px;
+
+}
+
+
+.catalog-button {
+    margin-bottom: 190px;
+    margin-left: 200px;
+}
+
+.catalog-button img {
+    position: absolute;
+    top: 0;
+    height: 30px;
+
+}
+
+.catalog-card {
+    border-radius: 20px !important;
+    border: none !important;
+    cursor: pointer;
+
+}
+
+.catalog-card img {
+    border-radius: 20px !important;
+    border: none !important;
+}
+
+.catalog-button-content {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}

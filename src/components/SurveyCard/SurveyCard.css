@@ -1,0 +1,30 @@
+.no-data {
+    background: #fff;
+    border-radius: 0.75em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    gap: 1em;
+    background-color: #e6e6e6;
+    height: 300px;
+    padding: 1rem;
+}
+
+.no-data span {
+    color: #6a359f;
+    font-family: 'Poppins-Medium';
+    font-size: 16px;
+}
+
+.no-data:before {
+    content: "";
+    background-image: url(https://tobeto.com/_next/static/media/notFound.4015d44b.svg);
+    min-width: 200px;
+    justify-content: center;
+    margin: 1em auto;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

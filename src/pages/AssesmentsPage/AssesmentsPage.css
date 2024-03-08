@@ -1,0 +1,477 @@
+.reviews-cart-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 40px 80px rgba(24, 32, 79, .25), inset 0 0 0 0.5px hsla(0, 0%, 100%, .5);
+    background: linear-gradient(209.21deg, #1d0b8c 13.57%, #bda6fe 98.38%) !important;
+    padding: 32px 10%;
+    min-height: 300px;
+    border-radius: 0 30px 40px 40px;
+    height: 100% !important;
+}
+
+.reviews-cart-1 span {
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+
+}
+
+.reviews-cart-1 p {
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 20px;
+}
+
+.reviews-cart-1 label {
+    text-align: center;
+}
+
+.reviews-cart-2 .cart-slim {
+    box-shadow: 0 40px 80px rgba(24, 32, 79, .25), inset 0 0 0 0.5px hsla(0, 0%, 100%, .5);
+    background: linear-gradient(209.21deg, #1d0b8c 13.57%, #bda6fe 98.38%) !important;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    min-height: 64px;
+    margin-bottom: 12px;
+}
+
+.cart-slim-button {
+    margin-left: auto;
+}
+
+.cart-slim-button button {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+}
+
+
+.cart-slim-button button:hover {
+    background-color: #d0d0cf;
+    color: black;
+}
+
+.reviews-cart-2 span {
+    color: white;
+}
+
+.reviews-cart-2 .cart-slim span::before {
+    content: "";
+    background-image: url("https://tobeto.com/platform-icon.png");
+    display: flex;
+    background-size: 3em 3em;
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    margin-top: 6px;
+}
+
+/* Eğer sınav sonuçları varsa, fotoğrafı gizle */
+.reviews-cart-2 .cart-slim.has-results span::before {
+    display: none;
+    /* Eğer tamamen kaldırmak istiyorsanız: visibility: hidden; */
+}
+
+.reviews-cart-2 span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 16px;
+}
+
+.reviews-cart-2 button {
+    color: black;
+    background-color: white;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Poppins-Bold";
+}
+
+
+.reviews-page-cart-button {
+    background-color: #93f !important;
+    border-radius: 24px !important;
+    color: white !important;
+    font-size: 16px !important;
+    font-family: "Poppins-Regular" !important;
+    padding: 12px 24px !important;
+}
+
+
+/*EXAM RESULT*/
+.exam-result-container .modal-dialog .modal-content {
+    min-height: 400px !important;
+    margin-top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50% !important;
+    top: 50% !important;
+    position: absolute;
+    height: 300px !important;
+    width: 1140px !important;
+}
+
+.exam-result-container .modal-body p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #828282;
+}
+
+.exam-result-container .modal-body span {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #181818;
+}
+
+.exam-result-container .modal-title {
+    position: absolute;
+    top: 5%;
+    left: 43%;
+    transform: translate(-5%, -43%);
+    border: 1px solid #93f;
+    background-color: #93f;
+    border-radius: 999px;
+    padding: 12px 60px;
+    font-size: 16px;
+    color: white;
+
+}
+
+.exam-result-container .modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.exam-result-container .modal-footer button {
+    background-color: #93f;
+    border-radius: 24px;
+    color: white;
+    font-size: 16px;
+    font-family: "Poppins-Regular";
+    padding: 12px 24px;
+}
+
+.cart-slim-close-button {
+    background-color: #93f !important;
+    color: white !important;
+    padding: 8px 16px !important;
+    border-radius: 50px !important;
+}
+
+.exam-result-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin: 48px auto;
+}
+
+.exam-result-box div {
+    line-height: 1.5;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .15);
+    padding: 1.5em;
+    color: #93f;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+.exam-result-box span {
+    margin-bottom: 16px;
+    color: #93f !important;
+    font-weight: 600;
+    font-size: 1em;
+
+}
+
+/*EXAM RESULT*/
+/*  */
+
+.exam-details-box span {
+    display: inline-block;
+    font-size: 24x;
+    font-weight: bold;
+    color: #181818;
+}
+
+.exam-circle-bar {
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Assesment */
+
+
+.assesment-head {
+    margin-top: 60px !important;
+    margin-bottom: 48px !important;
+    text-align: center;
+    font-size: 36px !important;
+}
+
+.assesment-span {
+    font-size: 36px;
+    font-weight: 500;
+    color: #9933FF;
+}
+
+.assesment-title {
+    font-size: 35px;
+    font-family: "Poppins-Regular";
+    color: #4D4D4D;
+    font-weight: normal;
+}
+
+.assesment-img {
+    position: absolute !important;
+    top: 100px !important;
+    right: 200px !important;
+    width: 50px !important;
+}
+
+.assesment-img img {
+    height: 150px;
+}
+
+.assesment-rapor {
+    min-height: 300px;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    border-radius: 0 30px 40px 40px;
+    padding: 2em 10%;
+    background: rgba(31, 31, 71, .6);
+    box-shadow: 0 40px 80px rgba(24, 32, 79, .25), inset 0 0 0 0.5px hsla(0, 0%, 100%, .5);
+    background: linear-gradient(209.21deg, #3c0b8c 13.57%, #e3a6fe 98.38%) !important;
+    z-index: 1;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-top: 40px;
+    margin-bottom: 36px !important;
+}
+
+.assesment-rapor h1 {
+    padding-top: 15px;
+}
+
+.assesment-rapor p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.assesment-btn {
+    background-color: #9933FF;
+    border-radius: 50px;
+    border: none;
+    padding: 10px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: Poppins-Regular;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.assesment-btn:hover {
+    background-color: #7a29cc;
+}
+
+.assesment-line {
+    padding: 6px !important;
+    background: linear-gradient(180deg, #93f, #953dac 27.08%, #fff);
+    width: 6px !important;
+    height: 180px !important;
+    margin: 36px auto 8px auto !important;
+}
+
+.assesment-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.assesment-col1 {
+
+    backdrop-filter: blur(40px);
+    border-radius: 0 30px 40px 40px;
+    padding: 2em 0;
+    background: rgba(31, 31, 71, .6);
+    box-shadow: 0 40px 80px rgba(24, 32, 79, .25), inset 0 0 0 0.5px hsla(0, 0%, 100%, .5);
+    background: linear-gradient(109.6deg, #ad1deb 11.2%, #6e72fc 91.1%);
+    border: none;
+    color: white;
+    width: 550px !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+.assesment-col2 {
+    border-radius: 0 30px 40px 40px;
+    padding: 2em 0;
+    background: rgba(31, 31, 71, .6);
+    box-shadow: 0 40px 80px rgba(24, 32, 79, .25), inset 0 0 0 0.5px hsla(0, 0%, 100%, .5);
+    background: linear-gradient(109.6deg, #ad1deb 11.2%, #6e72fc 91.1%);
+    z-index: 1;
+    border: none;
+    text-align: center;
+    color: white;
+    width: 550px !important;
+    margin-left: 30px;
+}
+
+.assesment-col2 i:hover {
+    color: RGB(242 216 49);
+}
+
+.assesment-content {
+    display: flex;
+}
+
+.assesment-col1 h1 {
+    padding-top: 20px;
+}
+
+.assesment-col1 p {
+    font-size: 1.25em;
+    padding-top: 40px;
+    font: 20px Poppins-Regular;
+}
+
+.assesment-col2 p {
+    font-size: 1.25em;
+    padding-top: 40px;
+    font: 20px Poppins-Regular;
+}
+
+.footer-modal-button {
+    display: flex;
+    justify-content: space-around;
+}
+
+.assesments-modal .modal-dialog .modal-content {
+    top: 20vh;
+    width: 50vw;
+    right: 10vw;
+}
+
+.assesments-modal .modal-dialog .modal-content .modal-body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.exam-modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .exam-modal-header .exam-question-count {
+    margin-left: 24px;
+    background-color: #93f;
+    color: white;
+    padding: 12px 48px;
+    border-radius: 50px;
+}
+
+.exam-modal-header .exam-question-time {
+    margin-right: 24px;
+    background-color: #93f;
+    color: white;
+    padding: 12px 48px;
+    border-radius: 50px;
+} */
+
+.exam-modal-header span {
+    background-color: #93f;
+    color: white;
+    padding: 12px 48px;
+    border-radius: 50px;
+
+}
+
+.assesments-exam-modal .modal-dialog .modal-content {
+    top: 10vh;
+    width: 50vw;
+    right: 10vw;
+    height: max-content;
+}
+
+.exam-modal-description p {
+    font-size: 16px;
+    margin-top: 24px !important;
+    text-align: center;
+    font-weight: 900;
+}
+
+.exam-modal-description .exam-modal-question {
+    cursor: pointer;
+    margin-top: 36px;
+    margin-bottom: 24px;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 12px 24px;
+    border-radius: 12px;
+}
+
+
+
+.assesment-paginate .ui.pagination.menu {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 4% 96% !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.assesment-paginate .ui.pagination.menu a:first-child,
+.assesment-paginate .ui.pagination.menu a:last-child {
+    display: block !important;
+    background-color: #93f;
+    border-radius: 24px !important;
+    color: #fff !important;
+}
+
+.ui.pagination.menu a:last-child {
+    justify-self: end !important;
+}
+
+.ui.pagination.menu a {
+    display: none !important;
+    background-color: red;
+}
+
+
+.answer-active {
+    background-color: #93f !important;
+    color: #fff;
+}
+
+
+.assesment-paginate .pagination {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.assesment-paginate .pagination .paginate-button {
+    background-color: #7a29cc;
+    padding: 12px 24px;
+    border: 1px solid transparent;
+    color: #fff;
+}

@@ -1,0 +1,138 @@
+.login-page-content {
+    margin-top: 6rem !important;
+}
+
+.Container-login {
+    display: flex;
+    justify-content: space-between;
+    height: 50vh;
+    margin-top: 10px;
+}
+
+
+.login-page-icon {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.login-ik-container .tobeto-icon {
+    width: 200px;
+    margin-top: 57px;
+}
+
+
+.login-page-ik .login-ik-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-bottom: 24px;
+}
+
+.login-page-ik {
+
+    position: sticky;
+    background: #fff;
+    color: #282828;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 11px;
+    flex-direction: column;
+    align-items: center;
+    height: 480px;
+}
+
+.login-page-ik:after,
+.login-page-ik:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 1em
+}
+
+.login-page-ik:after {
+    bottom: 2px;
+    top: 2px;
+    left: 1px;
+    right: 1px;
+    height: auto;
+    width: auto;
+    margin: 3px;
+    background: inherit
+}
+
+.login-page-ik::before {
+    content: '';
+    animation: rainbow-border 4s linear infinite;
+    background: linear-gradient(135deg, #1e0f41, #0fcdfa, #87ff87, #1e0f41, #0fcdfa, #87ff87);
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    top: 0;
+    left: 0;
+    background-size: 100% 200%;
+}
+
+.greenLine2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.greenLine2::after {
+    content: " ";
+    display: block;
+    border-bottom: 2.5px solid #00b078 !important;
+    margin: 2em auto 4em;
+    width: 200px;
+
+}
+
+.login-page-ik .job {
+    font-size: 1.8em;
+    font-weight: 700;
+    font-family: Poppins, sans-serif !important;
+    text-align: center;
+    margin: 14px auto;
+
+}
+
+.Apply-button {
+    line-height: 9px;
+    margin-bottom: 76px;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #1e0f41;
+    border-radius: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 140px;
+
+}
+
+
+.login-ik-container::before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    width: 36px;
+    height: 55px;
+    background: url(../../../public/assets/images/doth1.png);
+    background-size: 36px;
+    background-repeat: no-repeat;
+}
+
+.login-ik-container::after {
+    content: "";
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    width: 50px !important;
+    height: 40px !important;
+    background: url(../../../public/assets/images/doth2.png);
+    background-size: 51px;
+    background-repeat: no-repeat;
+    visibility: visible !important;
+}

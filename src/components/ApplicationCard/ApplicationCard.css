@@ -1,0 +1,85 @@
+.application-card {
+    box-shadow: 0 1px 15px 1px rgba(0, 0, 0, .25);
+    background-color: #fff;
+    color: #282828;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 124px;
+    height: 100%;
+    width: fit-content;
+    border-radius: 8px;
+}
+
+.application-card .application-card-content {
+    display: grid;
+    grid-template-columns: 550px;
+}
+
+.application-card .application-card-content .application-card-status .application-stages {
+    padding-left: 10px;
+}
+
+.application-card .application-card-content .application-card-status .project-name span,
+.application-card .application-card-content .application-card-status .application-card-content-title span {
+    padding-left: 10px;
+    font-family: 'Poppins-Bold';
+}
+
+.application-card .application-card-content .application-card-status {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.application-card .application-card-content .status_accepted {
+    border-radius: 8px;
+    border-left: 6px solid #076b34;
+}
+
+.application-card .application-card-content .status_accepted::after {
+    min-width: 140px;
+    position: absolute;
+    background-color: #076b34;
+    color: #fff;
+    content: "Kabul Edildi";
+    top: 12px;
+    right: -4px;
+    padding: 4px 8px;
+    border-radius: 16px 0 0 16px;
+    font-size: 12px;
+}
+
+.application-card.application-card-content .status_rejected {
+    border-radius: 8px;
+    border-left: 6px solid #6b0707;
+}
+
+.application-card .application-card-content .status_rejected::after {
+    min-width: 140px;
+    position: absolute;
+    background-color: #6b0707;
+    color: #fff;
+    content: "Kabul Edilmedi";
+    top: 12px;
+    right: -4px;
+    padding: 4px 8px;
+    border-radius: 16px 0 0 16px;
+    font-size: 12px;
+}
+
+.application-card .application-card-content .application-card-status .application-stages .application-stage {
+    display: flex;
+}
+
+.application-card .application-card-content .application-card-status .application-stages .application-stage span {
+    font-size: 12px;
+    min-width: 200px;
+    width: min-content;
+}
+
+.application-card .application-card-content .application-card-status .application-status-icon {
+    align-self: center;
+    padding-right: 5px;
+}

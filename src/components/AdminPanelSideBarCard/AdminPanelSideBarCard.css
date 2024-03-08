@@ -1,0 +1,85 @@
+/* .admin-panel .sidebar-card {
+    margin-top: 2rem;
+    padding: 10px;
+} */
+
+.admin-panel .sidebar-card ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    /* gap: 15px; */
+    font-size: 16px;
+    color: #828282;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: 'Poppins-Medium';
+    width: 245px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.admin-panel .sidebar-card .active-edit {
+    border-radius: 0 !important;
+    border-right: 3px solid #93f !important;
+}
+
+.admin-panel .sidebar-card ul li:hover {
+    cursor: pointer;
+}
+
+.admin-panel .sidebar-card .active-item {
+    font-weight: normal !important;
+}
+
+.admin-panel .sidebar-card ul {
+    margin-top: 24px;
+}
+
+.admin-panel .platform-content {
+    height: auto;
+    margin-bottom: 3.5rem;
+}
+
+
+
+.admin-panel section:first-child::before {
+    content: "";
+    background: url("../../../public/assets/Icons/dot-purple.svg");
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    width: 150px;
+    height: 150px;
+    display: block;
+    position: absolute;
+    right: 8rem;
+    top: 10rem;
+}
+
+
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    margin-bottom: 100px !important;
+    display: none;
+}
+
+.admin-panel svg:not(:root) {
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+}
+
+.admin-panel .sidebar-card .sidebar-icon img {
+    width: 24px !important;
+    height: 24px !important;
+    fill: #828282;
+}
+
+.sidebar-icon svg {
+    height: 1.5em !important;
+    width: 1.5em !important;
+}

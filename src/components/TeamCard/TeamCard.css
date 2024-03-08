@@ -1,0 +1,61 @@
+.about-us-team {
+    flex-direction: column;
+    display: inline-block;
+    padding-left: 100px;
+    margin: 0 10px;
+    border-radius: 1em;
+    padding: 2em 1em;
+
+}
+
+.about-us-team .about-us-card {
+    height: 170px;
+    width: 170px;
+    --x: 50%;
+    --y: 50%;
+    background-color: #fff;
+    align-items: center;
+    border-radius: 1em;
+    border: 6px solid transparent;
+    color: white;
+    background: linear-gradient(#fff, #fff) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #0d6efd, #93f) border-box;
+}
+
+.about-us-team .profile-image img {
+    height: 160px;
+    width: 160px;
+    border-bottom: 1px solid #ddd;
+    filter: grayscale(1);
+    border-radius: .5em;
+}
+
+.about-us-team .profile-name h5 {
+    font-size: 1em;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    font-family: Poppins, sans-serif !important;
+
+}
+
+.about-us-team .profile-title h6 {
+    height: 24px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: Poppins, sans-serif !important;
+}
+
+.about-content .title-card {
+    color: #fff !important;
+    text-align: center;
+    size: 1.5cm;
+    margin-top: 6.5rem !important;
+}
+
+.about-us-team .about-us-card .profile-wrapper .profile-name {
+    text-align: center;
+}

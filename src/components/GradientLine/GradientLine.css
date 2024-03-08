@@ -1,0 +1,5 @@
+.gradient-line {
+    background: linear-gradient(180deg, #93f, #953dac 27.08%, #181717);
+    width: 12px;
+    height: 165px;
+}

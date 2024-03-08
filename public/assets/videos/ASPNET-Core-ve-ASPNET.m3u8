@@ -1,0 +1,7 @@
+#EXTM3U
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=145397,RESOLUTION=480x272
+https://mn360-stream.mncdn.com/hls/p/132/sp/13200/serveFlavor/entryId/0_ar6b5s8p/v/2/ev/5/flavorId/0_aumrzkke/name/a.mp4/index.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=299197,RESOLUTION=1024x576
+https://mn360-stream.mncdn.com/hls/p/132/sp/13200/serveFlavor/entryId/0_ar6b5s8p/v/2/ev/5/flavorId/0_c5jmjsce/name/a.mp4/index.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=447341,RESOLUTION=1920x1080
+https://mn360-stream.mncdn.com/hls/p/132/sp/13200/serveFlavor/entryId/0_ar6b5s8p/v/2/ev/5/flavorId/0_b21a3noy/name/a.mp4/index.m3u8

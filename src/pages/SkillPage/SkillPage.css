@@ -1,0 +1,83 @@
+.skill-page {
+    display: flex;
+}
+
+.skill-area {
+    margin-top: 20px;
+}
+
+.skill-area .my-grade {
+    box-shadow: 0 10px 24px 0 hsla(0, 0%, 9%, .05);
+    background-color: #fff;
+    padding: 12px 18px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.skill-area .my-grade .grade-details {
+    display: flex;
+    gap: 1.5em;
+    justify-content: flex-start;
+    margin-top: 0.5em;
+    align-items: baseline;
+    position: relative;
+}
+
+.skill-area .my-grade .grade-details .grade-details-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 25%;
+}
+
+.skill-area .my-grade .grade-details .grade-details-col .grade-details-content {
+    color: #171717 !important;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    word-break: break-word;
+    font-family: 'Poppins-Medium';
+}
+
+.skill-area .my-grade .grade-details .grade-delete {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    right: -31px;
+    top: 75%;
+}
+
+.skill-area .my-grade .grade-details .grade-delete::after {
+    content: '';
+    background: url("/public/assets/Icons/profile-settings/trash.svg") no-repeat;
+    background-size: cover;
+    background-color: #fc6d6d;
+    width: 24px;
+    height: 24px;
+    padding-top: 3px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    fill: red;
+}
+
+.skill-area .my-grade .grade-details .g-del {
+    top: 25% !important;
+}
+
+.skill-input-label {
+    font-size: 16px;
+    text-align: left;
+    color: #828282;
+
+    font-family: 'Poppins-Medium';
+}
+
+.skill-add-button {
+    width: 13%;
+    color: #fff;
+    margin-top: 25px;
+
+}

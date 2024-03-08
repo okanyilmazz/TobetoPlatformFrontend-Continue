@@ -1,0 +1,22 @@
+.blog-page {
+  margin-top: 11rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-page .title-card {
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Poppins-Bold';
+  text-align: center;
+  margin: 0;
+  margin-top: 2rem;
+}
+
+.blog-page-card {
+  margin-top: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+}

@@ -1,0 +1,158 @@
+.codecademy-page{
+  margin-bottom: 2rem ;
+}
+.codecademy-page .codecademy-row1 {
+  color: white;
+}
+
+.codecademy-page .codecademy-logo-img {
+  width: 183.33px;
+  height: 183.33px;
+  margin-top: 80px;
+  margin-inline: -11px;
+
+}
+
+.codecademy-page .codecademy-text1 a {
+  color:#9933FF
+  }
+
+.codecademy-page .codecademy-row1 p {
+  font-size: 36px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: center;
+  padding-top: 5%;
+  font-family: 'Poppins-Bold';
+  margin-bottom: auto;
+}
+
+.codecademy-page .codecademy-row2 {
+
+  color: white;
+}
+
+.codecademy-page .codecademy-row2 .codecademy-text1 {  
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-top: 5%;
+  font-family: 'Poppins-Regular';
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  /* margin-bottom: auto; */
+}
+.codecademy-page .codecademy-text1 a {
+  color:#9933FF
+  }
+
+.codecademy-page .codecademy-row2 .codecademy-sub-text{
+  font-size: 12px;
+  color: #fff;
+}
+
+.codecademy-page .codecademy-row3 .codecademy-left-header1{
+  font-size: 36px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: left;
+  padding-top: 5%;
+  font-family: 'Poppins-Bold';
+  margin-bottom: auto;
+}
+
+.codecademy-page .codecademy-row3 .codecademy-text2{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: -22px;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-top: 5%;
+  font-family: 'Poppins-Regular';
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.codecademy-page .codecademy-signup-btn{
+  color: #fff;
+  background-color: #93f;
+border-color: #93f;
+border-radius: 25px;
+padding-left: 1rem;
+padding-right: 1rem;
+font-family: 'Poppins-Bold';
+
+}
+.codecademy-page .codecademy-signup-btn:hover{
+  color:#fff;
+  background-color: #822bd9;
+}
+
+.codecademy-page .codecademy-container-gif{
+  background-color: #10162F;
+  width: 100%!important;
+  height: 551px;
+  margin-top: 5rem!important;
+  display: grid;
+  grid-gap: 2em;
+  gap: 2em;
+  place-items: center;
+  padding: 3em 15%;
+  grid-template-columns: 1fr;
+
+}
+.codecademy-page .codecademy-row4{
+  display: grid;
+    grid-gap: 2em;
+    gap: 2em;
+    place-items: center;
+    padding: 3em 15%;
+    grid-template-columns: 1fr;
+}
+.codecademy-page .codecademy-row4 .codecademy-gif{
+  vertical-align: middle;
+  overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 798px;
+    height: 448px;
+}
+.codecademy-page .codecademy-row5 .codecademy-left-header2{
+  font-size: 36px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 55px;
+  text-align: left;
+  padding-top: 5%;
+  font-family: 'Poppins-Bold';
+  margin-bottom: auto;
+}
+
+.codecademy-page .codecademy-row5 .codecademy-text3{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 1px;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-top: 5%;
+  font-family: 'Poppins-Regular';
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 2.5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}

@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins-Regular', sans-serif !important;
+
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('/public/assets/fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('/public/assets/fonts/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('/public/assets/fonts/Poppins-Bold.ttf');
+}
+
+.bg-front-dark {
+  background-color: #181717 !important;
+}
+
+.bg-front-white {
+  background-color: #fff !important;
+}
+
+.btn-rainbow:before,
+.btn-rainbow:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.btn-rainbow:hover {
+  background-color: inherit !important;
+}
+
+.word1,
+.word2 {
+  position: absolute;
+  opacity: 100;
+  color: #fff;
+  font-style: italic !important;
+  background-color: #a24ff5;
+  padding: 0 8px 0 0;
+  margin-left: 8px;
+  border-radius: 6px;
+}
+
+
+.is-authenticated {
+  color: black;
+}
+
+.is-not-authenticated {
+  color: white;
+}
+
+
+.active-item {
+  color: #9933FF !important;
+  font-weight: 600 !important;
+}
+
+.formik-form button {
+  background-color: #93f;
+  padding: 6px 12px;
+  border-radius: 999px;
+  /* width: 100%; */
+  font-size: 14px;
+  font-weight: bold;
+  border-color: #93f;
+}
+
+.formik-form button:hover {
+  background-color: #822bd9;
+  border-color: #822bd9;
+}
+
+.formik-form .field input:focus {
+  border-color: #c9f;
+  box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+  outline: 0;
+}
+
+.formik-form .field input {
+  width: 100%;
+  border: solid #e7e5e4;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.formik-form .field select {
+  width: 100%;
+  border: solid #e7e5e4;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  font-family: 'Poppins-Regular';
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.formik-form .field select:focus {
+  border-color: #c9f;
+  box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+  outline: 0;
+}
+
+
+/*Likers Modal*/
+
+.likers-modal .modal-dialog .modal-content .likers-modal-header {
+  padding: 20px;
+}
+
+.likers-modal .modal-dialog .modal-content .likers-modal-header .h4 {
+  font-size: 18px !important;
+  font-family: 'Poppins-Regular';
+  font-weight: 600;
+}
+
+.likers-modal .modal-dialog .modal-content .likers-modal-body li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.likers-modal .modal-dialog .modal-content .likers-modal-body {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+.likers-modal .modal-dialog .modal-content .likers-modal-body li .user-icon {
+  width: 30px;
+}
+
+.likers-modal .modal-dialog .modal-content .likers-modal-body li .user-icon img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.likers-modal .modal-dialog .modal-content .likers-modal-body li .user-name {
+  font-size: 14px;
+}
+
+.likers-modal .modal-dialog .modal-content .modal-footer .ant-pagination .ant-pagination-simple-pager {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins-Regular';
+  color: #444;
+}
+
+.likers-modal .modal-dialog .modal-content .modal-footer .ant-pagination .ant-pagination-simple-pager input {
+  width: 45px;
+  height: auto;
+  padding: 0;
+  border: 1px solid #444;
+  border-radius: 10px;
+  text-align: center;
+  color: #444;
+  line-height: 26px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins-Regular';
+}
+
+.likers-modal .modal-dialog .modal-content .modal-footer .ant-pagination .ant-pagination-simple-pager .ant-pagination-slash {
+  color: #444;
+  font-family: 'Poppins-Bold';
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.likers-modal .modal-dialog .modal-content .modal-footer .ant-pagination .ant-pagination-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.admin-edit-icon {
+  cursor: pointer;
+  margin-left: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 7px 29px rgba(0, 0, 0, .13);
+  width: 24px;
+  height: 24px;
+}

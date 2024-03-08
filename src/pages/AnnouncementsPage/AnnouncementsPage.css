@@ -1,0 +1,277 @@
+.announcements-page-wrapper {
+    width: 98% !important;
+    margin: 0 auto !important;
+    background-image: url("https://tobeto.com/_next/static/media/edu-banner3.d7dc50ac.svg");
+    background-position: 50%;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.announcements-search-area {
+    margin-top: 24px !important;
+    padding: 0 !important;
+}
+
+.announcements-page-title {
+    margin-left: 400px;
+    color: #fff;
+    font-size: 5vw;
+    font-family: "Poppins-Bold";
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 2em;
+    color: #555;
+}
+
+.announcements-search input {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 50px;
+    padding: 8px;
+    outline: none;
+    font-size: 16px;
+    padding-right: 50px;
+    width: 250px;
+
+}
+
+.announcements-search::placeholder {
+    color: #959595;
+}
+
+.announcements-search-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.announcements-dropdown-content .dropdown button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    background: #fff;
+    border-radius: 2em;
+    border: 3px solid transparent;
+    padding: 6px 1em;
+    color: #282828;
+}
+
+.announcements-dropdown-content label {
+    color: black;
+    font-size: 16px;
+}
+
+.announcements-dropdown-content .form-check {
+    display: flex;
+    gap: 8px;
+}
+
+.announcements-dropdown-content .dropdown-menu.show {
+    border-radius: 16px;
+    padding: 16px 20px;
+    transform: translate(10px, 45px) !important;
+}
+
+.announcements-dropdown-content .dropdown button:active {
+    color: #fff;
+    background-color: #fff;
+    border: #fff;
+}
+
+.announcements-dropdown-content .select__control {
+    max-height: 24px;
+    padding: 0 24px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 50px;
+    outline: none;
+    font-size: 16px;
+}
+
+.announcements-dropdown-content .dropdown-menu {
+    color: #fff;
+}
+
+.announcements-dropdown-content .dropdown-item {
+    display: flex;
+    margin-bottom: 12px;
+    border-radius: 99px !important;
+    background-color: #ededed;
+    color: black;
+}
+
+/* Dropdown itemların stilleri */
+.announcements-dropdown-content .dropdown-item {
+    display: flex;
+    margin-bottom: 12px;
+    border-radius: 99px !important;
+    background-color: #ededed;
+    color: black;
+}
+
+.announcements-dropdown-content .dropdown-item.active {
+    background-color: #93f !important;
+    color: white !important;
+}
+
+.announcements-dropdown-content .dropdown-item:active {
+    background-color: #93f;
+    color: white;
+}
+
+.announcements-dropdown-content .dropdown-item:hover {
+    display: flex;
+    margin-bottom: 12px;
+    border-radius: 99px !important;
+}
+
+.announcements-dropdown-content .clicked-dropdown:active {
+    background-color: #93f;
+}
+
+.announcements-search-area .read-button .read-show::before {
+    content: "";
+    background-image: url("https://tobeto.com/_next/static/media/read.c10d9cc3.svg");
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+}
+
+.announcements-search-area .read-button .read-hide::before {
+    content: "";
+    background-image: url("https://tobeto.com/_next/static/media/read-unread.269c37dc.svg");
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+}
+
+.announcements-search-area .read-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .25);
+    border: none;
+    padding: 12px;
+    border-radius: 999px;
+}
+
+
+.announcements-page-content {
+    margin-top: 50px !important;
+}
+
+.announcements-page-area {
+    margin-bottom: 24px !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-column-gap: 48px;
+    grid-row-gap: 24px;
+}
+
+
+.announcements-page-content .pagination-area .pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.announcements-page-content.pagination-area .page-item {
+    background-color: #09050f !important;
+    border-radius: 10px !important;
+    display: flex;
+    align-items: center;
+    width: 32px;
+    justify-content: center;
+}
+
+.announcements-page-content .pagination-area .page-item .page-link {
+    color: #282828;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 8px !important;
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff !important;
+    border: 1px solid #00000011;
+    font-weight: 600;
+}
+
+.announcements-page-content .pagination-area .pagination-prev-next .page-link {
+    border: none;
+    background-color: #09050f !important;
+    color: #fff;
+}
+
+
+.announcements-page-content .pagination-area .page-item.active {
+    background-color: transparent !important;
+    color: #fff;
+}
+
+.announcements-page-content .pagination-area .page-item.active .page-link {
+    background-color: #4c4141 !important;
+    border: none;
+    color: #fff;
+}
+
+.announcements-page-content .pagination-area .pagination-prev-next span {
+    font-size: 20px;
+}
+
+.announcements-page-content .no-result-message {
+    color: rgb(148, 148, 148);
+}
+
+
+.announcements-dropdown-content .form-check-input:checked[type=checkbox] {
+    background-color: #93f;
+}
+
+
+.select__multi-value__label .css-9jq23d {
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    min-height: 38px;
+    position: relative;
+    transition: all 100ms ease 0s;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(204, 204, 204);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    outline: 0px !important;
+}

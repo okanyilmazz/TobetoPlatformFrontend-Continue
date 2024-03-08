@@ -1,0 +1,33 @@
+.sidebar-card {
+    margin-top: 2rem;
+    padding: 10px;
+}
+
+.sidebar-card ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #828282;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: 'Poppins-Medium';
+    width: 245px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar-card .active-edit {
+    border-radius: 0 !important;
+    border-right: 3px solid #93f !important;
+}
+
+.sidebar-card ul li:hover {
+    cursor: pointer;
+}
+
+.sidebar-card .active-item {
+    font-weight: normal !important;
+}

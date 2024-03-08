@@ -1,0 +1,43 @@
+.pgn-npt{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pswrd-row .npt{
+    font-family: Poppins,sans-serif!important;
+    font-size: 18;
+    font-weight: bold;
+    font-size: 1.1em; 
+    font-family: bold;
+    margin-left: 15px;
+    color:hsl(273, 7%, 51%);
+    
+}
+
+.pswrd-row .npt .tbt-input {
+    font-family: Poppins,sans-serif!important;
+    padding-inline: 2px;
+    padding-block: 1px;
+    padding: 0.875rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px !important;
+    border: 1px solid #b3a6c0 !important;
+    width: 100%;
+    font-size: .875rem;
+    line-height: 1.25;
+    font-weight: 400;
+}
+
+.row-btn {
+  margin: 22em;
+  
+}
+
+.row-btn .btn-primary{
+    margin-bottom: 10px;
+    border-radius: 25px;
+    width: 100%;
+    font-weight: 590;
+    display: flex;
+    justify-content: space-between;
+}

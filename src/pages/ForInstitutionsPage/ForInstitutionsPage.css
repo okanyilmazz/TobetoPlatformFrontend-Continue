@@ -1,0 +1,320 @@
+.for-institutions {
+    padding-top: 8rem;
+    margin-bottom: 5rem;
+}
+
+.tobeto-for-employee {
+    margin-top: 2.5rem !important;
+}
+
+.for-institutions .content-text span {
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Poppins-Bold';
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+.for-institutions .content-text {
+    background: linear-gradient(180deg, #1b1b1b, #181717 67.74%);
+    border-radius: 25px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: 150px;
+    margin-bottom: 20px;
+    margin-top: 6rem;
+}
+
+.for-institutions .ik-cards {
+    margin-top: 6rem;
+}
+
+.for-institutions .ik-cards .ik-card {
+    box-shadow: none;
+    height: 300px !important;
+}
+
+.for-institutions .ik-cards .ik-card button {
+    background-color: #00b078;
+    font-size: 14px;
+    padding: 10px 40px;
+    margin-top: 20px;
+}
+
+.for-institutions .ik-cards .ik-card .text-ik {
+    height: 60px;
+    grid-template-columns: 85% auto;
+}
+
+.for-institutions .ik-cards .ik-card .text-ik span {
+    font-size: 20px;
+}
+
+.for-institutions .ik-cards .ik-card .text-ik #circle {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.for-institutions .ik-cards .ik-card .content-top {
+    grid-template-columns: 70% auto;
+    column-gap: 4%;
+}
+
+.for-institutions .ik-cards .ik-card .content-bottom {
+    align-self: end;
+}
+
+.talent {
+    padding-right: 2rem !important;
+    height: 340px !important;
+}
+
+.talent .card {
+    background: transparent;
+    border-radius: 25px;
+    padding: 2rem 0 1rem;
+    border: 1px solid #828282;
+    height: 100%;
+    justify-content: center;
+}
+
+.talent .card .card-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.talent .card .card-body h1 {
+    font-family: 'Poppins-Bold';
+    color: #fff !important;
+    text-align: center;
+    font-size: 32px;
+}
+
+
+.talent .card .card-body span {
+    font-family: 'Poppins-Regular';
+    color: #828282;
+    font-size: 20px;
+    margin-top: 25px;
+    line-height: 1.5;
+}
+
+.talent-stages {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 340px;
+}
+
+.talent-stages .stage1 .card,
+.talent-stages .stage2 .card,
+.talent-stages .stage3 .card {
+    height: 100%;
+}
+
+.talent-stages .stage1 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.talent-stages .stage1 .card {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 0;
+    background-color: #828282;
+}
+
+.talent-stages .stage1 .stage-hover span {
+    text-align: left;
+    color: #fff;
+    align-self: center;
+    margin-top: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.talent-stages .stage1 .card-body:hover .stage-hover {
+    display: grid !important;
+}
+
+.talent-stages .stage1 .card-body:hover .stage-no-hover {
+    display: none !important;
+}
+
+.talent-stages .stage1 .card-body:hover {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.talent-stages .stage2 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.talent-stages .stage2 .card {
+    border-radius: 0;
+    border: 0;
+    background-color: #727171;
+}
+
+.talent-stages .stage2 .stage-hover span {
+    text-align: center;
+    color: #fff;
+    align-self: center;
+    margin-top: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.talent-stages .stage2 .card-body:hover .stage-hover {
+    display: grid !important;
+}
+
+.talent-stages .stage2 .card-body:hover .stage-no-hover {
+    display: none !important;
+}
+
+.talent-stages .stage3 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.talent-stages .stage3 .card {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 0;
+    background-color: #4D4D4D;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.talent-stages .stage3 .card-body:hover .stage-hover {
+    display: grid !important;
+}
+
+.talent-stages .stage3 .card-body:hover .stage-no-hover {
+    display: none !important;
+}
+
+.talent-stages .stage3 .card-body:hover {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.talent-stages .card-body {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.talent-stages .card-body h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    display: block;
+    margin: 30px 0;
+    min-height: 50px;
+    font-family: Poppins, sans-serif !important;
+}
+
+.stage-no-hover {
+    display: grid;
+    grid-template-rows: 42% 35% 23%;
+    grid-template-columns: 100%;
+    justify-items: center;
+    height: -webkit-fill-available;
+}
+
+.stage-hover {
+    height: 100%;
+    width: 100%;
+    font-size: 13px;
+    transition: all .4s ease;
+    display: grid;
+    grid-template-rows: 70% 30%;
+    display: none;
+}
+
+.stage-hover .stage-open {
+    align-self: end;
+    margin-bottom: 10px;
+}
+
+.stage-no-hover .stage-open {
+    align-self: end;
+}
+
+.stage-no-hover svg,
+.stage-no-hover h2 {
+    align-self: end;
+}
+
+.stage-hover span {
+    text-align: right;
+    color: #fff;
+    align-self: center;
+    margin-top: 60px;
+    padding-right: 10px;
+}
+
+.talent-stages .stage1 .card-body:hover,
+.talent-stages .stage2 .card-body:hover,
+.talent-stages .stage3 .card-body:hover {
+    background: linear-gradient(180deg, #93f, #271d42 139.94%);
+}
+
+
+
+
+.for-institutions .contact-us {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    padding: 32px 40px;
+    margin-top: 50px;
+    background-color: #221C3A;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.for-institutions .contact-us div:first-child {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0;
+}
+
+.for-institutions .contact-us span {
+    font-size: 16px;
+    font-family: 'Poppins-Regular';
+    color: #fff;
+    gap: 20%;
+    max-width: 64rem;
+}
+
+.for-institutions .contact-us Button {
+    border-radius: 50px;
+    font-family: 'Poppins-Bold';
+    border: 0;
+    padding: 10px 16px;
+    background-color: #93f;
+    width: 100%;
+    color: #fff;
+}
+
+.for-institutions .contact-us Button:hover {
+    background-color: #822BD9;
+    color: #fff;
+}

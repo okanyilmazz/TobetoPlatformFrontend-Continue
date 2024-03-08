@@ -1,0 +1,36 @@
+.react-tel-input .form-control {
+    margin-left: 45px !important;
+    position: relative;
+    font-size: 14px;
+    letter-spacing: .01rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 10px;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+    background: #FFFFFF;
+    border: 3px solid #e7e5e4;
+    border-radius: 5px;
+    line-height: 25px;
+    height: 35px;
+    width: 362px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.react-tel-input .flag-dropdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.phone-not-valid {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+    color: #fc5c46;
+
+}

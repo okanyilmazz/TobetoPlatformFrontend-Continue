@@ -1,0 +1,45 @@
+.deletecard::before {
+    content: url('../../../public/assets/Icons/Info.svg');
+    display: block;
+    margin-top: -10px;
+}
+
+.deletecard-const {
+    opacity: 0.7;
+    font-size: 12px;
+    margin-top: -20px;
+}
+
+.modal-header .btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color:white; 
+    width: 10px;
+    height: 10px;
+  }
+
+.deletecard-body{
+    margin-top:-20px;
+}
+
+.deletecard-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.deletecard-footer .btn {
+    margin: 0 5px;
+    flex-grow: 1;
+    background-color: white;
+    border: none;
+    color: #696a6a;
+}
+
+.deletecard-footer .btn:hover {
+    background-color: rgb(96, 0, 190);
+}
+
+.deletecard-button {
+    color: #1a1d1e;
+} 

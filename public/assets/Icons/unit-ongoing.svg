@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-Devam_Ediyor_İkon">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="Devam_Ediyor_İkon" data-name="Devam Ediyor İkon" clip-path="url(#clip-Devam_Ediyor_İkon)">
+    <g id="Group_5334" data-name="Group 5334">
+      <circle id="Ellipse_459" data-name="Ellipse 459" cx="86.109" cy="86.109" r="86.109" transform="translate(8.347 11.754)" fill="#fff"/>
+      <g id="Page-1" transform="translate(0)">
+        <g id="_06-Eğitim-Detay-v8---07" data-name="06-Eğitim-Detay-v8---07">
+          <g id="Group-12">
+            <g id="Group-9">
+              <g id="Group-8">
+                <g id="_2-copy-3" data-name="2-copy-3">
+                  <g id="Durumlar">
+                    <g id="Group-10">
+                      <path id="Devam" d="M99.609,199.219c54.492,0,99.609-45.117,99.609-99.609C199.219,45.215,154,0,99.512,0,45.117,0,0,45.215,0,99.609,0,154.1,45.215,199.219,99.609,199.219Zm0-16.6a83.008,83.008,0,1,1,83.008-83.008A82.607,82.607,0,0,1,99.609,182.617Z" transform="translate(0)" fill="#3dcb79"/>
+                      <path id="Oval-4-Copy" d="M86.979,136.91A90.588,90.588,0,0,0,99.005,91.665,91.005,91.005,0,0,0,8,.66" transform="translate(92 7.59)" fill="none" stroke="#50a041" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333"/>
+                    </g>
+                    <path id="Devam-2" data-name="Devam" d="M99.512,0a97.441,97.441,0,0,1,32.911,5.721,100.029,100.029,0,0,1,30.513,172.343h0l-.589-.732A98.665,98.665,0,0,1,99.609,200C45.215,200,0,154.706,0,100,0,45.392,45.117,0,99.512,0Zm0,16.667C53.418,16.667,16.7,53.824,16.7,100a83.045,83.045,0,0,0,135.428,64.729L100,100.348l-.012-83.673Z" transform="translate(0)" fill="#3dcb79"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

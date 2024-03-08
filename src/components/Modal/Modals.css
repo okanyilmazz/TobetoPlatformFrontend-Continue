@@ -1,0 +1,36 @@
+.modals-container .modal-dialog .modal-content {
+    min-height: 400px !important;
+    margin-top: 50vh;
+    transform: translate(-50%, -50%);
+    left: 50% !important;
+    top: 50% !important;
+    position: absolute !important;
+    background-color: white;
+    height: 300px !important;
+    width: 1140px !important;
+}
+
+.modals-container .modal-body p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #828282;
+}
+
+.modals-container .modal-body span {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #181818;
+}
+
+.modals-container .modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #181818;
+}
+
+.modals-container .modal-footer {
+    display: flex;
+    justify-content: center;
+}

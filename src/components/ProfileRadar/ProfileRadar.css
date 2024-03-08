@@ -1,0 +1,63 @@
+.radar-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 20px;
+}
+
+.profile-radar-container {
+    display: flex;
+}
+
+.profile-radar-labels {
+    margin-left: 100px;
+}
+
+.radar-labels .label .legendName {
+    font-size: 12px;
+    color: #000;
+    font-weight: 500;
+}
+
+.radar-labels .label .legend {
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 5px;
+    display: inline-block; /* Kutucukları blok eleman olarak stilleyin */
+    width: 30px; 
+    height: 20px;;
+}
+
+.radar-labels .label .legend.legend8 {
+    background-color: #85a0a9;
+}
+
+.radar-labels .label .legend.legend7 {
+    background-color: #217925;
+}
+
+.radar-labels .label .legend.legend1 {
+    background-color: #eec272;
+}
+
+.radar-labels .label .legend.legend5 {
+    background-color: #6667ab;
+}
+
+.radar-labels .label .legend.legend2 {
+    background-color: #e288b6;
+}
+
+.radar-labels .label .legend.legend4 {
+    background-color: #b38f6a;
+}
+
+.radar-labels .label .legend.legend6 {
+    background-color: #d75078;
+}
+
+.radar-labels .label .legend.legend3 {
+    background-color: #d77e6f;
+}

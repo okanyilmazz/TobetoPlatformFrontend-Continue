@@ -1,0 +1,25 @@
+.show-more-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #828282;
+    margin-top: 2rem;
+}
+
+.show-more-content::before {
+    content: "";
+    background-image: url(https://tobeto.com/_next/static/media/showMore.f5ba3f81.svg);
+    background-repeat: no-repeat;
+    background-size: 4em 4em;
+    width: 4em;
+    height: 4em;
+    display: block;
+}
+
+.show-more-content:hover {
+    cursor: pointer;
+}

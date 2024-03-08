@@ -1,0 +1,154 @@
+/* HEADER */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.login-header {
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #f8f3fb;
+}
+
+.home .btn {
+    background: #00b078 !important;
+    border: 3px solid #00b078 !important;
+    border-radius: 2em !important;
+    padding: .5em 2.5em !important;
+    font-size: 15px !important;
+    color: #1e0f41 !important;
+    font-weight: 700 !important;
+    margin-right: 12px;
+    font-family: 'Poppins-Regular' !important;
+}
+
+.header-banner {
+    background-color: #1e0f41;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-custom-image {
+    width: 110px;
+    height: 100px;
+    margin-left: 48px;
+}
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 76%;
+    margin: 0 auto;
+}
+
+.home span {
+    color: rgb(0, 176, 120);
+}
+
+.home p {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+/* ENDREGION */
+
+/*NAVBAR*/
+
+#navbarStyle {
+    width: 96%;
+    margin: auto;
+    height: 82px;
+}
+
+#containerStyle {
+    height: 82px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: 20px;
+    align-items: center;
+    grid-template-rows: 82px;
+}
+
+
+#home-messages {
+    display: flex;
+    justify-content: space-between;
+}
+
+#home-messages .item {
+    font-family: 'Poppins-Medium';
+}
+
+.header .ui.secondary.menu .item {
+    color: #fff;
+    font-family: 'Poppins-Regular';
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.header .ui.secondary.menu .item:hover,
+.header .ui.secondary.menu .item:focus,
+.header .ui.secondary.menu .item:active {
+    color: #93f !important;
+    cursor: pointer;
+}
+
+.header .ui.dropdown>.text:hover {
+    color: #93f
+}
+
+.header .ui.dropdown>.dropdown.icon {
+    display: none;
+}
+
+.header .ui.secondary.menu .item .menu {
+    background-color: #93f !important;
+}
+
+.header .ui.secondary.menu .dropdown.item .menu {
+    margin-top: 0 !important;
+}
+
+.header .ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
+    display: block;
+    color: white !important;
+}
+
+.tobeto-icon img {
+    width: 150px;
+}
+
+/* ENDREGION */
+
+
+/* LOGIN HEADER */
+.login-header #menu-content {
+    display: flex;
+}
+
+.login-header #menu-content .item {
+    font-size: 15px;
+    padding: 8px 16px;
+    color: #282828;
+    font-family: 'Poppins-Medium';
+
+}
+
+.login-header #containerStyle {
+    grid-template-columns: 1fr auto 1fr;
+}
+
+
+
+.login-header .item:hover {
+    background: transparent !important;
+}
+
+/* ENDREGION */

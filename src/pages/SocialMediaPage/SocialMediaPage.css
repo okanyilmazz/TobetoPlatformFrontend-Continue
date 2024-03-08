@@ -1,0 +1,176 @@
+.social-media-page {
+    display: flex;
+}
+
+.social-media-content {
+    margin-bottom: 20px;
+}
+
+.social-media-content .social-media-text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    color: #828282;
+}
+
+.social-media-content #social-media-icon {
+    background-color: transparent !important;
+}
+
+.social-media-content .social-media-delete-btn {
+    background-color: #fc6d6d !important;
+    border: none;
+    border-radius: 50px !important;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-content .social-media-edit-btn {
+    background-color: black !important;
+    border: none;
+    border-radius: 6px !important;
+    margin-left: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+.social-media-content .social-media-edit-btn .lu-pencil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.social-media-content .social-media-edit-btn:hover {
+    background-color: #9933ff !important;
+}
+
+.social-media-span-text {
+    color: rgb(153, 51, 255) !important;
+    display: flex;
+    margin-top: -15px !important;
+    font-size: 16px;
+}
+
+.social-media-content .social-media-form {
+    padding: 8px;
+    padding-left: 0 !important;
+    border-left: 0;
+    background: #FFF !important;
+    font-size: 1rem !important;
+    line-height: 1.25;
+    font-family: 'Poppins-Regular';
+}
+
+.social-media-content .social-media-form:focus {
+    border-color: #c9f !important;
+    box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25) !important;
+    outline: 0;
+}
+
+.update-modal .modal-dialog .modal-content {
+    margin-top: 40vh;
+    width: 40vw;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.update-modal .modal-dialog .modal-content .modal-body {
+    padding-bottom: 0;
+}
+
+.update-modal .modal-dialog .modal-title {
+    font-family: 'Poppins-Bold';
+    font-size: 30px;
+}
+
+.formik-form .form-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}
+
+
+
+
+.ui input {
+    column-width: 500px;
+}
+
+.input-wrapper {
+    margin-bottom: 20px;
+
+}
+
+.input-label-text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    color: #828282;
+
+}
+
+#input-group-text {
+    background-color: transparent !important;
+}
+
+
+.delete-btn {
+    background-color: #fc6d6d !important;
+    border: none;
+    border-radius: 50px !important;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.edit-btn {
+    background-color: black !important;
+    border: none;
+    border-radius: 6px !important;
+    margin-left: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+.edit-btn .lu-pencil {
+    color: white;
+    margin-top: -5px;
+    margin-left: -6px;
+}
+
+.edit-btn:hover {
+    background-color: #9933ff !important;
+}
+
+.span-text {
+    color: rgb(153, 51, 255) !important;
+    display: flex;
+    margin-top: -15px !important;
+    font-size: 16px;
+}
+
+.form-control {
+    padding: 8px !important;
+}
+
+.form-control:focus {
+    border-color: #c9f !important;
+    box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25) !important;
+    outline: 0;
+}

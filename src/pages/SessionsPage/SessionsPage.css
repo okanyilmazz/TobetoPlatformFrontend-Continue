@@ -1,0 +1,212 @@
+.session-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    margin-left: 30px;
+    font-family: "Poppins-Medium";
+
+}
+
+.sessions-title {
+    font-size: 50px;
+    font-family: "Poppins-Medium";
+    font-weight: 600;
+}
+
+
+.ant-collapse-header-text .green-img,
+.ant-collapse-header-text .red-img {
+    margin-right: 5px;
+}
+
+.ant-collapse-header-text .green-img,
+.green-text {
+    color: #3dcb79 !important;
+    font-size: 16px;
+
+}
+
+.red-text {
+    color: #cb3d3d !important;
+    font-size: 16px;
+}
+
+.session-video {
+    color: red;
+}
+
+.video-number {
+    color: #000;
+    opacity: .5;
+}
+
+.session-video-recording {
+    background-color: white !important;
+    border-color: #9933ff !important;
+    color: #9933ff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 5px;
+    border: 1px #000 solid;
+    min-width: 11%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    height: 40px;
+}
+
+.session-join {
+    background-color: white !important;
+    border-color: #9933ff !important;
+    color: #9933ff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 5px;
+    border: 1px #000 solid;
+    min-width: 11%;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    width: 150px;
+    height: 40px;
+    font-family: 'Poppins-Bold';
+}
+
+.LXP-Collapse .sessions-title .ant-collapse-header {
+    align-items: center;
+    padding-bottom: 0;
+}
+
+.LXP-Collapse .session-title {
+    margin-left: 0px !important;
+    margin-bottom: 10px !important;
+    font-weight: 600;
+}
+
+.LXP-Collapse .sessions-title .ant-collapse-header .ant-collapse-expand-icon {
+    padding-inline-end: 5px;
+
+}
+
+
+.homework-accordion-item {
+    border-color: transparent !important;
+}
+
+.work-score .no-time {
+    width: 14px;
+    height: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    background: #000;
+    padding: inherit;
+
+}
+
+.instructor-fullName {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.no-content .no-content-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 10px;
+    display: flex;
+    margin-top: 55px;
+}
+
+.col-left {
+    padding-bottom: 30px;
+    float: left;
+    width: 230px;
+    background-color: #f5f7f9;
+}
+
+.work-status {
+    color: #818181;
+}
+
+.row-middle-xs {
+    display: flex;
+}
+
+.accordion-works .accordion-button {
+    background-color: white !important;
+
+}
+
+.accordion-works .accordion-button:not(.collapsed) {
+
+    color: black !important;
+}
+
+.accordion-works .accordion-button:focus {
+    box-shadow: none;
+
+}
+
+.session-collapse .ant-collapse-header {
+    padding-left: 5px !important;
+}
+
+.session-collapse-info {
+    position: relative;
+}
+
+.session-collapse-info .date-info {
+    display: flex;
+    color: black !important;
+    margin-top: 0 !important;
+    font-family: 'Poppins-Regular';
+    font-weight: 600;
+}
+
+.session-collapse .ant-collapse-content-box {
+    padding-right: 0 !important;
+}
+
+.session-collapse-info .date-info span {
+    width: 150px;
+}
+
+.session-collapse-info .end-date {
+    margin-left: 16px;
+}
+
+.session-collapse-info .start-date:before {
+    background-image: url("/public/assets/Icons/calendar.svg");
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    content: '';
+    display: inline-block;
+    align-self: center;
+}
+
+.session-instructor-info {
+
+    display: flex;
+}
+
+.session-instructor-info .session-instructor-title {
+    width: 165px;
+    font-family: "Poppins-Regular";
+    font-weight: 600;
+}
+
+.session-instructor-info .session-teacher-list {
+    width: 350px;
+    font-family: 'Poppins-Regular';
+    font-weight: 600;
+    color: #1677ff !important;
+}
+
+.session-collapse-title {
+    font-size: 14px;
+    font-family: "Poppins-Bold";
+    display: flex;
+    gap: 20px;
+}
