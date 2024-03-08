@@ -33,8 +33,13 @@ class EducationProgramLikeService extends BaseService<
     getByEducationProgramId(educationProgramId: string): Promise<AxiosResponse<Paginate<GetListEducationProgramLikeResponse>, any>> {
         return axiosInstance.get<Paginate<GetListEducationProgramLikeResponse>>(this.apiUrl + "/GetByEducationProgramId?educationProgramId=" + educationProgramId);
     }
+
     deleteByAccountIdAndEducationProgramId(request: DeleteEducationProgramLikeRequest): any {
         return axiosInstance.post(this.apiUrl + "/DeleteByAccountIdAndEducationProgramId", request);
+    }
+
+    getByEducationProgramIdAndAccountId(educationProgramId: string, accountId: string): Promise<AxiosResponse<GetEducationProgramLikeResponse, any>> {
+        return axiosInstance.get<GetEducationProgramLikeResponse>(this.apiUrl + "/GetByEducationProgramIdAndAccountId?educationProgramId=" + educationProgramId + "&accountId=" + accountId);
     }
 }
 export default new EducationProgramLikeService();

@@ -25,14 +25,14 @@ export class BaseService<
     }
 
     add(request: AddRequestType): Promise<AxiosResponse<AddResponseType, any>> {
-        return axiosInstance.post<AddResponseType>(this.apiUrl + "/Add", request);
+        return axiosInstance.post<AddResponseType>(this.apiUrl, request);
     }
 
     update(request: UpdateRequestType): Promise<AxiosResponse<UpdateResponseType, any>> {
-        return axiosInstance.post<UpdateResponseType>(this.apiUrl + "/Update", request);
+        return axiosInstance.put<UpdateResponseType>(this.apiUrl, request);
     }
 
     delete(request: DeleteRequestType) {
-        return axiosInstance.post(this.apiUrl + "/Delete", request);
+        return axiosInstance.delete(this.apiUrl, request!);
     }
 }

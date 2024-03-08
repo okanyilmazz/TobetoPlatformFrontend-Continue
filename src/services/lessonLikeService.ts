@@ -36,6 +36,10 @@ class LessonLikeService extends BaseService<
     deleteByAccountIdAndLessonId(request: DeleteLessonLikeRequest): any {
         return axiosInstance.post(this.apiUrl + "/DeleteByAccountIdAndLessonId", request);
     }
+
+    getByLessonIdAndAccountId(lessonId: string, accountId: string): Promise<AxiosResponse<GetLessonLikeResponse, any>> {
+        return axiosInstance.get<GetLessonLikeResponse>(this.apiUrl + "/GetByLessonIdAndAccountId?lessonId=" + lessonId + "&accountId=" + accountId);
+    }
 }
 
 export default new LessonLikeService();

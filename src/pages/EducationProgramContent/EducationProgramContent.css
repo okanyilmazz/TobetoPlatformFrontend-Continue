@@ -215,6 +215,10 @@
 
 }
 
+.lesson-text .unit-end .unit-point {
+    margin-right: 10px;
+}
+
 .ed-drawer-sub-content .unit-ongoing,
 .lesson-text .unit-ongoing,
 .lesson-info .unit-ongoing,
@@ -275,10 +279,17 @@
     margin-left: 15px;
     color: #3DCB79;
     display: flex;
+    font-family: 'Poppins-Medium';
 }
 
 .ed-drawer-course-status-info .unit-end-text {
     color: #3DCB79;
+}
+
+.ed-drawer-course-status-info .unit-end .unit-point {
+    font-family: 'Poppins-Bold';
+    font-size: 16px;
+    margin-left: 5px;
 }
 
 /*Lesson Area*/
@@ -340,6 +351,7 @@
     padding: 5px;
     height: max-content;
     align-items: center;
+    cursor: pointer;
 }
 
 .lesson-panel.active {
@@ -604,11 +616,20 @@
 .date-tooltip {
     color: #000;
     font-family: 'Poppins-Medium';
-    width: 380px !important;
+    width: 420px !important;
+    padding: 10px;
 }
 
-.lesson1 {
+.date-tooltip .lesson-title {
     text-align: left;
+    font-family: 'Poppins-Bold';
+    font-size: 14px;
+}
+
+.date-tooltip .lesson-content {
+    text-align: left;
+    font-family: 'Poppins-Medium';
+    font-size: 13px;
 }
 
 .activity-score .education-drawer-like-area .like-button svg {

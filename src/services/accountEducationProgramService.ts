@@ -30,7 +30,7 @@ class AccountEducationProgramService extends BaseService<
         return axiosInstance.get<Paginate<GetListAccountEducationProgramResponse>>(this.apiUrl + "/GetByAccountId?accountId=" + accountId);
     }
 
-    getByAccountIdAndEducationProgramId(accountId: number, educationProgramId: Identifier): Promise<AxiosResponse<GetListAccountEducationProgramResponse, any>> {
+    getByAccountIdAndEducationProgramId(accountId: number, educationProgramId: string): Promise<AxiosResponse<GetListAccountEducationProgramResponse, any>> {
         return axiosInstance.get<GetListAccountEducationProgramResponse>(this.apiUrl + "/GetByAccountIdAndEducationProgramId?accountId=" + accountId + "&educationProgramId=" + educationProgramId);
     }
 }
