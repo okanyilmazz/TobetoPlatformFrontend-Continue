@@ -45,6 +45,9 @@ import UpdateAccountEducationProgramRequest from '../../models/requests/accountE
 import GetListAccountEducationProgramResponse from '../../models/responses/accountEducationProgram/getAccountListEducationProgramResponse';
 import GetLessonResponse from '../../models/responses/lesson/getLessonResponse';
 import React from 'react';
+import AddAccountViewLessonRequest from '../../models/requests/accountViewLesson/addAccountViewLessonRequest';
+import accountViewLessonService from '../../services/accountViewLessonService';
+import GetListAccountViewLessonResponse from '../../models/responses/accountViewLesson/getListAccountViewLessonResponse';
 
 export default function EducationProgramContent() {
     const [selectedLessonId, setSelectedLessonId] = useState<any>();
@@ -64,6 +67,10 @@ export default function EducationProgramContent() {
     const [lesson, setLesson] = useState<GetLessonResponse>();
     const [accountLesson, setAccountLesson] = useState<GetListAccountLessonResponse>();
     const [accountLessonList, setAccountLessonList] = useState<Paginate<GetListAccountLessonResponse>>();
+
+    const [accountViewLessonCount, setAccountViewLessonCount] = useState<number>(0);
+
+
     const { educationProgramId } = useParams();
     const user = authService.getUserInfo();
 
@@ -125,7 +132,7 @@ export default function EducationProgramContent() {
 
     const getEducationProgramLikeCount = () => {
         educationProgramLikeService.getByEducationProgramId(String(educationProgramId)).then((result: any) => {
-            setEducationProgramLikeCount(result.data.count);
+            setEducationProgramLikeCount(result?.data.count);
         })
     }
 
@@ -168,7 +175,7 @@ export default function EducationProgramContent() {
 
     const getLessonLikeCount = () => {
         lessonLikeService.getByLessonId(String(selectedLessonId)).then((result: any) => {
-            setLessonLikeCount(result.data.count);
+            setLessonLikeCount(result?.data.count);
         })
     }
 
@@ -200,15 +207,21 @@ export default function EducationProgramContent() {
         getLessonLikeCount();
     };
 
-
-
     const showDrawer = () => {
         setOpenDrawer(true);
         getIsLikedLesson();
         getLessonLikeCount();
         getLessonLikers();
+        getViewLesson();
     };
 
+    const getViewLesson = () => {
+        accountViewLessonService.getByLessonId(selectedLessonId).then((result: any) => {
+            if (result.data) {
+                setAccountViewLessonCount(result.data.count)
+            }
+        })
+    }
     const onCloseDrawer = () => {
         setOpenDrawer(false);
     };
@@ -244,6 +257,26 @@ export default function EducationProgramContent() {
         setWatchPercentage(formattedPercentage);
         setVideoDuration(parseInt((duration / 60).toFixed(1)));
     };
+
+
+    const startVideoActions = async (lessonId: any) => {
+        console.log("startVideoActions girdi")
+        await handleAddAccountLessonStatus(lessonId);
+        await handleAddAccountViewLessonStatus(lessonId);
+    }
+
+
+    const handleAddAccountViewLessonStatus = async (lessonId: any) => {
+        var result = await accountViewLessonService.getByAccountIdAndLessonId(user.id, lessonId);
+        if (!result.data) {
+            const addAccountViewLesson: AddAccountViewLessonRequest = {
+                accountId: user.id,
+                lessonId: lessonId,
+            };
+            await accountViewLessonService.add(addAccountViewLesson);
+        }
+    }
+
 
     const handleAddAccountLessonStatus = async (lessonId: any) => {
         if (!accountLesson) {
@@ -318,8 +351,6 @@ export default function EducationProgramContent() {
     const totalLessonCount = lessons?.count || 0;
     const completedLessonCount = accountLessonList?.items.filter(item => item.statusPercent > 99.2).length || 0;
     const completionPercentage = totalLessonCount > 0 ? (completedLessonCount / totalLessonCount) * 100 : 0;
-    if (completionPercentage > 99.2) { handleAddAccountBadge() }
-
 
     const totalStatusPercent = accountLessonList?.items.reduce((acc, item) => acc + item.statusPercent, 0) || 0;
     let calculatedPoints = (totalStatusPercent / (totalLessonCount * 100)) * 100;
@@ -495,9 +526,9 @@ export default function EducationProgramContent() {
                                         url={lesson?.lessonPath}
                                         width='100%'
                                         height='100%'
-                                        onStart={() => handleAddAccountLessonStatus(lesson?.id)}
+                                        onStart={() => startVideoActions(lesson?.id)}
                                         onPause={() => handleUpdateAccountLessonStatus()}
-                                        onProgress={({ playedSeconds }) => {
+                                        onProgress={({ playedSeconds, played, loaded }) => {
                                             const duration = playerRef.current?.getDuration() || 0;
                                             calculateWatchPercentage(playedSeconds, duration);
                                         }}
@@ -561,7 +592,7 @@ export default function EducationProgramContent() {
                                         </div>
                                         <div className='course-detail-info'>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#000000" viewBox="0 0 256 256"><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"></path></svg>
-                                            <span>59</span>
+                                            <span>{accountViewLessonCount}</span>
                                         </div>
                                     </div>
                                     <LikeButton
