@@ -1,0 +1,403 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    overflow-x: hidden
+}
+
+.wrapper,
+.wrapper .container-404 {
+    justify-content: center;
+    align-items: center
+}
+
+.wrapper .container-404 {
+    margin: 0 auto;
+    transition: all .2s ease;
+    display: flex;
+    position: relative
+}
+
+.wrapper .container-404 .scene {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    vertical-align: middle
+}
+
+.wrapper .container-404 .one {
+    width: 60%;
+    height: 60%;
+    top: 20% !important;
+    left: 20% !important;
+    min-width: 400px;
+    min-height: 400px
+}
+
+.wrapper .container-404 .one .content {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: content .8s cubic-bezier(1, .06, .25, 1) backwards
+}
+
+.wrapper .container-404 .one .content .piece {
+    width: 200px;
+    height: 80px;
+    display: flex;
+    position: absolute;
+    border-radius: 80px;
+    z-index: 1;
+    animation: pieceLeft 8s cubic-bezier(1, .06, .25, 1) infinite both;
+    background: linear-gradient(90deg, #8077ea 13.7%, #eb73ff 94.65%)
+}
+
+.wrapper .container-404 .one .content .piece:first-child {
+    right: 15%;
+    top: 18%;
+    height: 30px;
+    width: 120px;
+    animation-delay: .5s;
+    animation-name: pieceRight
+}
+
+.wrapper .container-404 .one .content .piece:nth-child(2) {
+    left: 15%;
+    top: 45%;
+    width: 150px;
+    height: 50px;
+    animation-delay: 1s;
+    animation-name: pieceLeft
+}
+
+.wrapper .container-404 .one .content .piece:nth-child(3) {
+    left: 10%;
+    top: 75%;
+    height: 20px;
+    width: 70px;
+    animation-delay: 1.5s;
+    animation-name: pieceLeft
+}
+
+.wrapper .container-404 .one .content:before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-color: rgba(54, 24, 79, .3);
+    border-radius: 100%;
+    box-shadow: inset 5px 20px 40px rgba(54, 24, 79, .25), inset 5px 0 5px rgba(50, 36, 62, .3), inset 5px 5px 20px rgba(50, 36, 62, .25), 2px 2px 5px hsla(0, 0%, 100%, .2);
+    animation: circle .8s cubic-bezier(1, .06, .25, 1) .4s backwards
+}
+
+.wrapper .container-404 .two {
+    width: 60%;
+    height: 60%;
+    top: 20% !important;
+    left: 20% !important;
+    min-width: 400px;
+    min-height: 400px
+}
+
+.wrapper .container-404 .two .content {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: content .8s cubic-bezier(1, .06, .25, 1) backwards
+}
+
+.wrapper .container-404 .two .content .piece {
+    width: 200px;
+    height: 80px;
+    display: flex;
+    position: absolute;
+    border-radius: 80px;
+    z-index: 1;
+    animation: pieceLeft 8s cubic-bezier(1, .06, .25, 1) infinite both;
+    background: linear-gradient(90deg, #eb73ff, #93f)
+}
+
+.wrapper .container-404 .two .content .piece:first-child {
+    left: 0;
+    top: 25%;
+    height: 40px;
+    width: 120px;
+    animation-delay: 2s;
+    animation-name: pieceLeft
+}
+
+.wrapper .container-404 .two .content .piece:nth-child(2) {
+    right: 15%;
+    top: 35%;
+    width: 180px;
+    height: 50px;
+    animation-delay: 2.5s;
+    animation-name: pieceRight
+}
+
+.wrapper .container-404 .two .content .piece:nth-child(3) {
+    right: 10%;
+    top: 80%;
+    height: 20px;
+    width: 160px;
+    animation-delay: 3s;
+    animation-name: pieceRight
+}
+
+.wrapper .container-404 .three {
+    width: 60%;
+    height: 60%;
+    top: 20% !important;
+    left: 20% !important;
+    min-width: 400px;
+    min-height: 400px
+}
+
+.wrapper .container-404 .three .content {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: content .8s cubic-bezier(1, .06, .25, 1) backwards
+}
+
+.wrapper .container-404 .three .content .piece {
+    width: 200px;
+    height: 80px;
+    display: flex;
+    position: absolute;
+    border-radius: 80px;
+    z-index: 1;
+    animation: pieceLeft 8s cubic-bezier(1, .06, .25, 1) infinite both;
+    background: #8077ea
+}
+
+.wrapper .container-404 .three .content .piece:first-child {
+    left: 25%;
+    top: 35%;
+    height: 20px;
+    width: 80px;
+    animation-name: pieceLeft;
+    animation-delay: 3.5s
+}
+
+.wrapper .container-404 .three .content .piece:nth-child(2) {
+    right: 10%;
+    top: 55%;
+    width: 140px;
+    height: 40px;
+    animation-name: pieceRight;
+    animation-delay: 4s
+}
+
+.wrapper .container-404 .three .content .piece:nth-child(3) {
+    left: 40%;
+    top: 68%;
+    height: 20px;
+    width: 80px;
+    animation-name: pieceLeft;
+    animation-delay: 4.5s
+}
+
+.wrapper .container-404 .circle {
+    width: 60%;
+    height: 60%;
+    top: 20% !important;
+    left: 20% !important;
+    min-width: 400px;
+    min-height: 400px;
+    position: absolute
+}
+
+.wrapper .container-404 .circle .content {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: content .8s cubic-bezier(1, .06, .25, 1) backwards
+}
+
+.wrapper .container-404 .circle .content .piece {
+    width: 200px;
+    height: 80px;
+    display: flex;
+    position: absolute;
+    border-radius: 80px;
+    z-index: 1;
+    animation: pieceLeft 8s cubic-bezier(1, .06, .25, 1) infinite both
+}
+
+.wrapper .container-404 .circle:before {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background-color: rgba(54, 24, 79, .2);
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 5px 20px 40px rgba(54, 24, 79, .25), inset 5px 0 5px rgba(50, 36, 62, .3), inset 5px 5px 20px rgba(50, 36, 62, .25), 2px 2px 5px hsla(0, 0%, 100%, .2);
+    animation: circle .8s cubic-bezier(1, .06, .25, 1) backwards
+}
+
+.wrapper .container-404 .p404 {
+    width: 60%;
+    height: 60%;
+    top: 20% !important;
+    left: 20% !important;
+    min-width: 400px;
+    min-height: 400px;
+    font-size: 200px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #fff;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    animation: anime404 .6s cubic-bezier(.3, .8, 1, 1.05) both;
+    animation-delay: .5s
+}
+
+.wrapper .container-404 .p404 .content {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: content .8s cubic-bezier(1, .06, .25, 1) backwards
+}
+
+.wrapper .container-404 .p404 .content .piece {
+    width: 200px;
+    height: 80px;
+    display: flex;
+    position: absolute;
+    border-radius: 80px;
+    z-index: 1;
+    animation: pieceLeft 8s cubic-bezier(1, .06, .25, 1) infinite both
+}
+
+.wrapper .container-404 .p404:nth-of-type(2) {
+    color: #36184f;
+    z-index: 1;
+    animation-delay: .5s;
+    filter: blur(10px);
+    opacity: .8
+}
+
+.wrapper .container-404 .text {
+    width: 60%;
+    height: 40%;
+    min-width: 400px;
+    min-height: 500px;
+    position: absolute;
+    margin: 40px 0;
+    animation: text .6s ease .5s backwards
+}
+
+.wrapper .container-404 .text article {
+    width: 400px;
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.wrapper .container-404 .text article p {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: .6px;
+    margin-bottom: 40px;
+    text-shadow: 6px 6px 10px #32243e
+}
+
+.wrapper .container-404 .text article button {
+    height: 40px;
+    padding: 0 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 15px 20px rgba(54, 24, 79, .5);
+    z-index: 3;
+    color: #695681;
+    background-color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all .3s ease
+}
+
+.wrapper .container-404 .text article button:hover {
+    box-shadow: 0 10px 10px -10px rgba(54, 24, 79, .5);
+    transform: translateY(5px);
+    background: #93f;
+    color: #fff
+}
+
+@keyframes content {
+    0% {
+        width: 0
+    }
+}
+
+@keyframes pieceLeft {
+    50% {
+        left: 80%;
+        width: 10%
+    }
+}
+
+@keyframes pieceRight {
+    50% {
+        right: 80%;
+        width: 10%
+    }
+}
+
+@keyframes text {
+    0% {
+        opacity: 0;
+        transform: translateY(40px)
+    }
+}
+
+@keyframes anime404 {
+    0% {
+        opacity: 0;
+        transform: scale(10) skew(20deg, 20deg)
+    }
+}
