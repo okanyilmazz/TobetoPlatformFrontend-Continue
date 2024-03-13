@@ -1,6 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { TOAST_ERROR, TOAST_INFO, TOAST_SUCCESS } from '../../environment/environment';
 
 const CustomProfileToaster = (props: any) => (
     <div>
@@ -16,16 +17,48 @@ const CustomProfileToaster = (props: any) => (
 );
 
 const ProfileToaster = (props: any) => {
-    return (
-        toast.success(<CustomProfileToaster name={props.name} />, {
-            autoClose: 3000,
-            theme: "light",
-            position: "top-right",
-            hideProgressBar: true,
-            icon: false,
-            className: "copyToast",
-        })
-    );
+    switch (props.type) {
+        case TOAST_SUCCESS:
+            toast.success(<CustomProfileToaster name={props.name} />, {
+                autoClose: 3000,
+                theme: "light",
+                position: "top-right",
+                hideProgressBar: true,
+                icon: false,
+                className: "copyToast",
+            });
+            break;
+        case TOAST_ERROR:
+            toast.error(<CustomProfileToaster name={props.name} />, {
+                autoClose: 3000,
+                theme: "light",
+                position: "top-right",
+                hideProgressBar: true,
+                icon: false,
+                className: "copyToast",
+            });
+            break;
+        case TOAST_INFO:
+            toast.info(<CustomProfileToaster name={props.name} />, {
+                autoClose: 3000,
+                theme: "light",
+                position: "top-right",
+                hideProgressBar: true,
+                icon: false,
+                className: "copyToast",
+            });
+            break;
+        default:
+            toast.success(<CustomProfileToaster name={props.name} />, {
+                autoClose: 3000,
+                theme: "light",
+                position: "top-right",
+                hideProgressBar: true,
+                icon: false,
+                className: "copyToast",
+            });
+            break;
+    }
 };
 
 export default ProfileToaster;

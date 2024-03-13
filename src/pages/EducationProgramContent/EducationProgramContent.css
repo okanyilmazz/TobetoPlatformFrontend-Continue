@@ -92,6 +92,10 @@
 }
 
 
+/* FAVORITE BUTTON */
+.activity-process .activity-score img {
+    cursor: pointer;
+}
 
 /*EDUCATION DRAWER */
 

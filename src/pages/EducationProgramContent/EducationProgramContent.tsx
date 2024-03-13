@@ -48,10 +48,14 @@ import React from 'react';
 import AddAccountViewLessonRequest from '../../models/requests/accountViewLesson/addAccountViewLessonRequest';
 import accountViewLessonService from '../../services/accountViewLessonService';
 import GetListAccountViewLessonResponse from '../../models/responses/accountViewLesson/getListAccountViewLessonResponse';
+import accountFavoriteEducationProgramService from '../../services/accountFavoriteEducationProgramService';
+import AddAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/addAccountFavoriteEducationProgramRequest';
+import ProfileToaster from '../../components/ProfileToaster/ProfileToaster';
+import DeleteAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/deleteAccountFavoriteEducationProgramRequest';
+import { TOAST_ERROR, TOAST_SUCCESS } from '../../environment/environment';
 
 export default function EducationProgramContent() {
     const [selectedLessonId, setSelectedLessonId] = useState<any>();
-    const [isFavorite, setIsFavorite] = useState(false);
     const [openDrawer, setOpenDrawer] = useState(false);
     const [selectedEducationProgram, setSelectedEducationProgram] = useState<GetListEducationProgramResponse>();
     const [selectedAccountEducationProgram, setSelectedAccountEducationProgram] = useState<GetListAccountEducationProgramResponse>();
@@ -69,6 +73,9 @@ export default function EducationProgramContent() {
     const [accountLessonList, setAccountLessonList] = useState<Paginate<GetListAccountLessonResponse>>();
 
     const [accountViewLessonCount, setAccountViewLessonCount] = useState<number>(0);
+
+    const [isFavoriteEducationProgram, setIsFavoritedEducationProgram] = useState<boolean>(false);
+
 
 
     const { educationProgramId } = useParams();
@@ -92,6 +99,7 @@ export default function EducationProgramContent() {
         getAccountEducationProgram();
         getLessons();
         getAccountLesson();
+        getFavoriteEducationProgram();
     }, [])
 
     const getAccountLesson = () => {
@@ -260,7 +268,6 @@ export default function EducationProgramContent() {
 
 
     const startVideoActions = async (lessonId: any) => {
-        console.log("startVideoActions girdi")
         await handleAddAccountLessonStatus(lessonId);
         await handleAddAccountViewLessonStatus(lessonId);
     }
@@ -275,6 +282,48 @@ export default function EducationProgramContent() {
             };
             await accountViewLessonService.add(addAccountViewLesson);
         }
+    }
+
+    /*Favorite Button */
+
+    const getFavoriteEducationProgram = () => {
+        accountFavoriteEducationProgramService.getByAccountIdAndEducationProgramId(user.id, String(educationProgramId)).then((result) => {
+            if (result.data) setIsFavoritedEducationProgram(true);
+            else setIsFavoritedEducationProgram(false);
+        })
+    }
+
+    const handleChangeFavoriteStatus = async (favoriteStatus: boolean) => {
+        if (favoriteStatus) {
+            await handleAddFavorite();
+        }
+        else {
+            await handleDeleteFavorite();
+        }
+    }
+    const handleAddFavorite = async () => {
+        const addFavoriteEducationProgram: AddAccountFavoriteEducationProgramRequest = {
+            accountId: user.id,
+            educationProgramId: String(educationProgramId)
+        }
+        await accountFavoriteEducationProgramService.add(addFavoriteEducationProgram);
+        ProfileToaster({
+            name: ADDED_FAVORITE
+        })
+        await getFavoriteEducationProgram();
+    }
+
+    const handleDeleteFavorite = async () => {
+        const deleteFavoriteEducationProgram: DeleteAccountFavoriteEducationProgramRequest = {
+            accountId: user.id,
+            educationProgramId: String(educationProgramId)
+        }
+        await accountFavoriteEducationProgramService.deleteByAccountIdAndEducationProgramId(deleteFavoriteEducationProgram);
+        ProfileToaster({
+            name: DELETED_FAVORITE,
+            type: TOAST_SUCCESS
+        })
+        await getFavoriteEducationProgram();
     }
 
 
@@ -453,11 +502,13 @@ export default function EducationProgramContent() {
                                                             onDataFromLikeButton={handleEducationProgramLikeFromChild}
                                                             likersPaginateIndex={handleEducationProgramLikersPaginate} />
                                                     }
-                                                    <Image src={
-                                                        isFavorite
-                                                            ? "https://lms.tobeto.com/tobeto/eep/Styles/assets/css/img/icon/learning-experience-platform/remove-favorite.svg"
-                                                            : "https://lms.tobeto.com/tobeto/eep/Styles/assets/css/img/icon/learning-experience-platform/add-favorite.svg"}
-                                                        alt={isFavorite ? "remove-favorite-icon" : "add-favorite-icon"}
+                                                    <Image
+                                                        onClick={() => handleChangeFavoriteStatus(!isFavoriteEducationProgram)}
+                                                        src={
+                                                            isFavoriteEducationProgram
+                                                                ? "https://lms.tobeto.com/tobeto/eep/Styles/assets/css/img/icon/learning-experience-platform/remove-favorite.svg"
+                                                                : "https://lms.tobeto.com/tobeto/eep/Styles/assets/css/img/icon/learning-experience-platform/add-favorite.svg"}
+                                                        alt={isFavoriteEducationProgram ? "remove-favorite-icon" : "add-favorite-icon"}
                                                     />
                                                 </div>
                                             </div>
