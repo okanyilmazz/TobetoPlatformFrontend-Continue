@@ -34,11 +34,9 @@ export default function PlatformPage() {
             setExams(result.data);
         });
 
-        educationProgramService.getAll(0, 100).then((result: any) => {
+        educationProgramService.getByAccountId(user.id, 0, 100).then((result: any) => {
             setEducationPrograms(result.data);
-            console.log(result.data)
         });
-
         announcementProjectService.getAll(0, 100).then(result => {
             setAnnouncementProjects(result.data);
         });

@@ -5,4 +5,5 @@ export default interface AddedAccountEducationProgramResponse {
     accountId: Identifier;
     educationProgramId: Identifier;
     statusPercent: number;
+    timeSpent: number;
 }

@@ -56,20 +56,16 @@ const EducationsPage = () => {
         });
 
         educationProgramService.getByAccountId(user.id, 0, 100).then((result: any) => {
-            console.log(result.data)
             const programs = result.data.items.map((program: GetListEducationProgramResponse) => ({
                 ...program,
                 startDate: new Date(program.startDate)
             }));
             setEducationPrograms(programs);
             setFilteredEducationPrograms(programs);
-            console.log(programs);
         });
 
         accountEducationProgramService.getByAccountId(user.id).then((result: any) => {
             setAccountEducationPrograms(result.data);
-            console.log(result.data);
-            console.log(user.id);
         }
         )
     }, [user.id]);

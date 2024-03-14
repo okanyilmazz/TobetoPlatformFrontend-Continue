@@ -4,6 +4,9 @@ export const ADMIN_ROLE = "Admin";
 export const TOAST_ERROR = "Error";
 export const TOAST_SUCCESS = "Success";
 export const TOAST_INFO = "Info";
+export const SYNCHRONOUS_LESSON = "SANAL SINIF";
+export const ASYNCHRONOUS_LESSON = "VIDEO";
+export const PDF_LESSON = "E-EGITIM";
 
 
 

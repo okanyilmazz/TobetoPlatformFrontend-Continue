@@ -58,6 +58,10 @@
     width: 100%;
 }
 
+.lesson-card-video video {
+    border-radius: 20px 20px 0px 0px;
+}
+
 .lesson-card-icon-first {
     color: #818181;
     margin-left: 15px;
@@ -537,7 +541,7 @@
     font-family: 'Poppins-Medium';
 }
 
-.date-info {
+.activity-detail-header .date-info {
     margin-top: 15px;
     font-weight: 700;
     display: flex;
@@ -545,7 +549,7 @@
     width: 30%;
 }
 
-.date-info-container .date-info .tooltip-congrats-text {
+.activity-detail-header .date-info-container .date-info .tooltip-congrats-text {
     margin-left: 10px;
     color: #3DCB79;
     font-family: 'Poppins-Bold';
@@ -673,3 +677,107 @@
 
 
 /* ActivityDetailHeader */
+
+
+/*TAB MENU*/
+.education-program-tab-menu .tab-menu {
+    border-bottom: 2px solid #28282817 !important;
+}
+
+.education-program-tab-menu .tab-menu .nav-item button:not(:disabled) {
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+.education-program-tab-menu .nav-tabs .nav-item.show .nav-link,
+.education-program-tab-menu .nav-tabs .nav-link.active {
+    border-bottom: 2px solid #282828 !important;
+}
+
+.education-program-tab-menu .tab-menu .nav-item .nav-link {
+    color: rgba(40, 40, 40, .8);
+    padding: 10px 0;
+    margin-left: 20px;
+}
+
+.education-program-tab-menu .tab-menu .nav-item .nav-link.active {
+    color: #000;
+}
+
+.education-program-tab-menu #education-program-tab-menu-tab-content {
+    margin-left: 0 !important;
+}
+
+.education-program-tab-menu .tab-menu .nav-item .nav-link:hover,
+.education-program-tab-menu .tab-menu .nav-item .nav-link:active,
+.education-program-tab-menu .tab-menu .nav-item .nav-link:not(:hover) {
+    border: none;
+}
+
+.education-program-tab-menu .tab-menu .nav-item .nav-link:hover {
+    color: #282828 !important;
+}
+
+.education-program-tab-menu .tab-menu .nav-item button {
+    font-size: 18px;
+    font-family: 'Poppins-Medium';
+    font-weight: 500;
+    color: #282828;
+}
+
+
+/*ABOUT CONTENT*/
+
+.education-program-info {
+    display: grid;
+    grid-template-columns: 150px auto;
+    justify-content: start;
+}
+
+
+.education-program-info .title span {
+    font-size: 12px;
+    font-family: 'Poppins-Regular';
+    font-weight: 600;
+}
+
+/* .education-drawer-info .education-drawer-lesson-description-title span {
+    font-size: 16px;
+} */
+
+.education-program-about .content {
+    padding: 20px 0;
+}
+
+.education-program-info .title svg {
+    margin-right: 5px;
+}
+
+.education-program-info span {
+    font-size: 12px;
+    font-family: 'Poppins-Regular';
+    font-weight: 100;
+}
+
+.education-program-info .education-drawer-lesson-description span {
+    font-weight: normal;
+}
+
+.education-program-about .content {
+    display: grid;
+    row-gap: 15px;
+}
+
+.education-program-about .content .education-program-info .text {
+    color: rgb(0, 0, 0);
+}
+
+.education-program-about .content .education-program-info .education-program-deadline-title span {
+    padding-left: 20px;
+}
+
+.education-program-content-name span {
+    font-weight: 100 !important;
+    margin-left: 20px;
+}

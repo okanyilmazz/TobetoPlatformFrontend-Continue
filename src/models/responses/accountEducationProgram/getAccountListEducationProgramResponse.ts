@@ -5,4 +5,5 @@ export default interface GetListAccountEducationProgramResponse {
     accountName: string;
     educationProgramName: string;
     statusPercent: number;
+    timeSpent: number;
 }

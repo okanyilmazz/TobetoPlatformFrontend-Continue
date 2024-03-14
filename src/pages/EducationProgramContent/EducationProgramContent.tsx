@@ -15,7 +15,7 @@ import AddLessonLikeRequest from '../../models/requests/lessonLike/addLessonLike
 import DeleteLessonLikeRequest from '../../models/requests/lessonLike/deleteLessonLikeRequest';
 import { Link, useParams } from 'react-router-dom';
 import LikeButton from '../../components/LikeButton/LikeButton';
-import { Accordion, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Accordion, Image, OverlayTrigger, Tab, Tabs, Tooltip } from 'react-bootstrap';
 import EducationDrawer from '../../components/EducationDrawer/EducationDrawer';
 import AddEducationProgramLikeRequest from '../../models/requests/educationProgramLike/addEducationProgramLikeRequest';
 import DeleteEducationProgramLikeRequest from '../../models/requests/educationProgramLike/deleteEducationProgramLikeRequest';
@@ -52,8 +52,8 @@ import accountFavoriteEducationProgramService from '../../services/accountFavori
 import AddAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/addAccountFavoriteEducationProgramRequest';
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster';
 import DeleteAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/deleteAccountFavoriteEducationProgramRequest';
-import { TOAST_ERROR, TOAST_SUCCESS } from '../../environment/environment';
-
+import { TOAST_SUCCESS } from '../../environment/environment';
+import moment, { duration } from 'moment';
 export default function EducationProgramContent() {
     const [selectedLessonId, setSelectedLessonId] = useState<any>();
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -77,7 +77,6 @@ export default function EducationProgramContent() {
     const [isFavoriteEducationProgram, setIsFavoritedEducationProgram] = useState<boolean>(false);
 
 
-
     const { educationProgramId } = useParams();
     const user = authService.getUserInfo();
 
@@ -85,14 +84,17 @@ export default function EducationProgramContent() {
 
     const playerRef = useRef<ReactPlayer | null>(null);
     const [watchPercentage, setWatchPercentage] = useState<number>(0);
-    const [videoDuration, setVideoDuration] = useState<number>();
+    const [videoDuration, setVideoDuration] = useState<number>(0);
+    const [totalVideoDuration, setTotalVideoDuration] = useState<number>(0);
+
+    const [totalPlayedSeconds, setTotalPlayedSeconds] = useState(0);
+    const [lessonWatchDurations, setLessonWatchDurations] = useState<{ [key: string]: number }>({});
+
 
 
     useEffect(() => {
-        educationProgramService.getById(String(educationProgramId)).then((result: any) => {
-            setSelectedEducationProgram(result.data)
-        })
 
+        getEducationProgramById(educationProgramId);
         getIsLikedEducationProgram();
         getEducationProgramLikeCount();
         getEducationProgramLikers();
@@ -101,6 +103,12 @@ export default function EducationProgramContent() {
         getAccountLesson();
         getFavoriteEducationProgram();
     }, [])
+
+    const getEducationProgramById = (educationProgramId: any) => {
+        educationProgramService.getById(educationProgramId).then((result: any) => {
+            setSelectedEducationProgram(result.data)
+        })
+    }
 
     const getAccountLesson = () => {
         accountLessonService.getByAccountId(user.id).then((result: any) => {
@@ -263,6 +271,7 @@ export default function EducationProgramContent() {
         const percentage = (playedSeconds / duration) * 100;
         const formattedPercentage = parseFloat(percentage.toFixed(1));
         setWatchPercentage(formattedPercentage);
+        setTotalVideoDuration(videoDuration + parseInt((duration / 60).toFixed(1)));
         setVideoDuration(parseInt((duration / 60).toFixed(1)));
     };
 
@@ -356,6 +365,14 @@ export default function EducationProgramContent() {
                     setAccountLesson(result.data)
                 });
                 getAccountLesson();
+
+                const lessonDurationsArray = Object.values(lessonWatchDurations);
+                let totalSeconds = 0;
+
+                lessonDurationsArray.forEach(seconds => {
+                    totalSeconds! += seconds;
+                });
+                setTotalPlayedSeconds(parseInt(totalSeconds!.toFixed(1)));
             }
         }
     };
@@ -372,14 +389,41 @@ export default function EducationProgramContent() {
         }
     }
 
+    const formatMinuteSecond = (second: any) => {
+        const minutes: number = Math.floor(second / 60);
+        const remainingSeconds: number = second % 60;
+
+        if (minutes > 0) {
+            if (remainingSeconds > 0) {
+                return `${minutes} dk ${remainingSeconds} sn`;
+            } else {
+                return `${minutes} dk`;
+            }
+        } else {
+            return `${remainingSeconds} sn`;
+        }
+    };
+
+    const formatHourMinute = (minute: any) => {
+        const hours = Math.floor(minute / 60);
+        const minutes = minute % 60;
+
+        if (hours > 0) {
+            return `${hours} sa ${minutes} dk`;
+        } else {
+            return `${minutes} dk`;
+        }
+    }
     const handleAddAccountEducationProgramStatus = async (statusPercent: any) => {
         if (selectedEducationProgram?.id) {
             const addAccountEducationProgram: AddAccountEducationProgramRequest = {
                 accountId: user.id,
                 educationProgramId: selectedEducationProgram?.id,
-                statusPercent: statusPercent
+                statusPercent: statusPercent,
+                timeSpent: totalPlayedSeconds
             };
             await accountEducationProgramService.add(addAccountEducationProgram);
+            getAccountEducationProgram();
         }
     }
 
@@ -389,12 +433,19 @@ export default function EducationProgramContent() {
                 id: selectedAccountEducationProgram.id,
                 accountId: user.id,
                 educationProgramId: selectedEducationProgram?.id!,
-                statusPercent: statusPercent
+                statusPercent: statusPercent,
+                timeSpent: totalPlayedSeconds || selectedAccountEducationProgram.timeSpent
             };
             await accountEducationProgramService.update(updateAccountEducationProgram);
+            getAccountEducationProgram();
         }
     }
 
+    const countByLessonSubTypeName: { [key: string]: number } = lessons?.items.reduce((acc: any, lesson) => {
+        const { lessonSubTypeName } = lesson;
+        acc[lessonSubTypeName] = (acc[lessonSubTypeName] || 0) + 1;
+        return acc;
+    }, {});
 
     /* ProgressBar */
     const totalLessonCount = lessons?.count || 0;
@@ -424,7 +475,7 @@ export default function EducationProgramContent() {
             <div className='container education-program-content mt-5'>
                 <div className='row'>
                     <div className="col-md-12">
-                        <div className="Activity-Detail-Header">
+                        <div className="activity-detail-header">
                             <div className="container mt-3">
                                 <div className="row">
                                     <div className="col-md-1">
@@ -531,92 +582,208 @@ export default function EducationProgramContent() {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className='col-md-5 mt-5'>
-                        <div className='accordion-area'>
-                            {
-                                <Accordion className='accordion-education-program-lesson'>
-                                    <Accordion.Item eventKey="1">
-                                        <Accordion.Header>{selectedEducationProgram?.name}</Accordion.Header>
-                                        {lessons?.items.map((lesson) => {
-                                            const lessonId = lesson.id;
-                                            const matchingLesson = accountLessonList?.items.find(lesson => lesson.lessonId === lessonId);
-                                            const statusPercent = matchingLesson?.statusPercent || 0;
-
-                                            return (
-                                                <React.Fragment key={String(lessonId)}>
-                                                    <Accordion.Body className={selectedLessonId === lesson.id ? "active-accordion" : ""} onClick={() => handleSelectLesson(lesson.id)}>
-                                                        <div className='lesson-info'>
-                                                            <span>{lesson.name}</span>
-                                                            <span className='unit-ongoing' style={statusPercent! > 99.2 || statusPercent === 0 ? { display: 'none' } : { display: 'flex' }}>
-                                                                <Image src='/assets/Icons/unit-ongoing.svg' width={14} height={14}></Image>
-                                                            </span>
-                                                            <span className="unit-end" style={statusPercent > 99.2 ? { display: 'flex' } : { display: 'none' }}>
-                                                                <Image src='/assets/Icons/unit-completed.svg' width={14} height={14}></Image>
-                                                            </span>
-                                                        </div>
-                                                        <div className='lesson-type-info'>
-                                                            <span>{lesson.lessonSubTypeName} -</span> <span>{videoDuration} dk</span>
-                                                        </div>
-                                                    </Accordion.Body>
-                                                </React.Fragment>
-                                            );
-                                        })}
-                                    </Accordion.Item>
-                                </Accordion>
-                            }
-                        </div>
-                    </div>
-                    <div className='col-md-7'>
-                        <div>
-                            <LessonCard header={
-                                <div className="lesson-card-content"  >
-                                    <ReactPlayer
-                                        ref={playerRef}
-                                        className="lesson-card-video"
-                                        url={lesson?.lessonPath}
-                                        width='100%'
-                                        height='100%'
-                                        onStart={() => startVideoActions(lesson?.id)}
-                                        onPause={() => handleUpdateAccountLessonStatus()}
-                                        onProgress={({ playedSeconds, played, loaded }) => {
-                                            const duration = playerRef.current?.getDuration() || 0;
-                                            calculateWatchPercentage(playedSeconds, duration);
-                                        }}
-                                        controls={true} />
-                                </div>}
-                                title={<div className='lesson-title'>{lesson?.name}</div>}
-                                text={
-                                    <div className='lesson-text d-flex'>
-                                        <span>{lesson?.lessonSubTypeName} - {videoDuration} dk </span>
-                                        {accountLesson?.id === undefined || accountLesson?.statusPercent === 0 ? (
-                                            <span style={{ display: 'block' }}>
-                                                <FaCircle className='lesson-card-icon-first' /> Başlamadın
-                                            </span>
-                                        ) : (
-                                            <>
-                                                <span style={accountLesson && (accountLesson?.statusPercent === 0 || accountLesson?.statusPercent > 99.2) ? { display: 'none' } : { display: 'flex' }}>
-                                                    <div className='unit-icon unit-ongoing'></div>
-                                                    Devam Ediyor
-                                                </span>
-                                                <span className="unit-end" style={accountLesson?.statusPercent > 99.2 ? { display: 'flex' } : { display: 'none' }}>
-                                                    <div className='unit-point'>
-                                                        {accountLesson?.statusPercent > 99.2 ? 100 : ""}  Puan
-                                                    </div>
-                                                    <div className="unit-icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3DCB79" viewBox="0 0 256 256"><path d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"></path></svg>
-                                                    </div>
-                                                    Tebrikler, tamamladın!
-                                                </span>
-                                            </>
-                                        )}
+                <div className='education-program-tab-menu'>
+                    <Tabs
+                        defaultActiveKey="content"
+                        id="education-program-tab-menu"
+                        className="tab-menu mt-4">
+                        <Tab eventKey="content" title="İçerik">
+                            <div className="row">
+                                <div className='col-md-5 mt-3'>
+                                    <div className='accordion-area'>
+                                        {
+                                            <Accordion className='accordion-education-program-lesson'>
+                                                <Accordion.Item eventKey="1">
+                                                    <Accordion.Header>{selectedEducationProgram?.name}</Accordion.Header>
+                                                    {lessons?.items.map((lesson) => {
+                                                        const lessonId = lesson.id;
+                                                        const matchingLesson = accountLessonList?.items.find(lesson => lesson.lessonId === lessonId);
+                                                        const statusPercent = matchingLesson?.statusPercent || 0;
+                                                        return (
+                                                            <React.Fragment key={String(lessonId)}>
+                                                                <Accordion.Body className={selectedLessonId === lesson.id ? "active-accordion" : ""} onClick={() => handleSelectLesson(lesson.id)}>
+                                                                    <div className='lesson-info'>
+                                                                        <span>{lesson.name}</span>
+                                                                        <span className='unit-ongoing' style={statusPercent! > 99.2 || statusPercent === 0 ? { display: 'none' } : { display: 'flex' }}>
+                                                                            <Image src='/assets/Icons/unit-ongoing.svg' width={14} height={14}></Image>
+                                                                        </span>
+                                                                        <span className="unit-end" style={statusPercent > 99.2 ? { display: 'flex' } : { display: 'none' }}>
+                                                                            <Image src='/assets/Icons/unit-completed.svg' width={14} height={14}></Image>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div className='lesson-type-info'>
+                                                                        <span>{lesson.lessonSubTypeName} -</span> <span>{videoDuration} dk</span>
+                                                                    </div>
+                                                                </Accordion.Body>
+                                                            </React.Fragment>
+                                                        );
+                                                    })}
+                                                </Accordion.Item>
+                                            </Accordion>
+                                        }
                                     </div>
-                                }
-                                button={<Button onClick={showDrawer} className='lesson-card-btn'>DETAY</Button>} />
-                        </div>
+                                </div>
+                                <div className='col-md-7'>
+                                    <div>
+                                        <LessonCard header={
+                                            <div className="lesson-card-content"  >
+                                                <ReactPlayer
+                                                    key={String(lesson?.id)}
+                                                    ref={playerRef}
+                                                    className="lesson-card-video"
+                                                    url={lesson?.lessonPath}
+                                                    width='100%'
+                                                    height='100%'
+                                                    onStart={() => startVideoActions(lesson?.id)}
+                                                    onPause={() => handleUpdateAccountLessonStatus()}
+                                                    onProgress={({ playedSeconds, played, loaded }) => {
+                                                        const duration = playerRef.current?.getDuration() || 0;
+                                                        const updatedLessonWatchDurations = { ...lessonWatchDurations };
+                                                        updatedLessonWatchDurations[String(lesson?.id)] = playedSeconds;
+                                                        setLessonWatchDurations(updatedLessonWatchDurations);
+                                                        calculateWatchPercentage(playedSeconds, duration);
+                                                    }}
+                                                    controls={true} />
+                                            </div>}
+                                            title={<div className='lesson-title'>{lesson?.name}</div>}
+                                            text={
+                                                <div className='lesson-text d-flex'>
+                                                    <span>{lesson?.lessonSubTypeName} - {videoDuration} dk </span>
+                                                    {accountLesson?.id === undefined || accountLesson?.statusPercent === 0 ? (
+                                                        <span style={{ display: 'block' }}>
+                                                            <FaCircle className='lesson-card-icon-first' /> Başlamadın
+                                                        </span>
+                                                    ) : (
+                                                        <>
+                                                            <span style={accountLesson && (accountLesson?.statusPercent === 0 || accountLesson?.statusPercent > 99.2) ? { display: 'none' } : { display: 'flex' }}>
+                                                                <div className='unit-icon unit-ongoing'></div>
+                                                                Devam Ediyor
+                                                            </span>
+                                                            <span className="unit-end" style={accountLesson?.statusPercent > 99.2 ? { display: 'flex' } : { display: 'none' }}>
+                                                                <div className='unit-point'>
+                                                                    {accountLesson?.statusPercent > 99.2 ? 100 : ""}  Puan
+                                                                </div>
+                                                                <div className="unit-icon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3DCB79" viewBox="0 0 256 256"><path d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"></path></svg>
+                                                                </div>
+                                                                Tebrikler, tamamladın!
+                                                            </span>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            }
+                                            button={<Button onClick={showDrawer} className='lesson-card-btn'>DETAY</Button>} />
+                                    </div>
 
-                    </div>
+                                </div>
+                            </div>
+                        </Tab>
+
+                        <Tab eventKey="about" title="Hakkında">
+                            <div className='education-program-about'>
+                                <div className="content">
+                                    <div className="education-program-info">
+                                        <div className='education-program-date-title title'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#000000" viewBox="0 0 256 256">
+                                                <path d="M168,152a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,152Zm-8-40H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm56-64V216a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V48A16,16,0,0,1,56,32H92.26a47.92,47.92,0,0,1,71.48,0H200A16,16,0,0,1,216,48ZM96,64h64a32,32,0,0,0-64,0ZM200,48H173.25A47.93,47.93,0,0,1,176,64v8a8,8,0,0,1-8,8H88a8,8,0,0,1-8-8V64a47.93,47.93,0,0,1,2.75-16H56V216H200Z"></path>
+                                            </svg>
+                                            <span>Başlangıç</span>
+                                        </div>
+                                        <div className='education-program-date text'>
+                                            <span>{moment(selectedEducationProgram?.startDate).format("DD MMM YYYY HH:mm")}</span>
+                                        </div>
+
+                                        <div className='education-program-deadline-title title'>
+                                            <span>Bitiş</span>
+                                        </div>
+                                        <div className='education-program-date text'>
+                                            <span>{moment(selectedEducationProgram?.deadline).format("DD MMM YYYY HH:mm")}</span>
+                                        </div>
+                                    </div>
+                                    <div className="education-program-info">
+                                        <div className='education-program-time-spent-title title'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#000000" viewBox="0 0 256 256"><path d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z"></path></svg>
+                                            <span>Geçirdiğin Süre</span>
+                                        </div>
+                                        <div className='education-program-time-spent text'>
+                                            <span>{formatMinuteSecond(selectedAccountEducationProgram?.timeSpent)}</span>
+                                        </div>
+                                    </div>
+                                    <div className="education-program-info">
+                                        <div className='education-program-estimated-time-title title'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#000000" viewBox="0 0 256 256"><path d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z"></path></svg>
+                                            <span>Tahmini Süre</span>
+                                        </div>
+                                        <div className='education-program-estimated-time text'>
+                                            <span>{formatHourMinute(videoDuration)}</span>
+                                        </div>
+                                    </div>
+                                    <div className="education-program-info">
+                                        <div className='education-program-type-title title'>
+                                            <svg viewBox="64 64 896 896" focusable="false" className="" data-icon="partition" width="14px" height="14px" fill="currentColor" aria-hidden="true"><defs><style></style></defs>
+                                                <path d="M640.6 429.8h257.1c7.9 0 14.3-6.4 14.3-14.3V158.3c0-7.9-6.4-14.3-14.3-14.3H640.6c-7.9 0-14.3 6.4-14.3 14.3v92.9H490.6c-3.9 0-7.1 3.2-7.1 7.1v221.5h-85.7v-96.5c0-7.9-6.4-14.3-14.3-14.3H126.3c-7.9 0-14.3 6.4-14.3 14.3v257.2c0 7.9 6.4 14.3 14.3 14.3h257.1c7.9 0 14.3-6.4 14.3-14.3V544h85.7v221.5c0 3.9 3.2 7.1 7.1 7.1h135.7v92.9c0 7.9 6.4 14.3 14.3 14.3h257.1c7.9 0 14.3-6.4 14.3-14.3v-257c0-7.9-6.4-14.3-14.3-14.3h-257c-7.9 0-14.3 6.4-14.3 14.3v100h-78.6v-393h78.6v100c0 7.9 6.4 14.3 14.3 14.3zm53.5-217.9h150V362h-150V211.9zM329.9 587h-150V437h150v150zm364.2 75.1h150v150.1h-150V662.1z"></path>
+                                            </svg>
+                                            <span>Eğitim Türü</span>
+                                        </div>
+                                        <div className='education-program-type text'>
+                                            <span>{lesson?.lessonSubTypeName}</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="education-program-info">
+                                        <div className='education-program-categories-title title'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#7f6c6c" viewBox="0 0 256 256" transform="rotate(90)">
+                                                <path d="M243.31,136,144,36.69A15.86,15.86,0,0,0,132.69,32H40a8,8,0,0,0-8,8v92.69A15.86,15.86,0,0,0,36.69,144L136,243.31a16,16,0,0,0,22.63,0l84.68-84.68a16,16,0,0,0,0-22.63Zm-96,96L48,132.69V48h84.69L232,147.31ZM96,84A12,12,0,1,1,84,72,12,12,0,0,1,96,84Z"></path>
+                                            </svg>
+                                            <span>Kategori</span>
+                                        </div>
+                                        <div className='education-program-categories text'>
+                                            <span>{lesson?.lessonCategoryName}</span>
+                                        </div>
+                                    </div>
+                                    <div className="education-program-info">
+                                        <div className='education-program-content-count-title title'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#000000" viewBox="0 0 256 256">
+                                                <path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"></path>
+                                            </svg>
+                                            <span>İçerik</span>
+                                        </div>
+                                        <div className='education-program-content-count text'>
+                                            <span>{lessons?.count}</span>
+                                        </div>
+
+                                        <div >
+                                            {countByLessonSubTypeName && Object.entries(countByLessonSubTypeName).map(([typeName, count]) => (
+                                                <div key={typeName} className='education-program-info'>
+                                                    <div className='education-program-content-name text'>
+                                                        <span>{typeName}</span>
+                                                    </div>
+                                                    <div className='education-program-content-count text'>
+                                                        <span>{count}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="education-program-info">
+                                        <div className='education-program-production-company-title title'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#000000" viewBox="0 0 256 256">
+                                                <path d="M216,64H176a48,48,0,0,0-96,0H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm88,168H40V80H80V96a8,8,0,0,0,16,0V80h64V96a8,8,0,0,0,16,0V80h40Z"></path>
+                                            </svg>
+                                            <span>Üretici Firma</span>
+                                        </div>
+                                        <div className='education-program-production-company text'>
+                                            <span>{lesson?.productionCompanyName}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Tab>
+
+                    </Tabs>
                 </div>
+
+
             </div>
 
             <div className='education-drawer-page'>
@@ -753,5 +920,4 @@ export default function EducationProgramContent() {
             </div >
         </div >
     )
-
 }
