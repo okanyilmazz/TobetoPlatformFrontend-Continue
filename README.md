@@ -1,3 +1,11 @@
+# Tobeto Platform Frontend Continuation Repository
+**Note:** This repository contains the latest version of the [Tobeto Platform Frontend](https://github.com/okanyilmazz/TobetoPlatformFrontend) project.
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
