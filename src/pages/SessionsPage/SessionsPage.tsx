@@ -1,4 +1,4 @@
-import { Collapse, CollapseProps, Drawer } from 'antd';
+import { Collapse, Drawer } from 'antd';
 import "./SessionsPage.css";
 import { CheckCircleFilled } from '@ant-design/icons';
 import { UserOutlined } from '@ant-design/icons';
@@ -8,16 +8,28 @@ import { Accordion, Button } from 'react-bootstrap';
 import GetListSessionResponse from '../../models/responses/session/getListSessionResponse';
 import GetListHomeworkResponse from '../../models/responses/homework/getListHomeworkResponse';
 import accountSessionService from '../../services/accountSessionService';
-import AddAccountSessionRequest from '../../models/requests/accountSession/addAccountSessionRequest';
 import authService from '../../services/authService';
 import GetListAccountSessionResponse from '../../models/responses/accountSession/getListAccountSessionResponse';
 import { Paginate } from '../../models/paginate';
+import sessionService from '../../services/sessionService';
+import GetListAccountResponse from '../../models/responses/account/getListAccountResponse';
+import accountService from '../../services/accountService';
+import GetAccountResponse from '../../models/responses/account/getAccountResponse';
+import UpdateAccountSessionRequest from '../../models/requests/accountSession/updateAccountSessionRequest';
 
 export default function SessionsPage(props: any) {
+
     const user = authService.getUserInfo();
     const [drawerVisible, setDrawerVisible] = useState(false);
     const [accountSessions, setAccountSessions] = useState<Paginate<GetListAccountSessionResponse>>();
-    const handleTeacherClick = () => {
+    const [selectedInstructor, setSelectedInstructor] = useState<GetAccountResponse>();
+    const [sessionInstructorsMap, setSessionInstructorsMap] = useState<Map<string, GetListAccountResponse[]>>(new Map());
+    const [selectedSessionId, setSelectedSessionId] = useState<any>(null);
+
+
+
+    const handleTeacherClick = (instructorId: any) => {
+        getInstructorDetail(instructorId);
         setDrawerVisible(true);
     };
 
@@ -26,27 +38,55 @@ export default function SessionsPage(props: any) {
     };
 
 
+    const getInstructorDetail = (instructorId: any) => {
+        accountService.getById(instructorId).then((result: any) => {
+            setSelectedInstructor(result.data)
+        })
+    }
 
-    const handleAddAccountSession = async (sessionId: any) => {
-        const addAccount: AddAccountSessionRequest = {
-            sessionId: sessionId,
+    const getAccountSessionByAccountAndSessionId = async (accountId: any, sessionId: any) => {
+        accountSessionService.getByAccountAndSessionId(accountId, sessionId).then((result: any) => {
+            handleUpdateAccountSession(result.data.id)
+        })
+    }
+
+    const handleUpdateAccountSession = async (accountSessionId: any) => {
+        const updateAccountSession: UpdateAccountSessionRequest = {
+            id: accountSessionId,
+            sessionId: selectedSessionId,
             accountId: user.id,
             status: true
         }
-        await accountSessionService.add(addAccount)
+        await accountSessionService.update(updateAccountSession)
         getSessionJoinInfo();
     }
 
+
+
+    useEffect(() => {
+        if (selectedSessionId) {
+            getAccountSessionByAccountAndSessionId(user.id, selectedSessionId)
+        }
+    }, [selectedSessionId])
+
+
+
+
     useEffect(() => {
         getSessionJoinInfo();
-    }, [])
+    }, [props?.lessonId])
 
     const getSessionJoinInfo = () => {
-        accountSessionService.getByAccountId(user.id).then((result: any) => {
-            setAccountSessions(result.data);
-            const trueStatusCount = result.data?.items.filter((session: any) => session.status === true).length;
-            props.onDataFromSessionPage(trueStatusCount);
-        })
+        if (props?.lessonId) {
+            sessionService.getByAccountAndLessonId(user.id, props?.lessonId).then((result: any) => {
+
+                const trueStatusCount = result.data?.count;
+                props.onDataFromSessionPage(trueStatusCount);
+            })
+            accountSessionService.getByAccountId(user.id).then((result: any) => {
+                setAccountSessions(result.data);
+            })
+        }
     }
 
     const formatDate = (date: Date): string => {
@@ -64,77 +104,92 @@ export default function SessionsPage(props: any) {
     };
 
 
-    const items =
-        props.sessions?.items?.map((session: GetListSessionResponse, index: number) => {
-            const startDateTime = new Date(session.startDate).toISOString();
-            const endDateTime = new Date(session.endDate).toISOString();
-            const currentDateTime = new Date().toISOString();
 
-            const sessionId = session.id;
-            const matchingSession = accountSessions?.items.find(session => session.sessionId === sessionId);
-            const sessionStatus = matchingSession?.status || false;
-
-            return {
-                key: String(index),
-                label: (
-                    <>
-                        <div className="session-collapse-title">
-                            <span> {index + 1}.Oturum</span>
-                            <span className="green-text" style={{ display: sessionStatus ? "flex" : "none" }} > <CheckCircleFilled className="green-img" />Katıldın </span>
-                            <span className="red-text" style={{ display: sessionStatus ? "none" : "flex" }}>Katılmadın</span>
-                        </div>
-                    </>
-                ),
-                children: (
-                    <>
-                        <div className="session-collapse-info">
-                            <div className="start-date date-info">
-                                <span>Başlangıç</span>
-                                <p>{formatDate(session.startDate)}</p>
-                            </div>
-                            <div className="end-date date-info">
-                                <span>Bitiş</span>
-                                <p>{formatDate(session.endDate)}</p>
-                            </div>
-                            <hr className="session-divider" />
-                            <div className="session-instructor-info">
-                                <div className="session-instructor-title">
-                                    <UserOutlined className='user-icon' />
-                                    <span>Eğitmen</span>
-                                </div>
-                                <span className='session-teacher-list'>
-                                    <a href="#" onClick={handleTeacherClick}>Ahmet Çetinkaya </a>{' '}
-                                    <a href="#" onClick={handleTeacherClick}>Engin Demiroğ</a>{' '}
-                                    <a href="#" onClick={handleTeacherClick}>Halit Enes Kalaycı</a>{' '}
-                                    <a href="#" onClick={handleTeacherClick}>Ali Seyhan</a>{' '}
-                                </span>
-                            </div>
-
-                            <br />
-                            <VideoCameraOutlined className='video-icon' /> Oturum Kayıtları
-                            <br />
-
-                            <span className='session-video'>Oturumlara ilişkin kayıtlar, canlı oturumlar tamamlandıktan sonra izlenebilir.</span>
-                            <br />
-                            <br />
-
-                            <div style={{ display: startDateTime < currentDateTime && endDateTime > currentDateTime ? "block" : "none" }}>
-                                <Button className='session-join' onClick={() => handleAddAccountSession(session.id)}>KATIL</Button>
-                            </div>
-                            <div style={{ display: endDateTime > currentDateTime ? "none" : "block" }}>
-                                <span className='video-number'>
-                                    {session.recordPath}
-                                </span>
-                                <button className='session-video-recording'>
-                                    <span>KAYDI AÇ</span>
-                                </button>
-                            </div>
-                        </div>
-
-                    </>)
-            };
+    useEffect(() => {
+        if (props.sessions?.items) {
+            props.sessions.items.forEach((session: GetListSessionResponse) => {
+                getSessionInstructor(String(session.id)).then(instructors => {
+                    setSessionInstructorsMap(prevMap => new Map(prevMap.set(String(session.id), instructors)));
+                });
+            });
         }
-        ) || [];
+    }, [props.sessions]);
+
+    const getSessionInstructor = async (sessionId: string): Promise<GetListAccountResponse[]> => {
+        const result = await accountService.getInstructorBySessionId(sessionId);
+        return result.data.items || [];
+    };
+
+    const items = props.sessions?.items?.map((session: GetListSessionResponse, index: number) => {
+        const startDateTime = new Date(session.startDate).toISOString();
+        const endDateTime = new Date(session.endDate).toISOString();
+        const currentDateTime = new Date().toISOString();
+
+        const sessionId = session.id;
+        const matchingSession = accountSessions?.items.find(session => session.sessionId === sessionId);
+        const sessionStatus = matchingSession?.status;
+
+        const instructors = sessionInstructorsMap.get(String(sessionId)) || [];
+
+        return {
+            key: String(index),
+            label: (
+                <>
+                    <div className="session-collapse-title">
+                        <span>{index + 1}.Oturum</span>
+                        <span className="green-text" style={{ display: sessionStatus ? "flex" : "none" }}><CheckCircleFilled className="green-img" />Katıldın</span>
+                        <span className="red-text" style={{ display: sessionStatus ? "none" : "flex" }}>Katılmadın</span>
+                    </div>
+                </>
+            ),
+            children: (
+                <>
+                    <div className="session-collapse-info">
+                        <div className="start-date date-info">
+                            <span>Başlangıç</span>
+                            <p>{formatDate(session.startDate)}</p>
+                        </div>
+                        <div className="end-date date-info">
+                            <span>Bitiş</span>
+                            <p>{formatDate(session.endDate)}</p>
+                        </div>
+                        <hr className="session-divider" />
+                        <div className="session-instructor-info">
+                            <div className="session-instructor-title">
+                                <UserOutlined className='user-icon' />
+                                <span>Eğitmen</span>
+                            </div>
+                            <span className='session-teacher-list'>
+                                {instructors.map((instructor: any) => (
+                                    <span key={String(instructor.id)} onClick={() => handleTeacherClick(instructor.id)}> {instructor.firstName} {instructor.lastName}</span>
+                                ))}
+                            </span>
+                        </div>
+
+                        <br />
+                        <VideoCameraOutlined className='video-icon' /> Oturum Kayıtları
+                        <br />
+
+                        <span className='session-video'>Oturumlara ilişkin kayıtlar, canlı oturumlar tamamlandıktan sonra izlenebilir.</span>
+                        <br />
+                        <br />
+
+                        <div style={{ display: startDateTime < currentDateTime && endDateTime > currentDateTime ? "block" : "none" }}>
+                            <Button className='session-join' onClick={() => setSelectedSessionId(session.id)}>KATIL</Button>
+                        </div>
+                        <div style={{ display: endDateTime > currentDateTime ? "none" : "block" }}>
+                            <span className='video-number'>
+                                {session.recordPath}
+                            </span>
+                            <button className='session-video-recording'>
+                                <span>KAYDI AÇ</span>
+                            </button>
+                        </div>
+                    </div>
+                </>
+            )
+        };
+    }) || [];
 
 
     return (
@@ -145,7 +200,6 @@ export default function SessionsPage(props: any) {
             <div className="sessions-title">
                 <Collapse className="session-collapse" defaultActiveKey={['1']} ghost items={items} />
             </div>
-
             <Drawer
                 placement="right"
                 closable={false}
@@ -162,7 +216,7 @@ export default function SessionsPage(props: any) {
                     </div>
                     <div className='info text-xs-center'>
                         <div className="instructor-fullName text-xs-center">
-                            <h4>Ahmet Çetinkaya</h4>
+                            <h4>{selectedInstructor?.firstName} {selectedInstructor?.lastName}</h4>
                         </div>
 
                     </div>
@@ -180,9 +234,6 @@ export default function SessionsPage(props: any) {
                     </div>
                 </div>
             </Drawer>
-
-
-
             <Accordion>
                 <Accordion.Item className="homework-accordion-item" eventKey="0">
                     <Accordion.Header className='accordion-works'>Ödevler</Accordion.Header>

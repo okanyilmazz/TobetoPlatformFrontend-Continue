@@ -31,6 +31,10 @@ class SessionService extends BaseService<
     getByLessonId(lessonId: string): Promise<AxiosResponse<Paginate<GetListSessionResponse>, any>> {
         return axiosInstance.get<Paginate<GetListSessionResponse>>(this.apiUrl + "/GetByLessonId?lessonId=" + lessonId);
     }
+
+    getByAccountAndLessonId(accountId: string, lessonId: string): Promise<AxiosResponse<Paginate<GetListSessionResponse>, any>> {
+        return axiosInstance.get<Paginate<GetListSessionResponse>>(this.apiUrl + "/GetByAccountAndLessonId?accountId=" + accountId + "&lessonId=" + lessonId);
+    }
 }
 
 export default new SessionService(); 
