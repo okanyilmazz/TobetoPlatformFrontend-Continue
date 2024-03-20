@@ -13,7 +13,7 @@ import lessonLikeService from '../../services/lessonLikeService';
 import accountService from '../../services/accountService';
 import AddLessonLikeRequest from '../../models/requests/lessonLike/addLessonLikeRequest';
 import DeleteLessonLikeRequest from '../../models/requests/lessonLike/deleteLessonLikeRequest';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import LikeButton from '../../components/LikeButton/LikeButton';
 import { Accordion, Image, OverlayTrigger, Tab, Tabs, Tooltip } from 'react-bootstrap';
 import EducationDrawer from '../../components/EducationDrawer/EducationDrawer';
@@ -52,7 +52,7 @@ import accountFavoriteEducationProgramService from '../../services/accountFavori
 import AddAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/addAccountFavoriteEducationProgramRequest';
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster';
 import DeleteAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/deleteAccountFavoriteEducationProgramRequest';
-import { TOAST_SUCCESS } from '../../environment/environment';
+import { ASYNCHRONOUS_LESSON, PDF_LESSON, TOAST_SUCCESS } from '../../environment/environment';
 import moment, { duration } from 'moment';
 export default function EducationProgramContent() {
     const [selectedLessonId, setSelectedLessonId] = useState<any>();
@@ -79,6 +79,8 @@ export default function EducationProgramContent() {
 
     const { educationProgramId } = useParams();
     const user = authService.getUserInfo();
+
+    const navigate = useNavigate();
 
     /*Video */
 
@@ -437,6 +439,7 @@ export default function EducationProgramContent() {
         }
     }
 
+
     const handleUpdateAccountEducationProgramStatus = async (statusPercent: any) => {
         if (selectedAccountEducationProgram?.id) {
             const updateAccountEducationProgram: UpdateAccountEducationProgramRequest = {
@@ -450,6 +453,19 @@ export default function EducationProgramContent() {
             getAccountEducationProgram();
         }
     }
+    let openedWindow: any;
+    const goToLessonPath = (lesson: any) => {
+        openedWindow = window.open(lesson?.lessonPath!, '_blank');
+        handleAddAccountLessonStatus(lesson.id);
+    }
+
+    const checkWindowClosed = setInterval(function () {
+        if (openedWindow && openedWindow.closed) {
+            clearInterval(checkWindowClosed);
+            setWatchPercentage(100);
+            handleUpdateAccountLessonStatus();
+        }
+    }, 1000);
 
     const countByLessonSubTypeName: { [key: string]: number } = lessons?.items.reduce((acc: any, lesson) => {
         const { lessonSubTypeName } = lesson;
@@ -516,7 +532,7 @@ export default function EducationProgramContent() {
                                                         placement="right"
                                                         overlay={
                                                             <Tooltip id="tooltip-right" >
-                                                                <div className="date-tooltip" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "VIDEO" ? "block" : "none" }}>
+                                                                <div className="date-tooltip" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON || lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? "block" : "none" }}>
                                                                     <div className="lesson-title">
                                                                         Eğitimi nasıl tamamlayabilirim?
                                                                     </div>
@@ -537,7 +553,7 @@ export default function EducationProgramContent() {
                                                                     </div>
                                                                 </div>
 
-                                                                <div className="date-tooltip" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }} >
+                                                                <div className="date-tooltip" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }} >
                                                                     <div className="lesson-title">
                                                                         Eğitimi nasıl tamamlayabilirim?
                                                                     </div>
@@ -559,7 +575,7 @@ export default function EducationProgramContent() {
                                                             </Tooltip>
                                                         }>
                                                         <div className="date-info">
-                                                            <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "VIDEO" ? "block" : "none" }}>
+                                                            <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON || lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? "block" : "none" }}>
                                                                 {selectedAccountEducationProgram && selectedAccountEducationProgram?.statusPercent > 99.2 ? (
                                                                     <div className="unit-icon">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3DCB79" viewBox="0 0 256 256"><path d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"></path></svg>
@@ -572,7 +588,7 @@ export default function EducationProgramContent() {
                                                                 )}
                                                             </div>
 
-                                                            <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }} >
+                                                            <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }} >
                                                                 {(isDoneSession! / sessions?.count!) * 100 === 100 ? (
                                                                     <div className="unit-icon">
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3DCB79" viewBox="0 0 256 256"><path d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"></path></svg>
@@ -592,8 +608,8 @@ export default function EducationProgramContent() {
                                                 </div>
                                             </div>
                                             <div className="activity-process col-md-3">
-                                                <div className="activity-score" style={{ justifyContent: lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "end" : "space-between" }}>
-                                                    <div className="activity-button" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "none" : "block" }}>
+                                                <div className="activity-score" style={{ justifyContent: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "end" : "space-between" }}>
+                                                    <div className="activity-button" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "none" : "block" }}>
                                                         {selectedAccountEducationProgram?.statusPercent || 0} PUAN
                                                     </div>
                                                     {
@@ -618,7 +634,7 @@ export default function EducationProgramContent() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="row" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "VIDEO" ? "block" : "none" }}>
+                                        <div className="row" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON || lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? "block" : "none" }}>
                                             <div className="progress-wrapper col-xs-12">
                                                 <OverlayTrigger
                                                     placement="top"
@@ -630,7 +646,7 @@ export default function EducationProgramContent() {
                                             </div>
                                         </div>
 
-                                        <div className="row" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }} >
+                                        <div className="row" style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }} >
                                             <div className="progress-wrapper col-xs-12">
                                                 <OverlayTrigger
                                                     placement="top"
@@ -667,7 +683,7 @@ export default function EducationProgramContent() {
                                                         const statusPercent = matchingLesson?.statusPercent || 0;
                                                         return (
                                                             <React.Fragment key={String(lessonId)}>
-                                                                <Accordion.Body style={lesson?.lessonSubTypeName.toUpperCase() === "VIDEO" ? { display: 'block' } : { display: 'none' }} className={selectedLessonId === lesson.id ? "active-accordion" : ""} onClick={() => handleSelectLesson(lesson.id)}>
+                                                                <Accordion.Body style={lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON || lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? { display: 'block' } : { display: 'none' }} className={selectedLessonId === lesson.id ? "active-accordion" : ""} onClick={() => handleSelectLesson(lesson.id)}>
                                                                     <div className='lesson-info'>
                                                                         <span>{lesson.name}</span>
                                                                         <span className='unit-ongoing' style={statusPercent! > 99.2 || statusPercent === 0 ? { display: 'none' } : { display: 'flex' }}>
@@ -682,7 +698,7 @@ export default function EducationProgramContent() {
                                                                     </div>
                                                                 </Accordion.Body>
 
-                                                                <Accordion.Body style={lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? { display: 'block' } : { display: 'none' }} className={selectedLessonId === lessonId ? "active-accordion" : ""} onClick={() => handleSelectLesson(lessonId)} key={String(lessonId)}>
+                                                                <Accordion.Body style={lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? { display: 'block' } : { display: 'none' }} className={selectedLessonId === lessonId ? "active-accordion" : ""} onClick={() => handleSelectLesson(lessonId)} key={String(lessonId)}>
                                                                     <div className='lesson-info'>
                                                                         <span>{lesson.name}</span>
                                                                         <span className='unit-ongoing' style={isDoneSession === 0 || isDoneSession === sessions?.count ? { display: 'none' } : { display: 'block' }}>
@@ -705,7 +721,7 @@ export default function EducationProgramContent() {
                                     </div>
                                 </div>
                                 <div className='col-md-7'>
-                                    <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "VIDEO" ? "block" : "none" }}>
+                                    <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }}>
                                         <LessonCard header={
                                             <div className="lesson-card-content"  >
                                                 <ReactPlayer
@@ -755,7 +771,8 @@ export default function EducationProgramContent() {
                                             }
                                             button={<Button onClick={showDrawer} className='lesson-card-btn'>DETAY</Button>} />
                                     </div>
-                                    <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }}>
+
+                                    <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }}>
                                         <LessonCard header={
                                             <div className="lesson-card-content">
                                                 <Image src={lesson?.lessonPath === null || lesson?.lessonPath === undefined ? "" : lesson?.lessonPath}></Image>
@@ -787,8 +804,51 @@ export default function EducationProgramContent() {
                                             button={
                                                 <>
                                                     <Button onClick={showDrawer} className='lesson-card-btn'>DETAY</Button>
-                                                    <SessionsPage style={{ display: sessions && sessions.count > 0 && lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }} onDataFromSessionPage={handleDataFromSessionPage} sessions={sessions} homeworks={homeworks} lessonId={selectedLessonId}></SessionsPage>
+                                                    <SessionsPage style={{ display: sessions && sessions.count > 0 && lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }} onDataFromSessionPage={handleDataFromSessionPage} sessions={sessions} homeworks={homeworks} lessonId={selectedLessonId}></SessionsPage>
 
+                                                </>
+                                            } />
+                                    </div>
+
+                                    <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? "block" : "none" }}>
+                                        <LessonCard header={
+                                            <div className="lesson-card-content">
+                                                <Image src={lesson?.lessonPath === null || lesson?.lessonPath === undefined ? "" : lesson?.lessonPath}></Image>
+                                            </div>}
+                                            title={<div className='lesson-title'>{lesson?.name}</div>}
+                                            text={
+                                                <div className='lesson-text d-flex'>
+                                                    <span>{lesson?.lessonSubTypeName}</span>
+                                                    {accountLesson?.id === undefined || accountLesson?.statusPercent === 0 ? (
+                                                        <span style={{ display: 'block' }}>
+                                                            <FaCircle className='lesson-card-icon-first' /> Başlamadın
+                                                        </span>
+                                                    ) : (
+                                                        <>
+                                                            <span style={accountLesson && (accountLesson?.statusPercent === 0 || accountLesson?.statusPercent > 99.2) ? { display: 'none' } : { display: 'flex' }}>
+                                                                <div className='unit-icon unit-ongoing'></div>
+                                                                Devam Ediyor
+                                                            </span>
+                                                            <span className="unit-end" style={accountLesson?.statusPercent > 99.2 ? { display: 'flex' } : { display: 'none' }}>
+                                                                <div className='unit-point'>
+                                                                    {accountLesson?.statusPercent > 99.2 ? 100 : ""}  Puan
+                                                                </div>
+                                                                <div className="unit-icon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3DCB79" viewBox="0 0 256 256"><path d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"></path></svg>
+                                                                </div>
+                                                                Tebrikler, tamamladın!
+                                                            </span>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            }
+                                            button={
+                                                <>
+
+                                                    <div className="lesson-card-pdf-buttons">
+                                                        <Button className='lesson-card-btn' onClick={() => goToLessonPath(lesson)}>Başla</Button>
+                                                        <Button onClick={showDrawer} className='lesson-card-btn'>DETAY</Button>
+                                                    </div>
                                                 </>
                                             } />
                                     </div>
@@ -951,7 +1011,7 @@ export default function EducationProgramContent() {
                                         </div>
                                     </div>
 
-                                    <div className='ed-drawer-sub-content' style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "VIDEO" ? "block" : "none" }}>
+                                    <div className='ed-drawer-sub-content' style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON || lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? "block" : "none" }}>
                                         <div className='ed-drawer-text-area'>
                                             <div className='ed-drawer-course-status-info not-start' style={accountLesson === undefined || accountLesson.statusPercent === 0 ? { display: 'block' } : { display: 'none' }}>
                                                 <FaCircle className='lesson-card-icon-first' />
@@ -981,7 +1041,7 @@ export default function EducationProgramContent() {
                                         </div>
                                     </div >
 
-                                    <div className='ed-drawer-sub-content' style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }}>
+                                    <div className='ed-drawer-sub-content' style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }}>
                                         <div className='ed-drawer-text-area'>
                                             <div className='ed-drawer-course-status-info not-start' style={isDoneSession === undefined || isDoneSession === 0 ? { display: 'block' } : { display: 'none' }}>
                                                 <FaCircle className='lesson-card-icon-first' />
@@ -1010,7 +1070,7 @@ export default function EducationProgramContent() {
                                     </div >
                                 </div >
                             </div >
-                            <div className='education-drawer-content-bottom' style={{ display: lesson?.lessonSubTypeName.toLocaleUpperCase() === "VIDEO" || lesson?.lessonSubTypeName === "E-EGITIM" ? "grid" : "none" }} >
+                            <div className='education-drawer-content-bottom' style={{ display: lesson?.lessonSubTypeName.toLocaleUpperCase() === ASYNCHRONOUS_LESSON || lesson?.lessonSubTypeName === PDF_LESSON ? "grid" : "none" }} >
                                 <div className="education-drawer-info">
                                     <div className='education-drawer-categories-title title'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#7f6c6c" viewBox="0 0 256 256" transform="rotate(90)">
@@ -1058,7 +1118,7 @@ export default function EducationProgramContent() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='e-education-drawer-content-bottom' style={{ display: lesson?.lessonSubTypeName.toUpperCase() === "E-EGITIM" ? "block" : "none" }}>
+                            <div className='e-education-drawer-content-bottom' style={{ display: lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? "block" : "none" }}>
 
                                 <div className="education-drawer-info">
                                     <div className='education-drawer-lesson-description-title title'>
@@ -1097,9 +1157,9 @@ export default function EducationProgramContent() {
                                 </div>
 
                             </div>
-                            <div style={{ display: sessions && sessions.count > 0 && lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }}>
+                            <div style={{ display: sessions && sessions.count > 0 && lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }}>
                                 {
-                                    <SessionsPage style={{ display: sessions && sessions.count > 0 && lesson?.lessonSubTypeName.toUpperCase() === "SANAL SINIF" ? "block" : "none" }} onDataFromSessionPage={handleDataFromSessionPage} sessions={sessions} homeworks={homeworks} lessonId={selectedLessonId}></SessionsPage>
+                                    <SessionsPage style={{ display: sessions && sessions.count > 0 && lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }} onDataFromSessionPage={handleDataFromSessionPage} sessions={sessions} homeworks={homeworks} lessonId={selectedLessonId}></SessionsPage>
                                 }
                             </div>
                         </>

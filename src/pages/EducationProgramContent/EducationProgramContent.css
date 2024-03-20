@@ -781,3 +781,19 @@
     font-weight: 100 !important;
     margin-left: 20px;
 }
+
+.lesson-card-pdf-buttons .lesson-card-btn {
+    height: 36px;
+    right: 20px;
+    top: 10px;
+    width: 170px;
+}
+
+.lesson-card-pdf-buttons .lesson-card-btn:first-child {
+    background-color: #9933FF !important;
+    color: #fff !important;
+}
+
+.lesson-card-pdf-buttons .lesson-card-btn:last-child {
+    top: 55px;
+}
