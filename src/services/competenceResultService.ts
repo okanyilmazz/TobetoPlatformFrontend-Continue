@@ -2,7 +2,6 @@ import { Paginate } from "../models/paginate";
 import { BaseService } from "../core/services/baseService";
 import AddCompetenceResultRequest from "../models/requests/competenceResult/addCompetenceResultRequest";
 import UpdateCompetenceResultRequest from "../models/requests/competenceResult/updateCompetenceResultRequest";
-import DeleteCompetenceResultRequest from "../models/requests/competenceResult/deleteCompetenceResultRequest";
 import GetListCompetenceResultResponse from "../models/responses/competenceResult/getListCompetenceResultResponse";
 import GetCompetenceResultResponse from "../models/responses/competenceResult/getCompetenceResultResponse";
 import AddedCompetenceResultResponse from "../models/responses/competenceResult/addedCompetenceResultResponse";
@@ -16,9 +15,7 @@ class CompetenceResultService extends BaseService<
   AddCompetenceResultRequest,
   AddedCompetenceResultResponse,
   UpdateCompetenceResultRequest,
-  UpdatedCompetenceResultResponse,
-  DeleteCompetenceResultRequest
-> {
+  UpdatedCompetenceResultResponse> {
   constructor() {
     super();
     this.apiUrl = "CompetenceResults";
@@ -26,7 +23,7 @@ class CompetenceResultService extends BaseService<
 
   getByAccountId(accountId: number, pageIndex: number, pageSize: number): Promise<AxiosResponse<Paginate<GetListCompetenceResultResponse>, any>> {
     return axiosInstance.get<Paginate<GetListCompetenceResultResponse>>(this.apiUrl + "/GetByAccountId?accountId=" + accountId + "&PageIndex=" + pageIndex + "&PageSize=" + pageSize);
-}
+  }
 }
 
 export default new CompetenceResultService();

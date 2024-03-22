@@ -2,7 +2,6 @@ import { AxiosResponse } from "axios";
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddAccountUniversityRequest from "../models/requests/accountUniversity/addAccountUniversityRequest";
-import DeleteAccountUniversityRequest from "../models/requests/accountUniversity/deleteAccountUniversityRequest";
 import UpdateAccountUniversityRequest from "../models/requests/accountUniversity/updateAccountUniversityRequest";
 import AddedAccountUniversityResponse from "../models/responses/accountUniversity/addedAccountUniversityResponse";
 import GetAccountUniversityResponse from "../models/responses/accountUniversity/getAccountUniversityResponse";
@@ -16,9 +15,7 @@ class AccountUniversityService extends BaseService<
     AddAccountUniversityRequest,
     AddedAccountUniversityResponse,
     UpdateAccountUniversityRequest,
-    UpdatedAccountUniversityResponse,
-    DeleteAccountUniversityRequest
-> {
+    UpdatedAccountUniversityResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountUniversities";

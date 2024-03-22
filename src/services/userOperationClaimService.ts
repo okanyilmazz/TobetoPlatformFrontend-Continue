@@ -2,7 +2,6 @@ import { AxiosResponse } from "axios";
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddUserOperationClaimRequest from "../models/requests/userOperationClaim/addUserOperationClaimRequest";
-import DeleteUserOperationClaimRequest from "../models/requests/userOperationClaim/deleteUserOperationClaimRequest";
 import UpdateUserOperationClaimRequest from "../models/requests/userOperationClaim/updateUserOperationClaimRequest";
 import AddedUserOperationClaimResponse from "../models/responses/userOperationClaim/addedUserOperationClaimResponse";
 import GetListUserOperationClaimResponse from "../models/responses/userOperationClaim/getListUserOperationClaimResponse";
@@ -16,9 +15,7 @@ class UserOperationClaimService extends BaseService<
     AddUserOperationClaimRequest,
     AddedUserOperationClaimResponse,
     UpdateUserOperationClaimRequest,
-    UpdatedUserOperationClaimResponse,
-    DeleteUserOperationClaimRequest
-> {
+    UpdatedUserOperationClaimResponse> {
     constructor() {
         super()
         this.apiUrl = "UserOperationClaims"

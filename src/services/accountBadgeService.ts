@@ -8,7 +8,6 @@ import UpdateAccountBadgeRequest from "../models/requests/accountBadge/updateAcc
 import UpdatedAccountBadgeResponse from "../models/responses/accountBadge/updatedAccountBadgeResponse";
 import { AxiosResponse } from "axios";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteAccountBadgeRequest from "../models/requests/accountBadge/deleteAccountBadgeRequest";
 import { Identifier } from "typescript";
 
 class AccountBadgeService extends BaseService<
@@ -17,9 +16,8 @@ class AccountBadgeService extends BaseService<
   AddAccountBadgeRequest,
   AddedAccountBadgeResponse,
   UpdateAccountBadgeRequest,
-  UpdatedAccountBadgeResponse,
-  DeleteAccountBadgeRequest
-> {
+  UpdatedAccountBadgeResponse> {
+
   constructor() {
     super();
     this.apiUrl = "AccountBadges";

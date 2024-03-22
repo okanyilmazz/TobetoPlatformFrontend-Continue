@@ -10,9 +10,7 @@ import { Dashboard } from '@uppy/react';
 import './CertificatePage.css';
 import { useSelector } from 'react-redux';
 import SidebarCard from '../../components/SidebarCard/SidebarCard';
-import DeleteCertificateRequest from '../../models/requests/certificate/deleteCertificateRequest';
 import DeleteCard from '../../components/DeleteCard/DeleteCard';
-import { formatDate } from '@fullcalendar/core';
 
 export default function CertificatePage() {
     const userState = useSelector((state: any) => state.user);
@@ -24,10 +22,7 @@ export default function CertificatePage() {
 
     const deleteCertificate = async () => {
         if (selectedCertificate) {
-            const deleteCertificateRequest: DeleteCertificateRequest = {
-                id: selectedCertificate.id,
-            };
-            await certificateService.delete(deleteCertificateRequest);
+            await certificateService.delete(selectedCertificate.id);
             setShowDeleteCard(false);
             getCertificates();
         }

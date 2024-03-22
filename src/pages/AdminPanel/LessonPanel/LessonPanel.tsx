@@ -13,7 +13,6 @@ import TobetoSelect from '../../../utilities/customFormControls/TobetoSelect';
 import TobetoTextInput from '../../../utilities/customFormControls/TobetoTextInput';
 import AddLessonRequest from '../../../models/requests/lesson/addLessonRequest';
 import UpdateLessonRequest from '../../../models/requests/lesson/updateLessonRequest';
-import DeleteLessonRequest from '../../../models/requests/lesson/deleteLessonRequest';
 import languageService from '../../../services/languageService';
 import GetListLanguageResponse from '../../../models/responses/language/getListLanguageResponse';
 import GetListLessonModuleResponse from '../../../models/responses/lessonModule/getListLessonModuleResponse';
@@ -98,9 +97,6 @@ export default function LessonPanel() {
         educationProgramService.getAll(0, 100).then((result: any) => {
             setEducationPrograms(result.data)
         })
-        console.log(" edu" + educationPrograms);
-
-
     }, []);
 
     useEffect(() => {
@@ -230,11 +226,8 @@ export default function LessonPanel() {
         closeModal()
     }
 
-    const handleDeleteLesson = async (lesson: any) => {
-        const deleteLesson: DeleteLessonRequest = {
-            id: lesson
-        }
-        await lessonService.delete(deleteLesson);
+    const handleDeleteLesson = async (lessonId: any) => {
+        await lessonService.delete(lessonId);
         getLesson();
     }
 
@@ -285,7 +278,7 @@ export default function LessonPanel() {
                                     ))
                                 }
                                 <tr >
-                                    <td className='text-center' onClick={handleAddClick} colSpan={5}>
+                                    <td className='text-center add-new-data' onClick={handleAddClick} colSpan={5}>
                                         <span>Yeni ders ekle</span>
                                     </td>
                                 </tr>

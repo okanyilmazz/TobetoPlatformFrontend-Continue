@@ -4,9 +4,8 @@ import GetListMediaNewResponse from "../models/responses/mediaNew/getListMediaNe
 import GetMediaNewResponse from "../models/responses/mediaNew/getMediaNewResponse";
 import AddMediaNewRequest from "../models/requests/mediaNew/addMediaNewRequest";
 import AddedMediaNewResponse from "../models/responses/mediaNew/addedMediaNewResponse";
-import UpdatedMediaNewRequest from "../models/requests/mediaNew/updateMediaNewReques";
+import UpdatedMediaNewRequest from "../models/requests/mediaNew/updateMediaNewRequest";
 import UpdatedMediaNewResponse from "../models/responses/mediaNew/updatedMediaNewResponse";
-import DeleteMediaNewRequest from "../models/requests/mediaNew/deleteMediaNewRequest";
 
 class MediaNewService extends BaseService<
   Paginate<GetListMediaNewResponse>,
@@ -14,9 +13,7 @@ class MediaNewService extends BaseService<
   AddMediaNewRequest,
   AddedMediaNewResponse,
   UpdatedMediaNewRequest,
-  UpdatedMediaNewResponse,
-  DeleteMediaNewRequest
-> {
+  UpdatedMediaNewResponse> {
   constructor() {
     super();
     this.apiUrl = "MediaNews";

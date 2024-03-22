@@ -6,9 +6,6 @@ import AddCompetenceCategoryRequest from "../models/requests/competenceCategory/
 import AddedCompetenceCategoryResponse from "../models/responses/competenceCategory/addedCompetenceCategoryResponse";
 import UpdateCompetenceCategoryRequest from "../models/requests/competenceCategory/updateCompetenceCategoryRequest";
 import UpdatedCompetenceCategoryResponse from "../models/responses/competenceCategory/updatedCompetenceCategoryResponse";
-import DeleteCompetenceCategoryRequest from "../models/requests/competenceCategory/deleteCompetenceCategoryRequest";
-import { AxiosResponse } from "axios";
-import axiosInstance from "../core/interceptors/axiosInterceptor";
 
 class CompetenceCategoryService extends BaseService<
   Paginate<GetListCompetenceCategoryResponse>,
@@ -16,9 +13,7 @@ class CompetenceCategoryService extends BaseService<
   AddCompetenceCategoryRequest,
   AddedCompetenceCategoryResponse,
   UpdateCompetenceCategoryRequest,
-  UpdatedCompetenceCategoryResponse,
-  DeleteCompetenceCategoryRequest
-> {
+  UpdatedCompetenceCategoryResponse> {
   constructor() {
     super();
     this.apiUrl = "CompetenceCategories";

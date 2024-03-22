@@ -8,7 +8,6 @@ import UpdateAccountSessionRequest from "../models/requests/accountSession/updat
 import UpdatedAccountSessionResponse from "../models/responses/accountSession/updatedAccountSessionResponse";
 import { AxiosResponse } from "axios";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteAccountSessionRequest from "../models/requests/accountSession/deleteAccountSessionRequest";
 
 class AccountSessionService extends BaseService<
     Paginate<GetListAccountSessionResponse>,
@@ -16,9 +15,7 @@ class AccountSessionService extends BaseService<
     AddAccountSessionRequest,
     AddedAccountSessionResponse,
     UpdateAccountSessionRequest,
-    UpdatedAccountSessionResponse,
-    DeleteAccountSessionRequest
-> {
+    UpdatedAccountSessionResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountSessions";

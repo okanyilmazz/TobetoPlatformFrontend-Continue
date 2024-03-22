@@ -1,7 +1,6 @@
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddDegreeTypeRequest from "../models/requests/degreeType/addDegreeTypeRequest";
-import DeleteDegreeTypeRequest from "../models/requests/degreeType/deleteDegreeTypeRequest";
 import UpdateDegreeTypeRequest from "../models/requests/degreeType/updateDegreeTypeRequest";
 import { AddedDegreeTypeResponse } from "../models/responses/degreeType/addedDegreeTypeResponse";
 import { GetDegreeTypeResponse } from "../models/responses/degreeType/getDegreeTypeResponse";
@@ -14,9 +13,7 @@ class DegreeTypeService extends BaseService<
     AddDegreeTypeRequest,
     AddedDegreeTypeResponse,
     UpdateDegreeTypeRequest,
-    UpdatedDegreeTypeResponse,
-    DeleteDegreeTypeRequest
-> {
+    UpdatedDegreeTypeResponse> {
     constructor() {
         super()
         this.apiUrl = "DegreeTypes"

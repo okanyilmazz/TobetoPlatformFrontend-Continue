@@ -14,7 +14,6 @@ import TobetoTextInput from '../../../utilities/customFormControls/TobetoTextInp
 import { GetEducationProgramResponse } from '../../../models/responses/educationProgram/getEducationProgramResponse';
 import AddEducationProgramRequest from '../../../models/requests/educationProgram/addEducationProgramRequest';
 import UpdateEducationProgramRequest from '../../../models/requests/educationProgram/updateEducationProgramRequest';
-import DeleteEducationProgramRequest from '../../../models/requests/educationProgram/deleteEducationProgramRequest';
 import GetListEducationProgramDevelopmentResponse from '../../../models/responses/educationProgramDevelopment/getListEducationProgramDevelopmentResponse';
 import educationProgramDevelopmentService from '../../../services/educationProgramDevelopmentService';
 import { GetListEducationProgramLevelResponse } from '../../../models/responses/educationProgramLevel/getListEducationProgramLevelResponse';
@@ -189,11 +188,8 @@ export default function EducationPanel() {
         closeModal()
     }
 
-    const handleDeleteEducationProgram = async (educationProgram: any) => {
-        const deleteEducationProgram: DeleteEducationProgramRequest = {
-            id: educationProgram
-        }
-        await educationProgramService.delete(deleteEducationProgram);
+    const handleDeleteEducationProgram = async (educationProgramId: any) => {
+        await educationProgramService.delete(educationProgramId);
         getEducation();
     }
 
@@ -244,7 +240,7 @@ export default function EducationPanel() {
                                     </tr>
                                 ))}
                                 <tr >
-                                    <td className='text-center' onClick={handleAddClick} colSpan={10}>
+                                    <td className='text-center add-new-data' onClick={handleAddClick} colSpan={10}>
                                         <span>Yeni eğitim programı ekle</span>
                                     </td>
                                 </tr>

@@ -7,14 +7,12 @@ import { RiPencilFill } from 'react-icons/ri';
 import Modals from '../../../components/Modal/Modals';
 import { Form, Formik } from 'formik'
 import { Button, Col, Row } from 'react-bootstrap';
-import TobetoSelect from '../../../utilities/customFormControls/TobetoSelect';
 import TobetoTextInput from '../../../utilities/customFormControls/TobetoTextInput';
 import GetListOperationClaimResponse from '../../../models/responses/operationClaim/getListOperationClaimResponse';
 import operationClaimService from '../../../services/operationClaimService';
 import AddOperationClaimRequest from '../../../models/requests/operationClaim/addOperationClaimRequest';
 import authService from '../../../services/authService';
 import UpdateOperationClaimRequest from '../../../models/requests/operationClaim/updateOperationClaimRequest';
-import DeleteOperationClaimRequest from '../../../models/requests/operationClaim/deleteOperationClaimRequest';
 import AdminPanelSideBarCard from '../../../components/AdminPanelSideBarCard/AdminPanelSideBarCard';
 
 
@@ -113,12 +111,8 @@ export default function RolePanel() {
 
     }
 
-    const handleDeleteRole = async (role: any) => {
-        const deleteRole: DeleteOperationClaimRequest = {
-            id: role
-        }
-
-        await operationClaimService.delete(deleteRole);
+    const handleDeleteRole = async (roleId: any) => {
+        await operationClaimService.delete(roleId);
         getRole();
     }
 
@@ -163,7 +157,7 @@ export default function RolePanel() {
                                     </tr>
                                 ))}
                                 <tr >
-                                    <td className='text-center' onClick={handleAddClick} colSpan={5}>
+                                    <td className='text-center add-new-data' onClick={handleAddClick} colSpan={5}>
                                         <span>Yeni rol ekle</span>
                                     </td>
                                 </tr>

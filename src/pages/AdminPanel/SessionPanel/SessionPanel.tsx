@@ -16,7 +16,6 @@ import GetListLessonResponse from '../../../models/responses/lesson/getListLesso
 import lessonService from '../../../services/lessonService';
 import AddSessionRequest from '../../../models/requests/session/addSessionRequest';
 import UpdateSessionRequest from '../../../models/requests/session/updateSessionRequest';
-import DeleteSessionRequest from '../../../models/requests/session/deleteSessionRequest';
 import GetSessionResponse from '../../../models/responses/session/getSessionResponse';
 import GetListOccupationClassResponse from '../../../models/responses/occupationClass/getListOccupationClassResponse';
 import occupationClassService from '../../../services/occupationClassService';
@@ -71,15 +70,6 @@ export default function SessionPanel() {
         })
 
     }, []);
-
-
-    // useEffect(() => {
-    //     sessionService.getById(selectedSessionId).then(result => {
-    //         setSelectedSession(result.data)
-    //     })
-    // }, [selectedSessionId])
-
-
 
     const handleInputFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
         const searchText = e.target.value.toLowerCase();
@@ -164,11 +154,8 @@ export default function SessionPanel() {
         closeModal()
     }
 
-    const handleDeleteSession = async (session: any) => {
-        const deleteSession: DeleteSessionRequest = {
-            id: session
-        }
-        await sessionService.delete(deleteSession);
+    const handleDeleteSession = async (sessionId: any) => {
+        await sessionService.delete(sessionId);
         getSession();
     }
 
@@ -220,7 +207,7 @@ export default function SessionPanel() {
                                     ))
                                 }
                                 <tr >
-                                    <td className='text-center' onClick={handleAddClick} colSpan={5}>
+                                    <td className='text-center add-new-data' onClick={handleAddClick} colSpan={5}>
                                         <span>Yeni oturum ekle</span>
                                     </td>
                                 </tr>

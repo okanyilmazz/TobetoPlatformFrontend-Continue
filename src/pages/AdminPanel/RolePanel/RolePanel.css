@@ -2,6 +2,9 @@
     margin-top: 35px !important;
 }
 
+.role-panel {
+    height: 70.5vh;
+}
 
 .role-panel-content table .role-panel-table-body .td-icons {
     display: flex;

@@ -6,7 +6,6 @@ import AddProgrammingLanguageRequest from "../models/requests/programmingLanguag
 import UpdateProgrammingLanguageRequest from "../models/requests/programmingLanguage/updateProgrammingLanguageRequest";
 import AddedProgrammingLanguageResponse from "../models/responses/programmingLanguage/addedProgrammingLanguageResponse";
 import UpdatedProgrammingLanguageResponse from "../models/responses/programmingLanguage/updatedProgrammingLanguageResponse";
-import DeleteProgrammingLanguageRequest from "../models/requests/programmingLanguage/deleteProgrammingLanguageRequest";
 
 class ProgrammingLanguageService extends BaseService<
     Paginate<GetListProgrammingLanguageResponse>,
@@ -14,9 +13,7 @@ class ProgrammingLanguageService extends BaseService<
     AddProgrammingLanguageRequest,
     AddedProgrammingLanguageResponse,
     UpdateProgrammingLanguageRequest,
-    UpdatedProgrammingLanguageResponse,
-    DeleteProgrammingLanguageRequest
->{
+    UpdatedProgrammingLanguageResponse>{
     constructor() {
         super();
         this.apiUrl = "ProgrammingLanguages";

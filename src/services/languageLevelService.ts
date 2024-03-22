@@ -6,7 +6,6 @@ import UpdateLanguageLevelRequest from "../models/requests/languageLevel/updateL
 import UpdatedLanguageLevelResponse from "../models/responses/languageLevel/updatedLanguageLevelResponse";
 import GetListLanguageLevelResponse from "../models/responses/languageLevel/getListLanguageLevelResponse";
 import getLanguagelevelResponse from "../models/responses/languageLevel/getLanguageLevelResponse";
-import DeleteLanguageLevelRequest from "../models/requests/languageLevel/deleteLanguageLevelRequest";
 
 class LanguageLevelService extends BaseService<
     Paginate<GetListLanguageLevelResponse>,
@@ -14,10 +13,7 @@ class LanguageLevelService extends BaseService<
     AddLanguageLevelRequest,
     AddedLanguageLevelResponse,
     UpdateLanguageLevelRequest,
-    UpdatedLanguageLevelResponse,
-    DeleteLanguageLevelRequest
-
-> {
+    UpdatedLanguageLevelResponse> {
     constructor() {
         super();
         this.apiUrl = "LanguageLevels";

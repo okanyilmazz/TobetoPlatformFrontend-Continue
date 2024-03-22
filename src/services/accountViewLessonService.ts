@@ -3,7 +3,6 @@ import { BaseService } from "../core/services/baseService";
 import GetListAccountViewLessonResponse from "../models/responses/accountViewLesson/getListAccountViewLessonResponse";
 import GetAccountViewLessonResponse from "../models/responses/accountViewLesson/getAccountViewLessonResponse";
 import AddAccountViewLessonRequest from "../models/requests/accountViewLesson/addAccountViewLessonRequest";
-import DeleteAccountViewLessonRequest from "../models/requests/accountViewLesson/deleteAccountViewLessonRequest";
 import UpdateAccountViewLessonRequest from "../models/requests/accountViewLesson/updateAccountViewLessonRequest";
 import AddedAccountViewLessonResponse from "../models/responses/accountViewLesson/addedAccountViewLessonResponse";
 import UpdatedAccountViewLessonResponse from "../models/responses/accountViewLesson/updatedAccountViewLessonResponse";
@@ -17,9 +16,7 @@ class AccountViewLessonService extends BaseService<
     AddAccountViewLessonRequest,
     AddedAccountViewLessonResponse,
     UpdateAccountViewLessonRequest,
-    UpdatedAccountViewLessonResponse,
-    DeleteAccountViewLessonRequest
-> {
+    UpdatedAccountViewLessonResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountViewLessons";

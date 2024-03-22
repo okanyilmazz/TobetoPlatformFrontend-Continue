@@ -1,4 +1,3 @@
-import React from 'react';
 import './EducationalBackgroundPage.css';
 import { Button, Col, Row } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
@@ -8,7 +7,6 @@ import DeleteCard from '../../components/DeleteCard/DeleteCard';
 import { Paginate } from '../../models/paginate';
 import TobetoSelect from '../../utilities/customFormControls/TobetoSelect';
 import authService from '../../services/authService';
-import { useSelector } from 'react-redux';
 import SidebarCard from '../../components/SidebarCard/SidebarCard';
 import universityService from '../../services/universityService';
 import degreeTypeService from '../../services/degreeTypeService';
@@ -17,7 +15,6 @@ import accountUniversityService from '../../services/accountUniversityService';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from 'yup';
-import DeleteAccountUniversityRequest from '../../models/requests/accountUniversity/deleteAccountUniversityRequest';
 import AddAccountUniversityRequest from '../../models/requests/accountUniversity/addAccountUniversityRequest';
 import GetListUniversityResponse from '../../models/responses/university/getListUniversityResponse';
 import GetListUniversityDepartmentResponse from '../../models/responses/universityDepartment/getListUniversityDepartmentResponse';
@@ -26,11 +23,9 @@ import { GetListDegreeTypeResponse } from '../../models/responses/degreeType/get
 import { REQUIRED_MESSAGE } from '../../environment/messages';
 
 export default function EducationalBackgroundPage() {
-    const userState = useSelector((state: any) => state.user);
     const [showDeleteCard, setShowDeleteCard] = useState(false);
     const location = useLocation();
     const pathArray = location.pathname.split('/');
-    const lastPathSegment = pathArray[pathArray.length - 1];
     const user = authService.getUserInfo();
     const [universities, setUniversities] = useState<Paginate<GetListUniversityResponse>>();
     const [universityDepartments, setuniversityDepartments] = useState<Paginate<GetListUniversityDepartmentResponse>>();
@@ -125,10 +120,7 @@ export default function EducationalBackgroundPage() {
     }
 
     const deleteAccountUniversity = async (accountUniversity: any) => {
-        const deleteAccountUniversity: DeleteAccountUniversityRequest = {
-            id: accountUniversity.id
-        }
-        await accountUniversityService.delete(deleteAccountUniversity);
+        await accountUniversityService.delete(accountUniversity.id);
         setShowDeleteCard(false);
         getAccountUniversity();
     }
@@ -251,7 +243,10 @@ export default function EducationalBackgroundPage() {
                                 <Row className="educational-background-row">
                                     <div key={index} className='educational-background'>
                                         <img className='edu-back-img' src="https://tobeto.com/grade-date.svg" alt="Grade Date" />
-                                        <p className='education-back-date'>{accountUniversity.startDate}-{accountUniversity.endDate}</p>
+                                        <p className='education-back-date'>
+                                            {`${new Date(accountUniversity.startDate).toLocaleDateString('tr-TR', { day: '2-digit', month: 'short', year: 'numeric' })} - 
+                                              ${new Date(accountUniversity.endDate).toLocaleDateString('tr-TR', { day: '2-digit', month: 'short', year: 'numeric' })}`}
+                                        </p>
                                         <p className='education-back-p'>{accountUniversity.degreeTypeName}</p>
                                     </div>
                                 </Row>
@@ -267,7 +262,7 @@ export default function EducationalBackgroundPage() {
                                         </div>
                                         <div className='educational-back-uni'>
                                             <div>
-                                                <span className='educational-back-uni-head'>Bölüm</span>
+                                                <span className='educational-back-uni-header'>Bölüm</span>
                                             </div>
                                             <div>
                                                 <span className='educational-back-uni-content'>{accountUniversity.universityDepartmentName}</span>

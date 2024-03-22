@@ -8,7 +8,6 @@ import AddAnnouncementRequest from "../models/requests/announcement/addAnnouncem
 import UpdateAnnouncementRequest from "../models/requests/announcement/updateAnnouncementRequest";
 import AddedAnnouncementResponse from "../models/responses/announcement/addedAnnouncementResponse";
 import UpdatedAnnouncementResponse from "../models/responses/announcement/updatedAnnouncementResponse";
-import DeleteAnnouncementRequest from "../models/requests/announcement/deleteAnnouncementRequest";
 
 class AnnouncementProjectService extends BaseService<
     Paginate<GetListAnnouncementResponse>,
@@ -16,29 +15,18 @@ class AnnouncementProjectService extends BaseService<
     AddAnnouncementRequest,
     AddedAnnouncementResponse,
     UpdateAnnouncementRequest,
-    UpdatedAnnouncementResponse,
-    DeleteAnnouncementRequest
-> {
+    UpdatedAnnouncementResponse> {
     constructor() {
         super();
         this.apiUrl = "Announcements";
     }
-
 
     getByAccountId(
         accountId: number,
         pageIndex: number,
         pageSize: number
     ): Promise<AxiosResponse<Paginate<GetListAnnouncementResponse>, any>> {
-        return axiosInstance.get<Paginate<GetListAnnouncementResponse>>(
-            this.apiUrl +
-            "/GetByAccountId?accountId=" +
-            accountId +
-            "&PageIndex=" +
-            pageIndex +
-            "&PageSize=" +
-            pageSize
-        );
+        return axiosInstance.get<Paginate<GetListAnnouncementResponse>>(this.apiUrl + "/GetByAccountId?accountId=" + accountId + "&PageIndex=" + pageIndex + "&PageSize=" + pageSize);
     }
 }
 

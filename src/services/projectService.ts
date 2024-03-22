@@ -1,7 +1,6 @@
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddProjectRequest from "../models/requests/project/addProjectRequest";
-import DeleteProjectRequest from "../models/requests/project/deleteProjectRequest";
 import UpdateProjectRequest from "../models/requests/project/updateProjectRequest";
 import AddedProjectResponse from "../models/responses/project/addedProjectResponse";
 import GetListProjectResponse from "../models/responses/project/getListProjectResponse";
@@ -14,9 +13,7 @@ class ProjectService extends BaseService<
     AddProjectRequest,
     AddedProjectResponse,
     UpdateProjectRequest,
-    UpdatedProjectResponse,
-    DeleteProjectRequest
-> {
+    UpdatedProjectResponse> {
     constructor() {
         super()
         this.apiUrl = "Projects"

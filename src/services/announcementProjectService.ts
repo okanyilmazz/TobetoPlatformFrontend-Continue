@@ -6,7 +6,6 @@ import AddedAnnouncementProjectResponse from "../models/responses/announcementPr
 import UpdateAnnouncementProjectRequest from "../models/requests/announcementProject/updateAnnouncementProjectRequest";
 import UpdatedAnnouncementProjectResponse from "../models/responses/announcementProject/updatedAnnouncementProjectResponse";
 import { Paginate } from "../models/paginate";
-import DeleteAnnouncementProjectRequest from "../models/requests/announcementProject/deleteAnnouncementProjectRequest";
 
 class AnnouncementProjectService extends BaseService<
     Paginate<GetListAnnouncementProjectResponse>,
@@ -14,9 +13,7 @@ class AnnouncementProjectService extends BaseService<
     AddAnnouncementProjectRequest,
     AddedAnnouncementProjectResponse,
     UpdateAnnouncementProjectRequest,
-    UpdatedAnnouncementProjectResponse,
-    DeleteAnnouncementProjectRequest
-> {
+    UpdatedAnnouncementProjectResponse> {
     constructor() {
         super()
         this.apiUrl = "AnnouncementProjects"

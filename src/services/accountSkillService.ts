@@ -8,7 +8,6 @@ import UpdateAccountSkillRequest from "../models/requests/accountSkill/updateAcc
 import UpdatedAccountSkillResponse from "../models/responses/accountSkill/updatedAccountSkillResponse";
 import { AxiosResponse } from "axios";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteAccountSkillRequest from "../models/requests/accountSkill/deleteAccountSkillRequest";
 
 class AccountSkillService extends BaseService<
     Paginate<GetListAccountSkillResponse>,
@@ -16,9 +15,7 @@ class AccountSkillService extends BaseService<
     AddAccountSkillRequest,
     AddedAccountSkillResponse,
     UpdateAccountSkillRequest,
-    UpdatedAccountSkillResponse,
-    DeleteAccountSkillRequest
-> {
+    UpdatedAccountSkillResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountSkills";

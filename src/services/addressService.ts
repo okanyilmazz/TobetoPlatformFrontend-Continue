@@ -2,7 +2,6 @@ import { AxiosResponse } from "axios";
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddAddressRequest from "../models/requests/address/addAddressRequest";
-import DeleteAddressRequest from "../models/requests/address/deleteAddressRequest";
 import UpdateAddressRequest from "../models/requests/address/updateAddressRequest";
 import AddedAddressResponse from "../models/responses/address/addedAddressResponse";
 import GetAddressResponse from "../models/responses/address/getAddressResponse";
@@ -16,8 +15,7 @@ class AddressService extends BaseService<
     AddAddressRequest,
     AddedAddressResponse,
     UpdateAddressRequest,
-    UpdatedAddressResponse,
-    DeleteAddressRequest>{
+    UpdatedAddressResponse>{
     constructor() {
         super()
         this.apiUrl = "Addresses"

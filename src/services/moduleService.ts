@@ -1,7 +1,6 @@
 import { Paginate } from './../models/paginate';
 import { BaseService } from "../core/services/baseService";
 import AddModuleRequest from '../models/requests/module/addModuleRequest';
-import DeleteModuleRequest from '../models/requests/module/deleteModuleRequest';
 import UpdateModuleRequest from '../models/requests/module/updateModuleRequest';
 import AddedModuleResponse from '../models/responses/module/addedModuleResponse';
 import UpdatedModuleResponse from '../models/responses/module/updatedModuleResponse';
@@ -15,9 +14,7 @@ class ModuleService extends BaseService<
     AddModuleRequest,
     AddedModuleResponse,
     UpdateModuleRequest,
-    UpdatedModuleResponse,
-    DeleteModuleRequest
->{
+    UpdatedModuleResponse>{
 
     constructor() {
         super();

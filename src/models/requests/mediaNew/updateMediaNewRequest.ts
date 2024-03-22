@@ -1,6 +1,6 @@
 import { Identifier } from "typescript";
 
-export default interface UpdatedMediaNewRequest {
+export default interface UpdateMediaNewRequest {
   id: Identifier;
   title: string;
   description: string;

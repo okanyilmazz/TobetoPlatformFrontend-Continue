@@ -30,6 +30,7 @@ const Footer = () => {
             lastPathSegment === "1" ||
             pathArray.includes("egitim-detaylari") ||
             pathArray.includes("reset-password") ||
+            pathArray.includes("admin-panel") ||
 
             lastPathSegment === "profilim" ? { display: 'none' } : { display: 'block' }}>
 
@@ -196,42 +197,45 @@ const Footer = () => {
         </MDBContainer>
 
       </MDBFooter>
-      <div className="fontFooter small"
-        style={
-          lastPathSegment === "katalog" ||
-            lastPathSegment === "codecademy" ||
-            lastPathSegment === "kayit-ol" ||
-            lastPathSegment === "giris" ||
-            lastPathSegment === "hakkimizda" ||
-            lastPathSegment === "blog" ||
-            lastPathSegment === "basinda-biz" ||
-            lastPathSegment === "kurumlar-icin" ||
-            lastPathSegment === "" ||
-            lastPathSegment === "bireyler-icin" ||
-            lastPathSegment === "sifremi-unuttum" ||
+      <MDBFooter style={
+        lastPathSegment === "katalog" ||
+          lastPathSegment === "codecademy" ||
+          lastPathSegment === "kayit-ol" ||
+          lastPathSegment === "giris" ||
+          lastPathSegment === "hakkimizda" ||
+          lastPathSegment === "blog" ||
+          lastPathSegment === "basinda-biz" ||
+          lastPathSegment === "kurumlar-icin" ||
+          lastPathSegment === "" ||
+          lastPathSegment === "bireyler-icin" ||
+          lastPathSegment === "sifremi-unuttum" ||
 
 
 
-            lastPathSegment === "takvim-anasayfa" ? { display: 'none' } : { display: 'block' }}>
-        <div className="footer-container">
-          <div className="row">
-            <div className="footer-tobeto-logo col-6 col-lg-4 mb-lg-0 my-4">
-              <a href="#">
-                <img src="https://tobeto.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FTebeto-logo-yatay-beyaz.8c2d6927.png&w=256&q=75" alt="tobeto-logo" />
-              </a>
-            </div>
-            <div className="footer-tobeto-contact col-6 col-lg-8 my-4">
-              <div className="footer-contact">
-                <button className="footer-tobeto-contact-button">
-                  <a href="https://tobeto.com/iletisim" >Bize Ulaşın</a>
-                </button>
+          lastPathSegment === "takvim-anasayfa" ? { display: 'none' } : { display: 'block' }}>
+
+        <div className="fontFooter small"
+        >
+          <div className="footer-container">
+            <div className="row">
+              <div className="footer-tobeto-logo col-6 col-lg-4 mb-lg-0 my-4">
+                <a href="#">
+                  <img src="https://tobeto.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FTebeto-logo-yatay-beyaz.8c2d6927.png&w=256&q=75" alt="tobeto-logo" />
+                </a>
+              </div>
+              <div className="footer-tobeto-contact col-6 col-lg-8 my-4">
+                <div className="footer-contact">
+                  <button className="footer-tobeto-contact-button">
+                    <a href="https://tobeto.com/iletisim" >Bize Ulaşın</a>
+                  </button>
 
 
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </MDBFooter>
 
     </>
   );

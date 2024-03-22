@@ -3,7 +3,6 @@ import axiosInstance from "../core/interceptors/axiosInterceptor";
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddAccountActivityMapRequest from "../models/requests/accountActivityMap/addAccountActivityMapRequest";
-import DeleteAccountActivityMapRequest from "../models/requests/accountActivityMap/deleteAccountActivityMapRequest";
 import UpdateAccountActivityMapRequest from "../models/requests/accountActivityMap/updateAccountActivityMapRequest";
 import AddedAccountActivityMapResponse from "../models/responses/accountActivityMap/addedAccountActivityMapResponse";
 import GetAccountActivityMapResponse from "../models/responses/accountActivityMap/getAccountActivityMapResponse";
@@ -17,9 +16,7 @@ class AccountActivityMapService extends BaseService<
     AddAccountActivityMapRequest,
     AddedAccountActivityMapResponse,
     UpdateAccountActivityMapRequest,
-    UpdatedAccountActivityMapResponse,
-    DeleteAccountActivityMapRequest
-> {
+    UpdatedAccountActivityMapResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountActivityMaps";

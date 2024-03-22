@@ -15,7 +15,6 @@ import workExperienceService from "../../services/workExperienceService";
 import AddWorkExperienceRequest from "../../models/requests/workExperience/addWorkExperienceRequest";
 import authService from "../../services/authService";
 import DeleteCard from "../../components/DeleteCard/DeleteCard";
-import DeleteWorkExperienceRequest from "../../models/requests/workExperience/deleteWorkExperienceRequest";
 import "./MyExperiences.css"
 import TobetoTextArea from "../../utilities/customFormControls/TobetoTextArea";
 import Modals from "../../components/Modal/Modals";
@@ -68,11 +67,7 @@ export default function MyExperiences() {
     }
 
     const deleteWorkExperience = async (workExperience: any) => {
-        const deleteWorkExperience: DeleteWorkExperienceRequest = {
-            id: workExperience.id,
-        }
-
-        await workExperienceService.delete(deleteWorkExperience);
+        await workExperienceService.delete(workExperience.id);
         setShowDeleteCard(false);
         getWorkExperience();;
     }
@@ -192,13 +187,13 @@ export default function MyExperiences() {
                         </Formik>
                         {workExperiences?.items.map((workExperience, index) => (
 
-                            <div className="my-grade">
+                            <div className="my-grade" key={index}>
                                 <div className="grade-header">
                                     <div className="grade-date">
                                         <img className='grade-back-img' src="https://tobeto.com/grade-date.svg" alt="Grade Date" />
                                         <p>
                                             {`${new Date(workExperience.startDate).toLocaleDateString('tr-TR', { day: '2-digit', month: 'short', year: 'numeric' })} - 
-    ${new Date(workExperience.endDate).toLocaleDateString('tr-TR', { day: '2-digit', month: 'short', year: 'numeric' })}`}
+                                              ${new Date(workExperience.endDate).toLocaleDateString('tr-TR', { day: '2-digit', month: 'short', year: 'numeric' })}`}
                                         </p>
 
                                     </div>
@@ -218,13 +213,13 @@ export default function MyExperiences() {
                                     </div>
                                     <div className="grade-details-col">
                                         <div className="grade-details-header">Şehir</div>
-                                        <div className="grade-details-content"> İstanbul</div>
+                                        <div className="grade-details-content">{String(workExperience.cityName)}</div>
                                     </div>
-                                    <div>
+                                    <div className="grade-process">
+                                        <span className="grade-info" onClick={() => setShowModal(true)}></span>
                                         <span className="grade-delete" onClick={() => setShowDeleteCard(true)}>
                                         </span>
 
-                                        <span className="grade-info" onClick={() => setShowModal(true)}></span>
                                     </div>
                                 </div>
 

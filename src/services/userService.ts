@@ -8,7 +8,6 @@ import GetListUserResponse from "../models/responses/user/getListUserResponse";
 import GetUserResponse from "../models/responses/user/getUserResponse";
 import UpdatedUserResponse from "../models/responses/user/updatedUserResponse";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteUserRequest from "../models/requests/user/deleteUserRequest";
 import ResetTokenUserRequest from "../models/requests/user/resetTokenRequest";
 
 
@@ -18,9 +17,7 @@ class UserService extends BaseService<
     AddUserRequest,
     AddedUserResponse,
     UpdateUserRequest,
-    UpdatedUserResponse,
-    DeleteUserRequest
->{
+    UpdatedUserResponse>{
     constructor() {
         super();
         this.apiUrl = "Users"

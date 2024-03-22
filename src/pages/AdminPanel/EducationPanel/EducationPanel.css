@@ -2,6 +2,9 @@
     margin-top: 35px !important;
 }
 
+.education-panel {
+    height: 70.5vh;
+}
 
 .education-panel-content table .education-panel-table-body .td-icons {
     display: flex;

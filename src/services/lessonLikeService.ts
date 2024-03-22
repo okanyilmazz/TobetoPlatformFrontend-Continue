@@ -8,7 +8,6 @@ import AddedLessonLikeResponse from "../models/responses/lessonLike/addedLessonL
 import UpdateLessonLikeRequest from "../models/requests/lessonLike/updateLessonLikeRequest";
 import UpdatedLessonLikeResponse from "../models/responses/lessonLike/updatedLessonLikeResponse";
 import GetListLessonLikeResponse from "../models/responses/lessonLike/getListLessonLikeResponse";
-import DeleteLessonLikeRequest from "../models/requests/lessonLike/deleteLessonLikeRequest";
 
 class LessonLikeService extends BaseService<
     Paginate<GetListLessonLikeResponse>,
@@ -16,10 +15,7 @@ class LessonLikeService extends BaseService<
     AddLessonLikeRequest,
     AddedLessonLikeResponse,
     UpdateLessonLikeRequest,
-    UpdatedLessonLikeResponse,
-    DeleteLessonLikeRequest
-
-> {
+    UpdatedLessonLikeResponse> {
     constructor() {
         super();
         this.apiUrl = "LessonLikes";
@@ -33,8 +29,8 @@ class LessonLikeService extends BaseService<
         return axiosInstance.get<Paginate<GetListLessonLikeResponse>>(this.apiUrl + "/GetByLessonId?lessonId=" + lessonId);
     }
 
-    deleteByAccountIdAndLessonId(request: DeleteLessonLikeRequest): any {
-        return axiosInstance.post(this.apiUrl + "/DeleteByAccountIdAndLessonId", request);
+    deleteByAccountIdAndLessonId(accountId: any, lessonId: any) {
+        return axiosInstance.delete(this.apiUrl + "/accountId=" + accountId + "&lessonId=" + lessonId);
     }
 
     getByLessonIdAndAccountId(lessonId: string, accountId: string): Promise<AxiosResponse<GetLessonLikeResponse, any>> {

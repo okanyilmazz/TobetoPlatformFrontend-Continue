@@ -5,7 +5,6 @@ import AddAccountAnswerRequest from "../models/requests/accountAnswer/addAccount
 import AddedAccountAnswerResponse from "../models/responses/accountAnswer/addedAccountAnswerResponse";
 import UpdateAccountAnswerRequest from "../models/requests/accountAnswer/updateAccountAnswerRequest";
 import UpdatedAccountAnswerResponse from "../models/responses/accountAnswer/updatedAccountAnswerResponse";
-import DeleteAccountAnswerRequest from "../models/requests/accountAnswer/deleteAccountAnswerRequest";
 import GetListAccountAnswerResponse from "../models/responses/accountAnswer/getListAccountAnswerResponse";
 
 class AccountAnswerService extends BaseService<
@@ -14,16 +13,11 @@ class AccountAnswerService extends BaseService<
     AddAccountAnswerRequest,
     AddedAccountAnswerResponse,
     UpdateAccountAnswerRequest,
-    UpdatedAccountAnswerResponse,
-    DeleteAccountAnswerRequest
-
-> {
+    UpdatedAccountAnswerResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountAnswers";
     }
-
-
 }
 
 export default new AccountAnswerService();

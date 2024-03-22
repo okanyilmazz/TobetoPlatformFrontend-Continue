@@ -14,7 +14,6 @@ import announcementService from '../../../services/announcementService';
 import AddAnnouncementRequest from '../../../models/requests/announcement/addAnnouncementRequest';
 import GetListAnnouncementTypeResponse from '../../../models/responses/announcementType/getListAnnouncementTypeResponse';
 import announcementTypeService from '../../../services/announcementTypeService';
-import DeleteAnnouncementRequest from '../../../models/requests/announcement/deleteAnnouncementRequest';
 import UpdateAnnouncementRequest from '../../../models/requests/announcement/updateAnnouncementRequest';
 import AdminPanelSideBarCard from '../../../components/AdminPanelSideBarCard/AdminPanelSideBarCard';
 import projectService from '../../../services/projectService';
@@ -82,11 +81,8 @@ export default function AnnouncementPanel() {
     }, []);
 
 
-    const handleDeleteAnnouncement = async (announcement: any) => {
-        const deleteAnnouncement: DeleteAnnouncementRequest = {
-            id: announcement.id
-        }
-        await announcementService.delete(deleteAnnouncement);
+    const handleDeleteAnnouncement = async (announcementId: any) => {
+        await announcementService.delete(announcementId);
         getAnnouncement();
     }
 
@@ -226,7 +222,7 @@ export default function AnnouncementPanel() {
                                     ))
                                 }
                                 <tr >
-                                    <td className='text-center' onClick={handleAddClick} colSpan={5}>
+                                    <td className='text-center add-new-data' onClick={handleAddClick} colSpan={5}>
                                         <span>Yeni duyuru ekle</span>
                                     </td>
                                 </tr>

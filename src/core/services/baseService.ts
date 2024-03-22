@@ -7,8 +7,7 @@ export class BaseService<
     AddRequestType,
     AddResponseType,
     UpdateRequestType,
-    UpdateResponseType,
-    DeleteRequestType>{
+    UpdateResponseType>{
 
     public apiUrl: string;
 
@@ -32,7 +31,7 @@ export class BaseService<
         return axiosInstance.put<UpdateResponseType>(this.apiUrl, request);
     }
 
-    delete(request: DeleteRequestType) {
-        return axiosInstance.delete(this.apiUrl, request!);
+    delete(id: any) {
+        return axiosInstance.delete(this.apiUrl + "/" + id);
     }
 }

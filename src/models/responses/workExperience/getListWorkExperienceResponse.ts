@@ -2,8 +2,8 @@ import { Identifier } from "typescript";
 
 export default interface GetListWorkExperienceResponse {
     Id: Identifier;
-    cityId: Identifier;
-    accountId: Identifier;
+    cityName: Identifier;
+    accountName: Identifier;
     industry: string;
     companyName: string;
     department: string;

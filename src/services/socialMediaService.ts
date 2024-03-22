@@ -8,7 +8,6 @@ import GetListSocialMediaResponse from "../models/responses/socialMedia/getListS
 import GetSocialMediaResponse from "../models/responses/socialMedia/getSocialMediaResponse";
 import UpdatedSocialMediaResponse from "../models/responses/socialMedia/updatedSocialMediaResponse";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteSocialMediaRequest from "../models/requests/socialMedia/deleteSocialMediaRequest";
 
 class SocialMediaService extends BaseService<
   Paginate<GetListSocialMediaResponse>,
@@ -16,9 +15,7 @@ class SocialMediaService extends BaseService<
   AddSocialMediaRequest,
   AddedSocialMediaResponse,
   UpdateSocialMediaRequest,
-  UpdatedSocialMediaResponse,
-  DeleteSocialMediaRequest
-> {
+  UpdatedSocialMediaResponse> {
   constructor() {
     super();
     this.apiUrl = "SocialMedias";
@@ -29,14 +26,7 @@ class SocialMediaService extends BaseService<
     pageIndex: number,
     pageSize: number
   ): Promise<AxiosResponse<Paginate<GetListSocialMediaResponse>, any>> {
-    return axiosInstance.get<Paginate<GetListSocialMediaResponse>>(
-      this.apiUrl +
-      "/GetByAccountId?accountId=" +
-      accountId +
-      "&PageIndex=" +
-      pageIndex +
-      "&PageSize=" +
-      pageSize
+    return axiosInstance.get<Paginate<GetListSocialMediaResponse>>(this.apiUrl + "/GetByAccountId?accountId=" + accountId + "&PageIndex=" + pageIndex + "&PageSize=" + pageSize
     );
   }
 }

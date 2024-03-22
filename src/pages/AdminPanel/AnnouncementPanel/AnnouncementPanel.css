@@ -2,6 +2,9 @@
     margin-top: 35px !important;
 }
 
+.announcement-panel {
+    height: 70.5vh;
+}
 
 .announcement-panel-content table .announcement-panel-table-body .td-icons {
     display: flex;

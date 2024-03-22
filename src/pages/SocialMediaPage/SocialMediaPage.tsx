@@ -7,11 +7,9 @@ import TobetoTextInput from '../../utilities/customFormControls/TobetoTextInput'
 import TobetoSelect from '../../utilities/customFormControls/TobetoSelect'
 import GetListAccountSocialMediaResponse from '../../models/responses/accountSocialMedia/getListAccountSocialMediaResponse'
 import { RiPencilFill } from 'react-icons/ri'
-import { toast } from 'react-toastify'
 import Modals from '../../components/Modal/Modals'
 import { Paginate } from '../../models/paginate'
 import AddAccountSocialMediaRequest from '../../models/requests/accountSocialMedia/addAccountSocialMediaRequest'
-import DeleteAccountSocialMediaRequest from '../../models/requests/accountSocialMedia/deleteAccountSocialMediaRequest'
 import UpdateAccountSocialMediaRequest from '../../models/requests/accountSocialMedia/updateAccountSocialMediaRequest'
 import GetListSocialMediaResponse from '../../models/responses/socialMedia/getListSocialMediaResponse'
 import accountSocialMediaService from '../../services/accountSocialMediaService'
@@ -57,10 +55,7 @@ export default function SocialMediaPage() {
     });
 
     const handleDeleteAccountSocialMedia = async (accountSocialMedia: any) => {
-        const deleteAccountSocialMedia: DeleteAccountSocialMediaRequest = {
-            id: accountSocialMedia.id
-        }
-        await accountSocialMediaService.delete(deleteAccountSocialMedia);
+        await accountSocialMediaService.delete(accountSocialMedia.id);
         ProfileToaster({ name: DELETED_SOCIAL_MEDIA })
         setShowDeleteCard(false);
         getAccountSocialMedia();

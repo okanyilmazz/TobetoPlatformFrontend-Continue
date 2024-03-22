@@ -6,16 +6,13 @@ import AddedOccupationResponse from "../models/responses/occupation/addedOccupat
 import GetListOccupation from "../models/responses/occupation/getListOccupationResponse";
 import GetOccupation from "../models/responses/occupation/getOccupationResponse";
 import UpdatedOccupationResponse from "../models/responses/occupation/updatedOccupationResponse";
-import DeleteOccupationRequest from '../models/requests/occupation/deleteOccupationRequest';
 class OccupationService extends BaseService<
     Paginate<GetListOccupation>,
     GetOccupation,
     AddOccupationRequest,
     AddedOccupationResponse,
     UpdateOccupationRequest,
-    UpdatedOccupationResponse,
-    DeleteOccupationRequest
->{
+    UpdatedOccupationResponse>{
 
     constructor() {
         super();

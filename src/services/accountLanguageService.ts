@@ -8,7 +8,6 @@ import UpdateAccountLanguageRequest from "../models/requests/accountLanguage/upd
 import UpdatedAccountLanguageResponse from "../models/responses/accountLanguage/updatedAccountLanguageResponse";
 import { AxiosResponse } from "axios";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteAccountLanguageRequest from "../models/requests/accountLanguage/deleteAccountLanguageRequest";
 
 class AccountLanguageService extends BaseService<
     Paginate<GetListAccountLanguageResponse>,
@@ -16,10 +15,7 @@ class AccountLanguageService extends BaseService<
     AddAccountLanguageRequest,
     AddedAccountLanguageResponse,
     UpdateAccountLanguageRequest,
-    UpdatedAccountLanguageResponse,
-    DeleteAccountLanguageRequest
-
-> {
+    UpdatedAccountLanguageResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountLanguages";

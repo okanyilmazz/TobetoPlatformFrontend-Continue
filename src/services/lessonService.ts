@@ -8,7 +8,6 @@ import UpdateLessonRequest from "../models/requests/lesson/updateLessonRequest";
 import AddedLessonResponse from "../models/responses/lesson/addedLessonResponse";
 import AddLessonRequest from "../models/requests/lesson/addLessonRequest";
 import GetLessonResponse from "../models/responses/lesson/getLessonResponse";
-import DeleteLessonRequest from "../models/requests/lesson/deleteLessonRequest";
 
 class LessonService extends BaseService<
     Paginate<GetListLessonResponse>,
@@ -16,9 +15,7 @@ class LessonService extends BaseService<
     AddLessonRequest,
     AddedLessonResponse,
     UpdateLessonRequest,
-    UpdatedLessonResponse,
-    DeleteLessonRequest
-> {
+    UpdatedLessonResponse> {
     constructor() {
         super();
         this.apiUrl = "Lessons";

@@ -6,20 +6,16 @@ import Button from 'react-bootstrap/Button';
 import './EducationProgramContent.css'
 import { Paginate } from '../../models/paginate';
 import GetListLessonResponse from '../../models/responses/lesson/getListLessonResponse';
-import GetListAccountResponse from '../../models/responses/account/getListAccountResponse';
 import authService from '../../services/authService';
 import lessonService from '../../services/lessonService';
 import lessonLikeService from '../../services/lessonLikeService';
 import accountService from '../../services/accountService';
 import AddLessonLikeRequest from '../../models/requests/lessonLike/addLessonLikeRequest';
-import DeleteLessonLikeRequest from '../../models/requests/lessonLike/deleteLessonLikeRequest';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import LikeButton from '../../components/LikeButton/LikeButton';
 import { Accordion, Image, OverlayTrigger, Tab, Tabs, Tooltip } from 'react-bootstrap';
 import EducationDrawer from '../../components/EducationDrawer/EducationDrawer';
 import AddEducationProgramLikeRequest from '../../models/requests/educationProgramLike/addEducationProgramLikeRequest';
-import DeleteEducationProgramLikeRequest from '../../models/requests/educationProgramLike/deleteEducationProgramLikeRequest';
-import { toast } from 'react-toastify';
 import { GetListEducationProgramResponse } from '../../models/responses/educationProgram/getListEducationProgramResponse';
 import educationProgramService from '../../services/educationProgramService';
 import { QuestionCircleOutlined } from "@ant-design/icons";
@@ -47,11 +43,9 @@ import GetLessonResponse from '../../models/responses/lesson/getLessonResponse';
 import React from 'react';
 import AddAccountViewLessonRequest from '../../models/requests/accountViewLesson/addAccountViewLessonRequest';
 import accountViewLessonService from '../../services/accountViewLessonService';
-import GetListAccountViewLessonResponse from '../../models/responses/accountViewLesson/getListAccountViewLessonResponse';
 import accountFavoriteEducationProgramService from '../../services/accountFavoriteEducationProgramService';
 import AddAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/addAccountFavoriteEducationProgramRequest';
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster';
-import DeleteAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/deleteAccountFavoriteEducationProgramRequest';
 import { ASYNCHRONOUS_LESSON, PDF_LESSON, TOAST_SUCCESS } from '../../environment/environment';
 import moment, { duration } from 'moment';
 export default function EducationProgramContent() {
@@ -183,11 +177,7 @@ export default function EducationProgramContent() {
             };
             await educationProgramLikeService.add(addEducationProgramLike);
         } else {
-            const deleteEducationProgramLike: DeleteEducationProgramLikeRequest = {
-                accountId: user.id,
-                educationProgramId: String(educationProgramId)
-            };
-            await educationProgramLikeService.deleteByAccountIdAndEducationProgramId(deleteEducationProgramLike);
+            await educationProgramLikeService.deleteByAccountIdAndEducationProgramId(user.id, String(educationProgramId));
         }
         setIsLikedEducationProgram(isLiked);
     };
@@ -225,11 +215,7 @@ export default function EducationProgramContent() {
             };
             await lessonLikeService.add(addLessonLike);
         } else {
-            const deleteLessonLikeRequest: DeleteLessonLikeRequest = {
-                accountId: user.id,
-                lessonId: selectedLessonId
-            };
-            await lessonLikeService.deleteByAccountIdAndLessonId(deleteLessonLikeRequest);
+            await lessonLikeService.deleteByAccountIdAndLessonId(user.id, selectedLessonId);
         }
         setIsLikedLesson(isLiked);
         getLessonLikeCount();
@@ -335,11 +321,7 @@ export default function EducationProgramContent() {
     }
 
     const handleDeleteFavorite = async () => {
-        const deleteFavoriteEducationProgram: DeleteAccountFavoriteEducationProgramRequest = {
-            accountId: user.id,
-            educationProgramId: String(educationProgramId)
-        }
-        await accountFavoriteEducationProgramService.deleteByAccountIdAndEducationProgramId(deleteFavoriteEducationProgram);
+        await accountFavoriteEducationProgramService.deleteByAccountIdAndEducationProgramId(user.id, educationProgramId);
         ProfileToaster({
             name: DELETED_FAVORITE,
             type: TOAST_SUCCESS

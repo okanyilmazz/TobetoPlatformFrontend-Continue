@@ -69,9 +69,11 @@
     padding-top: 20px;
 }
 
+.edu-back-first {
+    position: relative;
+}
 
 .edu-delete-btn {
-    margin-top: -40px;
     background-color: #fc6d6d !important;
     border: none;
     border-radius: 50px !important;
@@ -79,7 +81,9 @@
     height: 25px;
     display: flex;
     justify-content: center;
-    margin-left: 780px !important;
+    position: absolute;
+    right: -20px;
+    top: 20px;
 }
 
 
@@ -137,10 +141,13 @@ button:not(:disabled) {
 
 .educational-background {
     display: flex;
+    position: relative;
 }
 
 .education-back-p {
-    margin-left: 600px !important;
+    position: absolute;
+    font-family: 'Poppins-Regular' !important;
+    right: 0;
 }
 
 .educational-background img {
@@ -149,10 +156,10 @@ button:not(:disabled) {
 }
 
 .educational-background p {
-    margin-left: 30px;
+    margin-left: 10px;
     color: RGB(158 70 247);
-    font-family: "Poppins-Regular";
-
+    font-family: "Poppins-Medium";
+    margin-bottom: 10px;
 }
 
 .educational-back-uni {
@@ -161,24 +168,18 @@ button:not(:disabled) {
 }
 
 
-.educational-back-uni-head {
-    color: #828282 !important;
-    font-size: 16px;
-    font-weight: 500;
-}
-
 .educational-back-uni-header {
     color: #828282 !important;
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: 'Poppins-Medium';
+    display: flex;
 }
 
 .educational-back-uni-content {
     color: #171717 !important;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 14px;
     text-transform: capitalize;
     word-break: break-word;
     margin-top: 10px !important;
+    font-family: 'Poppins-Medium';
 }

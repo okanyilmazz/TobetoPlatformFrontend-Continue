@@ -6,7 +6,6 @@ import AddCountryRequest from "../models/requests/country/addCountryRequest";
 import { AddedCountryResponse } from "../models/responses/country/addedCountryResponse";
 import UpdateCountryRequest from "../models/requests/country/updateCountryRequest";
 import { UpdatedCountryResponse } from "../models/responses/country/updatedCountryResponse";
-import DeleteCountryRequest from "../models/requests/country/deleteCountryRequest";
 
 class CountryService extends BaseService<
     Paginate<GetListCountryResponse>,
@@ -14,9 +13,7 @@ class CountryService extends BaseService<
     AddCountryRequest,
     AddedCountryResponse,
     UpdateCountryRequest,
-    UpdatedCountryResponse,
-    DeleteCountryRequest
-> {
+    UpdatedCountryResponse> {
     constructor() {
         super()
         this.apiUrl = "Countries"

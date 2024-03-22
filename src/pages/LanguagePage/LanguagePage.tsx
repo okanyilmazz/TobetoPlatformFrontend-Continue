@@ -15,7 +15,6 @@ import SidebarCard from '../../components/SidebarCard/SidebarCard';
 import accountLanguageService from '../../services/accountLanguageService';
 import GetListAccountLanguageResponse from '../../models/responses/accountLanguage/getListAccountLanguageResponse';
 import AddAccountLanguageRequest from '../../models/requests/accountLanguage/addAccountLanguageRequest';
-import DeleteAccountLanguageRequest from '../../models/requests/accountLanguage/deleteAccountLanguageRequest';
 import { AVAILABLE_ACCOUNT_LANGUAGE, ADDED_ACCOUNT_LANGUAGE, REQUIRED_MESSAGE, DELETED_ACCOUNT_LANGUAGE } from '../../environment/messages';
 
 const validationSchema = Yup.object().shape({
@@ -81,10 +80,7 @@ export default function LanguagePage() {
 
     const deleteAccountLanguage = async () => {
         if (selectedLanguage) {
-            const deleteAccountLanguage: DeleteAccountLanguageRequest = {
-                id: selectedLanguage.id
-            }
-            await accountLanguageService.delete(deleteAccountLanguage)
+            await accountLanguageService.delete(selectedLanguage.id)
             getAccountLanguage();
             setShowDeleteCard(false);
             ProfileToaster({ name: DELETED_ACCOUNT_LANGUAGE });

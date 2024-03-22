@@ -8,7 +8,6 @@ import AddedLessonModuleResponse from "../models/responses/lessonModule/addedLes
 import UpdateLessonModuleRequest from "../models/requests/lessonModule/updateLessonModuleRequest";
 import UpdatedLessonModuleResponse from "../models/responses/lessonModule/updatedLessonModuleResponse";
 import GetListLessonModuleResponse from "../models/responses/lessonModule/getListLessonModuleResponse";
-import DeleteLessonModuleRequest from "../models/requests/lessonModule/deleteLessonModuleRequest";
 
 class LessonModuleService extends BaseService<
     Paginate<GetListLessonModuleResponse>,
@@ -16,10 +15,7 @@ class LessonModuleService extends BaseService<
     AddLessonModuleRequest,
     AddedLessonModuleResponse,
     UpdateLessonModuleRequest,
-    UpdatedLessonModuleResponse,
-    DeleteLessonModuleRequest
-
-> {
+    UpdatedLessonModuleResponse> {
     constructor() {
         super();
         this.apiUrl = "LessonModules";
@@ -33,8 +29,8 @@ class LessonModuleService extends BaseService<
         return axiosInstance.get<Paginate<GetListLessonModuleResponse>>(this.apiUrl + "/GetByLessonId?lessonId=" + lessonId);
     }
 
-    deleteByAccountIdAndLessonId(request: DeleteLessonModuleRequest): any {
-        return axiosInstance.post(this.apiUrl + "/DeleteByModuleIdAndLessonId", request);
+    deleteByAccountIdAndLessonId(accountId: any, lessonId: any) {
+        return axiosInstance.delete(this.apiUrl + "/accountId=" + accountId + "&lessonId=" + lessonId);
     }
 }
 

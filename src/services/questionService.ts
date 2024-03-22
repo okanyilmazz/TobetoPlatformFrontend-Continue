@@ -8,7 +8,6 @@ import AddQuestionRequest from "../models/requests/question/addQuestionRequest";
 import AddedQuestionResponse from "../models/responses/question/addedQuestionResponse";
 import UpdateQuestionRequest from "../models/requests/question/updateQuestionRequest";
 import UpdatedQuestionResponse from "../models/responses/question/updatedQuestionResponse";
-import DeleteQuestionRequest from "../models/requests/question/deleteQuestionRequest";
 
 class QuestionService extends BaseService<
     Paginate<GetListQuestionResponse>,
@@ -16,9 +15,7 @@ class QuestionService extends BaseService<
     AddQuestionRequest,
     AddedQuestionResponse,
     UpdateQuestionRequest,
-    UpdatedQuestionResponse,
-    DeleteQuestionRequest
-> {
+    UpdatedQuestionResponse> {
     constructor() {
         super()
         this.apiUrl = "Questions"

@@ -1,8 +1,7 @@
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddUniversityRequest from "../models/requests/university/addUniversityRequest";
-import DeleteUniversityRequest from "../models/requests/university/deleteUniversityRequest";
-import UpdateUniversityRequest from "../models/requests/university/deleteUniversityRequest";
+import UpdateUniversityRequest from "../models/requests/university/updateUniversityRequest";
 import AddedUniversityResponse from "../models/responses/university/addedUniversityResponse";
 import GetListUniversityResponse from "../models/responses/university/getListUniversityResponse";
 import GetUniversityResponse from "../models/responses/university/getUniversityResponse";
@@ -14,9 +13,7 @@ class UniversityService extends BaseService<
     AddUniversityRequest,
     AddedUniversityResponse,
     UpdateUniversityRequest,
-    UpdatedUniversityResponse,
-    DeleteUniversityRequest
-> {
+    UpdatedUniversityResponse> {
     constructor() {
         super()
         this.apiUrl = "Universities"

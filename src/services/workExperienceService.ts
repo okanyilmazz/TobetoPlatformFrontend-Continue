@@ -8,7 +8,6 @@ import GetListWorkExperienceResponse from "../models/responses/workExperience/ge
 import GetWorkExperienceResponse from "../models/responses/workExperience/getWorkExperienceResponse";
 import UpdatedWorkExperienceResponse from "../models/responses/workExperience/updatedWorkExperienceResponse";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteWorkExperienceRequest from "../models/requests/workExperience/deleteWorkExperienceRequest";
 
 class WorkExperienceService extends BaseService<
     Paginate<GetListWorkExperienceResponse>,
@@ -16,9 +15,7 @@ class WorkExperienceService extends BaseService<
     AddWorkExperienceRequest,
     AddedWorkExperienceResponse,
     UpdateWorkExperienceRequest,
-    UpdatedWorkExperienceResponse,
-    DeleteWorkExperienceRequest
->{
+    UpdatedWorkExperienceResponse>{
 
     constructor() {
         super()

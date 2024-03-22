@@ -4,12 +4,10 @@ import { AxiosResponse } from "axios";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
 import UpdateAccountEducationProgramRequest from "../models/requests/accountEducationProgram/updateEducationProgramRequest";
 import AddAccountEducationProgramRequest from "../models/requests/accountEducationProgram/addEducationProgramRequest";
-import DeleteAccountEducationProgramRequest from "../models/requests/accountEducationProgram/deleteEducationProgramRequest";
 import AddedAccountEducationProgramResponse from "../models/responses/accountEducationProgram/addedAccountEducationProgramResponse";
 import GetAccountEducationProgramResponse from "../models/responses/accountEducationProgram/getAccountEducationProgramResponse";
 import UpdatedAccountEducationProgramResponse from "../models/responses/accountEducationProgram/updatedAccountEducationProgramResponse";
 import GetListAccountEducationProgramResponse from "../models/responses/accountEducationProgram/getAccountListEducationProgramResponse";
-import { Identifier } from "typescript";
 
 
 class AccountEducationProgramService extends BaseService<
@@ -18,9 +16,7 @@ class AccountEducationProgramService extends BaseService<
     AddAccountEducationProgramRequest,
     AddedAccountEducationProgramResponse,
     UpdateAccountEducationProgramRequest,
-    UpdatedAccountEducationProgramResponse,
-    DeleteAccountEducationProgramRequest
-> {
+    UpdatedAccountEducationProgramResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountEducationPrograms";

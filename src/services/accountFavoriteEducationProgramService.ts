@@ -4,7 +4,6 @@ import { AxiosResponse } from "axios";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
 import GetListAccountFavoriteEducationProgramResponse from "../models/responses/accountFavoriteEducationProgram/getListAccountFavoriteEducationProgramResponse";
 import AddAccountFavoriteEducationProgramRequest from "../models/requests/accountFavoriteEducationProgram/addAccountFavoriteEducationProgramRequest";
-import DeleteAccountFavoriteEducationProgramRequest from "../models/requests/accountFavoriteEducationProgram/deleteAccountFavoriteEducationProgramRequest";
 import UpdateAccountFavoriteEducationProgramRequest from "../models/requests/accountFavoriteEducationProgram/updateAccountFavoriteEducationProgramRequest";
 import AddedAccountFavoriteEducationProgramResponse from "../models/responses/accountFavoriteEducationProgram/addedAccountFavoriteEducationProgramResponse";
 import GetAccountFavoriteEducationProgramResponse from "../models/responses/accountFavoriteEducationProgram/getAccountFavoriteEducationProgramResponse";
@@ -17,9 +16,7 @@ class AccountFavoriteEducationProgramService extends BaseService<
     AddAccountFavoriteEducationProgramRequest,
     AddedAccountFavoriteEducationProgramResponse,
     UpdateAccountFavoriteEducationProgramRequest,
-    UpdatedAccountFavoriteEducationProgramResponse,
-    DeleteAccountFavoriteEducationProgramRequest
-> {
+    UpdatedAccountFavoriteEducationProgramResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountFavoriteEducationPrograms";
@@ -37,8 +34,8 @@ class AccountFavoriteEducationProgramService extends BaseService<
         return axiosInstance.get<GetListAccountFavoriteEducationProgramResponse>(this.apiUrl + "/GetByAccountIdAndEducationProgramId?accountId=" + accountId + "&educationProgramId=" + educationProgramId);
     }
 
-    deleteByAccountIdAndEducationProgramId(request: DeleteAccountFavoriteEducationProgramRequest): any {
-        return axiosInstance.post(this.apiUrl + "/DeleteByAccountIdAndEducationProgramId", request);
+    deleteByAccountIdAndEducationProgramId(accountId: any, educationProgramId: any) {
+        return axiosInstance.delete(this.apiUrl + "/accountId=" + accountId + "&educationProgramId=" + educationProgramId);
     }
 }
 

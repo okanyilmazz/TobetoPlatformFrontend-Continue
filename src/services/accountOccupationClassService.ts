@@ -7,9 +7,7 @@ import AddAccountOccupationClassRequest from "../models/requests/accountOccupati
 import AddedAccountOccupationClassResponse from "../models/responses/accountOccuopationClass/addedAccountOccupationClassResponse";
 import UpdateAccountOccupationClassRequest from "../models/requests/accountOccupationClass/updateAccountOccupationClassRequest";
 import UpdatedAccountOccupationClassResponse from "../models/responses/accountOccuopationClass/updatedAccountOccupationClassResponse";
-import DeleteAccountOccupationClassRequest from "../models/requests/accountOccupationClass/deleteAccountOccupationClassRequest";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import { Identifier } from "typescript";
 
 
 class AccountOccupationClassService extends BaseService<
@@ -18,8 +16,7 @@ class AccountOccupationClassService extends BaseService<
     AddAccountOccupationClassRequest,
     AddedAccountOccupationClassResponse,
     UpdateAccountOccupationClassRequest,
-    UpdatedAccountOccupationClassResponse,
-    DeleteAccountOccupationClassRequest>{
+    UpdatedAccountOccupationClassResponse>{
     constructor() {
         super()
         this.apiUrl = "AccountOccupationClasses"

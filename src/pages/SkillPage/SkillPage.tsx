@@ -4,9 +4,7 @@ import skillService from '../../services/skillService';
 import { Paginate } from '../../models/paginate';
 import GetListSkillResponse from '../../models/responses/skill/getListSkillResponse';
 import GetListAccountSkillResponse from '../../models/responses/accountSkill/getListAccountSkillResponse';
-import { toast } from 'react-toastify';
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster';
-import DeleteAccountSkillRequest from '../../models/requests/accountSkill/deleteAccountSkillRequest';
 import accountSkillService from '../../services/accountSkillService';
 import { Button, Col, Row } from 'react-bootstrap';
 import CreatableSelect from 'react-select/creatable';
@@ -50,14 +48,8 @@ export default function SkillPage() {
     }
 
     const handleDeleteAccountSkill = async (accountSkill: any) => {
-        const deleteAccountSkill: DeleteAccountSkillRequest = {
-            id: accountSkill.id,
-            accountId: accountSkill.accountId,
-            skillId: accountSkill.skillId
-        };
-        await accountSkillService.delete(deleteAccountSkill)
+        await accountSkillService.delete(accountSkill.id)
         ProfileToaster({ name: DELETED_SKILL });
-
         getAccountSkill();
     }
 

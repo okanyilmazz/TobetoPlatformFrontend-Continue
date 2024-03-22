@@ -172,8 +172,8 @@ export default function StudentPanel() {
 
 
     return (
-        <div className='container'>
-            <div className="row student-panel  ">
+        <div className='container student-panel'>
+            <div className="row   ">
                 <AdminPanelSideBarCard />
                 <div className="student-panel-content col-md-9">
                     <div className="search">

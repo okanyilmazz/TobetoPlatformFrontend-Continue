@@ -6,7 +6,6 @@ import AddLessonSubTypeRequest from "../models/requests/lessonSubType/addLessonS
 import AddedLessonSubTypeResponse from "../models/responses/lessonSubType/addedLessonSubTypeResponse";
 import UpdateLessonSubTypeRequest from "../models/requests/lessonSubType/updateLessonSubTypeRequest";
 import UpdatedLessonSubTypeResponse from "../models/responses/lessonSubType/updatedLessonSubTypeResponse";
-import DeleteLessonSubTypeRequest from "../models/requests/lessonSubType/deleteLessonSubTypeRequest";
 
 class LessonSubTypeService extends BaseService<
     Paginate<GetListLessonSubTypeResponse>,
@@ -14,10 +13,7 @@ class LessonSubTypeService extends BaseService<
     AddLessonSubTypeRequest,
     AddedLessonSubTypeResponse,
     UpdateLessonSubTypeRequest,
-    UpdatedLessonSubTypeResponse,
-    DeleteLessonSubTypeRequest
-
-> {
+    UpdatedLessonSubTypeResponse> {
     constructor() {
         super();
         this.apiUrl = "LessonSubTypes";

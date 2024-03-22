@@ -1,7 +1,6 @@
 import { BaseService } from "../core/services/baseService";
 import { Paginate } from "../models/paginate";
 import AddSkillRequest from "../models/requests/Skill/addSkillRequest";
-import DeleteSkillRequest from "../models/requests/Skill/deleteSkillRequest";
 import UpdateSkillRequest from "../models/requests/Skill/updateSkillRquest";
 import AddedSkillResponse from "../models/responses/skill/addedSkillResponse";
 import GetListSkillResponse from "../models/responses/skill/getListSkillResponse";
@@ -15,8 +14,7 @@ class SkillService extends BaseService<
     AddSkillRequest,
     AddedSkillResponse,
     UpdateSkillRequest,
-    UpdatedSkillResponse,
-    DeleteSkillRequest>{
+    UpdatedSkillResponse>{
 
     constructor() {
         super()

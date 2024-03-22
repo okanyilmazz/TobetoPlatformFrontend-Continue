@@ -8,7 +8,6 @@ import GetAccountResponse from "../models/responses/account/getAccountResponse";
 import GetListAccountResponse from "../models/responses/account/getListAccountResponse";
 import UpdatedAccountResponse from "../models/responses/account/updatedAccountResponse";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteAccountRequest from "../models/requests/account/deleteAccountRequest";
 import { Identifier } from "typescript";
 
 
@@ -18,8 +17,7 @@ class AccountService extends BaseService<
     AddAccountRequest,
     AddedAccountResponse,
     UpdateAccountRequest,
-    UpdatedAccountResponse,
-    DeleteAccountRequest>{
+    UpdatedAccountResponse>{
     constructor() {
         super()
         this.apiUrl = "Accounts"

@@ -1,101 +1,158 @@
 .formik-form button {
-  background-color: #93f;
-  padding: 6px 12px;
-  border-radius: 999px;
+    background-color: #93f;
+    padding: 6px 12px;
+    border-radius: 999px;
 
 }
 
 .experience-page-content {
-  margin-top: 36px !important;
-  padding-left: 20px !important;
+    margin-top: 36px !important;
+    padding-left: 20px !important;
 }
 
 .grade-delete-btn img {
-  background-color: #fc6d6d !important;
-  border: none;
-  border-radius: 50px !important;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  justify-content: center;
+    background-color: #fc6d6d !important;
+    border: none;
+    border-radius: 50px !important;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 .my-grade {
-  box-shadow: 0 10px 24px 0 hsla(0, 0%, 9%, .05);
-  background-color: #fff;
-  padding: 12px 18px;
-  margin-top: 8px;
+    box-shadow: 0 10px 24px 0 hsla(0, 0%, 9%, .05);
+    background-color: #fff;
+    padding: 12px 18px;
+    margin-top: 8px;
+    position: sticky;
+}
+
+
+.my-grade .grade-details {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5rem;
+}
+
+.my-grade .grade-details-header {
+    color: #828282 !important;
+    font-size: 14px;
+    font-family: 'Poppins-Medium';
+    display: flex;
+}
+
+.my-grade .grade-details-content {
+    font-family: 'Poppins-Medium';
+}
+
+.my-grade .grade-process {
+    position: absolute;
+    right: -10px;
+    row-gap: 10px !important;
+    display: flex;
+    flex-direction: column;
+    top: 40%;
+}
+
+.my-grade .grade-process span {
+    cursor: pointer;
+}
+
+.my-grade .grade-info::after {
+    content: url(/public/assets/Icons/grade-info.svg);
+    display: flex;
+    background-color: #ac59ff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    justify-content: center;
+    padding-top: 3px;
+}
+
+.my-grade .grade-delete::after {
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+
+    content: url(/public/assets/Icons/grade-trash.svg);
+    background-color: #fc6d6d;
+    width: 24px;
+    height: 24px;
+    padding-top: 3px;
 }
 
 .grade-date {
-  display: flex;
-  color: rgba(153, 51, 255, .66);
-
-  font-size: 14px;
-  font-weight: bold;
-  border-color: #93f;
+    display: flex;
+    color: rgba(153, 51, 255, .66);
+    font-size: 12px;
+    border-color: #93f;
+    gap: 10px;
+    font-family: 'Poppins-Bold';
 }
 
 .formik-form button:hover {
-  background-color: #822bd9;
-  border-color: #822bd9;
+    background-color: #822bd9;
+    border-color: #822bd9;
 }
 
 .formik-form .field input:focus {
-  border-color: #c9f !important;
-  box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
-  outline: 0;
+    border-color: #c9f !important;
+    box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+    outline: 0;
 }
 
 .formik-form .field input {
-  width: 100%;
-  border: solid #e7e5e4;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  border-radius: 5px;
-  padding: 1rem 1.5rem;
-  font-family: 'Poppins-Regular';
-  font-size: 16px;
+    width: 100%;
+    border: solid #e7e5e4;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+    font-family: 'Poppins-Regular';
+    font-size: 16px;
 
-  font-weight: 400;
-  line-height: 1.25;
+    font-weight: 400;
+    line-height: 1.25;
 }
 
 .formik-form .field select {
-  width: 100%;
-  border: solid #e7e5e4;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  border-radius: 5px;
-  padding: 1rem 1.5rem;
-  font-family: 'Poppins-Regular';
-  font-size: .875rem;
-  font-weight: 400;
-  line-height: 1.25;
+    width: 100%;
+    border: solid #e7e5e4;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+    font-family: 'Poppins-Regular';
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25;
 }
 
 .formik-form .field select:focus {
-  border-color: #c9f !important;
-  box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
-  outline: 0;
+    border-color: #c9f !important;
+    box-shadow: 0 0 0 0.25rem rgba(153, 51, 255, .25);
+    outline: 0;
 }
 
 
 .user-modal-footer-button button {
-  background-color: #93f;
-  color: #fff;
-  border-radius: 12px;
-  display: flex;
-  margin-left: 400px;
+    background-color: #93f;
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    margin-left: 400px;
 }
 
 .user-modal-footer-button button:hover {
-  background-color: #93f;
-  color: #fff;
-  border-radius: 12px;
-  display: flex;
-  margin-left: 400px;
+    background-color: #93f;
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    margin-left: 400px;
 }
 
 .ui.pointing.label {
-  margin-top: -10px !important;
-  margin-bottom: 10px;
+    margin-top: -10px !important;
+    margin-bottom: 10px;
 }

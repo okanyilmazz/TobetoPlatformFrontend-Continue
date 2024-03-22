@@ -6,7 +6,6 @@ import AddedBlogResponse from "../models/responses/blog/addedBlogResponse";
 import AddBlogRequest from "../models/requests/blog/addBlogRequest";
 import GetListBlogResponse from "../models/responses/blog/getListBlogResponse";
 import GetBlogResponse from "../models/responses/blog/getBlogResponse";
-import DeleteBlogRequest from "../models/requests/blog/deleteBlogRequest";
 
 
 class BlogService extends BaseService<
@@ -15,9 +14,7 @@ class BlogService extends BaseService<
     AddBlogRequest,
     AddedBlogResponse,
     UpdateBlogRequest,
-    UpdatedBlogResponse,
-    DeleteBlogRequest
-> {
+    UpdatedBlogResponse> {
     constructor() {
         super()
         this.apiUrl = "Blogs"

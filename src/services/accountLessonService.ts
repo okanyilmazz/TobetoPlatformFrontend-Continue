@@ -8,7 +8,6 @@ import UpdateAccountLessonRequest from "../models/requests/accountLesson/updateA
 import UpdatedAccountLessonResponse from "../models/responses/accountLesson/updatedAccountLessonResponse";
 import { AxiosResponse } from "axios";
 import axiosInstance from "../core/interceptors/axiosInterceptor";
-import DeleteAccountLessonRequest from "../models/requests/accountLesson/deleteAccountLessonRequest";
 
 class AccountLessonService extends BaseService<
     Paginate<GetListAccountLessonResponse>,
@@ -16,9 +15,7 @@ class AccountLessonService extends BaseService<
     AddAccountLessonRequest,
     AddedAccountLessonResponse,
     UpdateAccountLessonRequest,
-    UpdatedAccountLessonResponse,
-    DeleteAccountLessonRequest
-> {
+    UpdatedAccountLessonResponse> {
     constructor() {
         super();
         this.apiUrl = "AccountLessons";
