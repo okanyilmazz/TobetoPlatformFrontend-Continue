@@ -28,15 +28,17 @@ import { DEFAULT_PROFILE_PHOTO } from '../../environment/environment';
 import GetAccountResponse from '../../models/responses/account/getAccountResponse';
 import accountLanguageService from '../../services/accountLanguageService';
 import GetListAccountLanguageResponse from '../../models/responses/accountLanguage/getListAccountLanguageResponse';
-import GetAccountLanguageResponse from '../../models/responses/accountLanguage/getAccountLanguageResponse';
-import GetListSkillResponse from '../../models/responses/skill/getListSkillResponse';
 import accountSkillService from '../../services/accountSkillService';
 import GetListAccountSkillResponse from '../../models/responses/accountSkill/getListAccountSkillResponse';
 import GetListAccountActivityMapResponse from '../../models/responses/accountActivityMap/getListAccountActivityMapResponse';
 import accountActivityMapService from '../../services/accountActivityMapService';
-import GetAccountActivityMapResponse from '../../models/responses/accountActivityMap/getAccountActivityMapResponse';
 import { NO_ACITIVTY } from '../../environment/messages';
-
+import accountUniversityService from '../../services/accountUniversityService';
+import GetListAccountUniversityResponse from '../../models/responses/accountUniversity/getListAccountUniversityResponse';
+import GetListWorkExperienceResponse from '../../models/responses/workExperience/getListWorkExperienceResponse';
+import workExperienceService from '../../services/workExperienceService';
+import React from 'react';
+import _ from 'lodash';
 
 
 export default function Profile() {
@@ -51,6 +53,10 @@ export default function Profile() {
 
   const [accountLanguages, setAccountLanguages] = useState<Paginate<GetListAccountLanguageResponse>>();
   const [accountSkills, setAccountSkills] = useState<Paginate<GetListAccountSkillResponse>>();
+  const [accountUniversities, setAccountUniversities] = useState<Paginate<GetListAccountUniversityResponse>>();
+  const [workExperiences, setWorkExperiences] = useState<Paginate<GetListWorkExperienceResponse>>();
+  const [combinedList, setCombinedList] = useState<{ type: string, data: any }[]>([]);
+
   const [heatMapDatas, setHeatMapDatas] = useState<Paginate<GetListAccountActivityMapResponse>>();
 
 
@@ -61,7 +67,7 @@ export default function Profile() {
   };
 
   const [inputValue, setInputValue] = useState<string>("https://tobeto.com/profiller/95452f1d");
-
+  const options = { year: 'numeric', month: 'long', day: 'numeric' } as const;
   const handleCopyClick = () => {
     const copyTextElement = document.querySelector(".copy-text") as HTMLElement;
     const input = copyTextElement.querySelector("input.text") as HTMLInputElement;
@@ -129,9 +135,7 @@ export default function Profile() {
           10: '#93f',
           20: '#5c1f99',
           30: '#361259',
-
         }}
-
       />
     )
   }
@@ -145,23 +149,14 @@ export default function Profile() {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-
-  useEffect(() => {
-    accountActivityMapService.getByAccountId(user.id).then((result: any) => {
-      setHeatMapDatas(result.data);
-    })
-  }, [])
-
   useEffect(() => {
     if (!userState.user) {
       dispatch(userActions.getUserInfo())
-
       return;
     }
 
@@ -172,9 +167,11 @@ export default function Profile() {
     certificateService.getByAccountId(userState.user.id, 0, 5).then(result => {
       setCertificates(result.data)
     });
+
     examResultService.getByAccountId(user.id).then(result => {
       setExamResults(result.data)
     })
+
     accountService.getById(userState.user.id).then(result => {
       setAccount(result.data);
     });
@@ -191,12 +188,45 @@ export default function Profile() {
       setAccountLanguages(result.data);
     })
 
+    accountUniversityService.getByAccountId(user.id, 0, 5).then((result) => {
+      setAccountUniversities(result.data);
+    });
+
+    workExperienceService.getByAccountId(user.id).then((result: any) => {
+      setWorkExperiences(result.data);
+    });
+
     accountSkillService.getByAccountId(user.id, 0, 10).then(result => {
       setAccountSkills(result.data);
     })
+
+    accountActivityMapService.getByAccountId(user.id).then((result: any) => {
+      setHeatMapDatas(result.data);
+    })
+
   }, [userState]);
 
-  const options = { year: 'numeric', month: 'long', day: 'numeric' } as const;
+  useEffect(() => {
+    addCombinedList();
+  }, [workExperiences, accountUniversities])
+
+  const addCombinedList = () => {
+    const combinedList: { type: string, data: any }[] = [];
+
+    if (workExperiences) {
+      workExperiences?.items.forEach(workExperience => {
+        combinedList.push({ type: 'WorkExperience', data: workExperience })
+      })
+    }
+
+    if (accountUniversities) {
+      accountUniversities?.items.forEach(accountUniversity => {
+        combinedList.push({ type: 'University', data: accountUniversity })
+      })
+    }
+    const sortedList = _.sortBy(combinedList, (item: any) => new Date(item.data.startDate));
+    setCombinedList(sortedList)
+  }
 
 
   return (
@@ -476,7 +506,7 @@ export default function Profile() {
                 </div>
               </div>
             </div>
-            <div className='sm-card col-md-8'>
+            <div className='sm-card col-md-12'>
               <ProfileCard
                 title={
                   <div className='sm-header'>
@@ -485,14 +515,44 @@ export default function Profile() {
                 }
                 content={
                   <div className='sm-card-content'>
-                    <div className='timeline'>
-                      <div className='line'>
-                        <div className='circle'>
-                        </div>
+                    <div className="timeline">
+                      <div className="line">
+                        {combinedList &&
+                          combinedList.map((data: { type: string, data: any }, index: number) => (
+                            <React.Fragment key={index}>
+                              {data.type === 'University' && (
+                                <div className="circle">
+                                  <div className="before">
+                                    <div className="content">
+                                      <ul>
+                                        <li>{new Date(data.data.startDate).getFullYear()}/{new Date(data.data.endDate).getFullYear()}</li>
+                                        <li className="text-truncate" style={{ maxWidth: 125 }}>{data.data.universityName}</li>
+                                        <li className="text-truncate" style={{ maxWidth: 125 }}>{data.data.universityDepartmentName}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              {data.type === 'WorkExperience' && (
+                                <div className="circle2">
+                                  <div className="after">
+                                    <div className="content">
+                                      <ul>
+                                        <li>{new Date(data.data.startDate).getFullYear()}/{new Date(data.data.endDate).getFullYear()}</li>
+                                        <li className="text-truncate" style={{ maxWidth: 125 }}>{data.data.companyName}</li>
+                                        <li className="text-truncate" style={{ maxWidth: 125 }}>{data.data.department}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                            </React.Fragment>
+                          ))}
                       </div>
                     </div>
                   </div>
                 }
+
               />
             </div>
           </div>

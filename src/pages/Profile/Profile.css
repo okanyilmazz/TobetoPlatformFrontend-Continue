@@ -565,43 +565,232 @@
   cursor: default;
 }
 
-.line {
-  display: flex;
-  justify-content: space-between;
-}
-
-.circle {
-  width: 20px;
-  height: 20px;
-  background: #4b1a7a;
-  border-radius: 15px;
-  position: relative;
-  top: -7px;
-  border: 3px solid #631481;
-  cursor: default;
-  fill: none;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  animation: progress 1s ease-out forwards;
-}
-
-.circle:before {
-  transform: translateY(-100%);
-  border-left: 3px solid #6520a4;
-  margin-left: 5px;
-  padding: 0 0 2em;
-  position: relative;
-  min-height: 100px;
-  cursor: default;
 
 
-}
+/*Timeline*/
 
 .timeline .line .before {
   transform: translateY(-100%);
   border-left: 3px solid #a442ff;
   margin-left: 5px;
 }
+
+
+.timeline {
+  height: 300px;
+  overflow-x: auto;
+  cursor: default;
+  width: 100%;
+}
+
+.timeline .line {
+  height: 6px;
+  width: fit-content;
+  min-width: 100%;
+  background: #ccc;
+  border-radius: 5px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: 240px;
+  position: relative;
+  display: flex;
+  cursor: default
+}
+
+.timeline .line .circle {
+  width: 20px;
+  height: 20px;
+  background: #a442ff;
+  border-radius: 15px;
+  position: relative;
+  top: -7px;
+  border: 3px solid #fff;
+  cursor: default
+}
+
+.timeline .line .circle:last-child .before {
+  margin-right: 5px;
+  padding: 0 0 2em;
+  position: relative;
+  min-height: 100px
+}
+
+.timeline .line .circle:last-child .before .content {
+  position: absolute;
+  top: -16px;
+  right: 8px !important;
+  cursor: default
+}
+
+.timeline .line .circle:last-child .before .content ul {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 4px;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 150px
+}
+
+.timeline .line .circle:last-child .before .content ul li {
+  font-size: 12px;
+  text-align: right
+}
+
+.timeline .line .circle:first-child .before {
+  margin-right: 5px;
+  padding: 0 0 2em;
+  position: relative;
+  min-height: 100px
+}
+
+.timeline .line .circle:first-child .before .content {
+  position: absolute;
+  top: -16px;
+  left: 8px !important;
+  cursor: default
+}
+
+.timeline .line .circle:first-child .before .content ul {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 4px;
+  width: max-content;
+  max-width: 150px
+}
+
+.timeline .line .circle:first-child .before .content ul li {
+  font-size: 12px;
+  text-align: left
+}
+
+.timeline .line .circle .before {
+  transform: translateY(-100%);
+  border-left: 3px solid #a442ff;
+  margin-left: 5px;
+  padding: 0 0 2em;
+  position: relative;
+  min-height: 100px;
+  cursor: default
+}
+
+.timeline .line .circle .before .content {
+  position: absolute;
+  top: -16px;
+  cursor: default
+}
+
+.timeline .line .circle .before .content ul {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 4px;
+  min-width: 172px
+}
+
+.timeline .line .circle .before .content ul li {
+  font-size: 12px
+}
+
+.timeline .line .circle .after {
+  border-right: 3px solid #488ff6;
+  margin-right: 5px;
+  padding: 2em 0 0;
+  position: relative;
+  min-height: 100px;
+  cursor: default
+}
+
+.timeline .line .circle .after .content {
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  cursor: default
+}
+
+.timeline .line .circle .after .content ul {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 4px;
+  width: max-content;
+  max-width: 150px
+}
+
+.timeline .line .circle .after .content ul li {
+  font-size: 12px;
+  text-align: right
+}
+
+.timeline .line .circle2 {
+  width: 20px;
+  height: 20px;
+  background: #488ff6;
+  border-radius: 15px;
+  position: relative;
+  top: -7px;
+  border: 3px solid #fff;
+  cursor: default
+}
+
+.timeline .line .circle2:first-child .after {
+  border-right: 3px solid #488ff6;
+  margin-right: 5px;
+  padding: 2em 0 0;
+  position: relative;
+  min-height: 100px;
+  cursor: default
+}
+
+.timeline .line .circle2:first-child .after .content {
+  position: absolute;
+  top: 50px;
+  left: 8px;
+  cursor: default
+}
+
+.timeline .line .circle2:first-child .after .content ul {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 4px;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 150px
+}
+
+.timeline .line .circle2:first-child .after .content ul li {
+  font-size: 12px;
+  text-align: left
+}
+
+.timeline .line .circle2 .after {
+  border-right: 3px solid #488ff6;
+  margin-right: 5px;
+  padding: 2em 0 0;
+  position: relative;
+  min-height: 100px;
+  cursor: default
+}
+
+.timeline .line .circle2 .after .content {
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  cursor: default
+}
+
+.timeline .line .circle2 .after .content ul {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 4px;
+  width: max-content;
+  max-width: 150px
+}
+
+.timeline .line .circle2 .after .content ul li {
+  font-size: 12px;
+  text-align: right
+}
+
+
 
 
 /*My Experiences */
@@ -625,7 +814,6 @@
   color: #fff;
 }
 
-.abilities-text {}
 
 .profile-card .languages-content {
   display: flex;

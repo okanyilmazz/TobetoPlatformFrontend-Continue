@@ -17,4 +17,5 @@ export default interface GetLessonResponse {
     lessonCategoryId: Identifier;
     lessonSubTypeId: Identifier;
     productionCompanyId: Identifier;
+    thumbnailPath: string;
 }
