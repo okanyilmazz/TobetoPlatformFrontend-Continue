@@ -775,7 +775,7 @@ export default function EducationProgramContent() {
                                     <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === ASYNCHRONOUS_LESSON ? "block" : "none" }}>
                                         <LessonCard header={
                                             <div className="lesson-card-content">
-                                                <Image src={lesson?.lessonPath === null || lesson?.lessonPath === undefined ? "" : lesson?.lessonPath}></Image>
+                                                <Image src={lesson?.thumbnailPath === null || lesson?.thumbnailPath === undefined ? "" : lesson?.thumbnailPath}></Image>
                                             </div>}
                                             title={<div className='lesson-title'>{lesson?.name}</div>}
                                             text={
@@ -813,7 +813,7 @@ export default function EducationProgramContent() {
                                     <div style={{ display: lesson?.lessonSubTypeName.toUpperCase() === PDF_LESSON ? "block" : "none" }}>
                                         <LessonCard header={
                                             <div className="lesson-card-content">
-                                                <Image src={lesson?.lessonPath === null || lesson?.lessonPath === undefined ? "" : lesson?.lessonPath}></Image>
+                                                <Image src={lesson?.thumbnailPath === null || lesson?.thumbnailPath === undefined ? "" : lesson?.thumbnailPath}></Image>
                                             </div>}
                                             title={<div className='lesson-title'>{lesson?.name}</div>}
                                             text={
