@@ -1,5 +1,6 @@
 .social-media-page {
     display: flex;
+    min-height: 74.3vh;
 }
 
 .social-media-content {

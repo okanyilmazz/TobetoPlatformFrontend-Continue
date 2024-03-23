@@ -5,6 +5,7 @@
 
 .settings-p {
     display: flex;
+    min-height: 74.3vh;
 }
 
 .settings-container {

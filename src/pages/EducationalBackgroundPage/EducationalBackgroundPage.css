@@ -90,6 +90,7 @@
 .education-background-page {
     display: flex !important;
     margin-top: 2rem !important;
+    min-height: 71.3vh;
 }
 
 .formik-form .react-datepicker-ignore-onclickoutside {

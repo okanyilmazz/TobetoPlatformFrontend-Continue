@@ -48,6 +48,9 @@ import AddAccountFavoriteEducationProgramRequest from '../../models/requests/acc
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster';
 import { ASYNCHRONOUS_LESSON, PDF_LESSON, TOAST_SUCCESS } from '../../environment/environment';
 import moment, { duration } from 'moment';
+import DeleteLessonLikeRequest from '../../models/requests/lessonLike/deleteLessonLikeRequest';
+import DeleteAccountFavoriteEducationProgramRequest from '../../models/requests/accountFavoriteEducationProgram/deleteAccountFavoriteEducationProgramRequest';
+import DeleteEducationProgramLikeRequest from '../../models/requests/educationProgramLike/deleteEducationProgramLikeRequest';
 export default function EducationProgramContent() {
     const [selectedLessonId, setSelectedLessonId] = useState<any>();
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -177,7 +180,11 @@ export default function EducationProgramContent() {
             };
             await educationProgramLikeService.add(addEducationProgramLike);
         } else {
-            await educationProgramLikeService.deleteByAccountIdAndEducationProgramId(user.id, String(educationProgramId));
+            const deleteEducationProgramLike: DeleteEducationProgramLikeRequest = {
+                accountId: user.id,
+                educationProgramId: String(educationProgramId)
+            };
+            await educationProgramLikeService.deleteByAccountIdAndEducationProgramId(deleteEducationProgramLike);
         }
         setIsLikedEducationProgram(isLiked);
     };
@@ -215,7 +222,11 @@ export default function EducationProgramContent() {
             };
             await lessonLikeService.add(addLessonLike);
         } else {
-            await lessonLikeService.deleteByAccountIdAndLessonId(user.id, selectedLessonId);
+            const deleteLessonLikeRequest: DeleteLessonLikeRequest = {
+                accountId: user.id,
+                lessonId: selectedLessonId
+            };
+            await lessonLikeService.deleteByAccountIdAndLessonId(deleteLessonLikeRequest);
         }
         setIsLikedLesson(isLiked);
         getLessonLikeCount();
@@ -321,7 +332,11 @@ export default function EducationProgramContent() {
     }
 
     const handleDeleteFavorite = async () => {
-        await accountFavoriteEducationProgramService.deleteByAccountIdAndEducationProgramId(user.id, educationProgramId);
+        const deleteFavoriteEducationProgram: DeleteAccountFavoriteEducationProgramRequest = {
+            accountId: user.id,
+            educationProgramId: String(educationProgramId)
+        }
+        await accountFavoriteEducationProgramService.deleteByAccountIdAndEducationProgramId(deleteFavoriteEducationProgram);
         ProfileToaster({
             name: DELETED_FAVORITE,
             type: TOAST_SUCCESS
