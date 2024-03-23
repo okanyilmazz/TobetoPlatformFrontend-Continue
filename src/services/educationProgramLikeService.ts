@@ -8,6 +8,7 @@ import AddEducationProgramLikeRequest from "../models/requests/educationProgramL
 import UpdateEducationProgramLikeRequest from "../models/requests/educationProgramLike/updateEducationProgramLikeRequest";
 import AddedEducationProgramLikeResponse from "../models/responses/educationProgramLike/addedEducationProgramLikeResponse";
 import UpdatedEducationProgramLikeResponse from "../models/responses/educationProgramLike/updatedEducationProgramLikeResponse";
+import DeleteEducationProgramLikeRequest from "../models/requests/educationProgramLike/deleteEducationProgramLikeRequest";
 
 
 class EducationProgramLikeService extends BaseService<
@@ -30,8 +31,8 @@ class EducationProgramLikeService extends BaseService<
         return axiosInstance.get<Paginate<GetListEducationProgramLikeResponse>>(this.apiUrl + "/GetByEducationProgramId?educationProgramId=" + educationProgramId);
     }
 
-    deleteByAccountIdAndEducationProgramId(accountId: any, educationProgramId: any) {
-        return axiosInstance.delete(this.apiUrl + "/accountId=" + accountId + "&educationProgramId=" + educationProgramId);
+    deleteByAccountIdAndEducationProgramId(request: DeleteEducationProgramLikeRequest): any {
+        return axiosInstance.post(this.apiUrl + "/DeleteByAccountIdAndEducationProgramId", request);
     }
 
     getByEducationProgramIdAndAccountId(educationProgramId: string, accountId: string): Promise<AxiosResponse<GetEducationProgramLikeResponse, any>> {

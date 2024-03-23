@@ -8,6 +8,7 @@ import UpdateAccountFavoriteEducationProgramRequest from "../models/requests/acc
 import AddedAccountFavoriteEducationProgramResponse from "../models/responses/accountFavoriteEducationProgram/addedAccountFavoriteEducationProgramResponse";
 import GetAccountFavoriteEducationProgramResponse from "../models/responses/accountFavoriteEducationProgram/getAccountFavoriteEducationProgramResponse";
 import UpdatedAccountFavoriteEducationProgramResponse from "../models/responses/accountFavoriteEducationProgram/updatedAccountFavoriteEducationProgramResponse";
+import DeleteAccountFavoriteEducationProgramRequest from "../models/requests/accountFavoriteEducationProgram/deleteAccountFavoriteEducationProgramRequest";
 
 
 class AccountFavoriteEducationProgramService extends BaseService<
@@ -34,8 +35,8 @@ class AccountFavoriteEducationProgramService extends BaseService<
         return axiosInstance.get<GetListAccountFavoriteEducationProgramResponse>(this.apiUrl + "/GetByAccountIdAndEducationProgramId?accountId=" + accountId + "&educationProgramId=" + educationProgramId);
     }
 
-    deleteByAccountIdAndEducationProgramId(accountId: any, educationProgramId: any) {
-        return axiosInstance.delete(this.apiUrl + "/accountId=" + accountId + "&educationProgramId=" + educationProgramId);
+    deleteByAccountIdAndEducationProgramId(request: DeleteAccountFavoriteEducationProgramRequest): any {
+        return axiosInstance.post(this.apiUrl + "/DeleteByAccountIdAndEducationProgramId", request);
     }
 }
 

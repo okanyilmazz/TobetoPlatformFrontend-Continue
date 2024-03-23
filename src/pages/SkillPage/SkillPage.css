@@ -1,5 +1,6 @@
 .skill-page {
     display: flex;
+    min-height: 74.3vh;
 }
 
 .skill-area {

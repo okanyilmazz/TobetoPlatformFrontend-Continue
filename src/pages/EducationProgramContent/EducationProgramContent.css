@@ -92,7 +92,7 @@
 .education-program-content {
     box-shadow: 0 7px 29px rgba(0, 0, 0, .13);
     border-radius: 12px;
-
+    min-height: 69vh;
 }
 
 
@@ -559,7 +559,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 18px;
 }
 
 

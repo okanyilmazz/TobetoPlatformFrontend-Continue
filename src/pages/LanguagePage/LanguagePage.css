@@ -1,5 +1,6 @@
 .language-page {
     display: flex;
+    min-height: 74.3vh;
 }
 
 .pe-language {
@@ -10,10 +11,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 50px;
-    gap: 10px; 
+    gap: 10px;
 }
 
-.pe-general{
+.pe-general {
     margin-right: 100px;
 }
 
@@ -97,10 +98,10 @@
     border: none;
 }
 
-.pe-invalid-feedback{
-    display: flex; 
-    margin-top: 0.25rem; 
-    color: #dc3545; 
+.pe-invalid-feedback {
+    display: flex;
+    margin-top: 0.25rem;
+    color: #dc3545;
 }
 
 #pe-language-select {

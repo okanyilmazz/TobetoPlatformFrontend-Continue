@@ -1,5 +1,6 @@
 .certificate-page {
     display: flex;
+    min-height: 74.3vh;
 }
 
 .certificate-page .certificate-page-content .uploaded-content {

@@ -209,6 +209,7 @@ const Footer = () => {
           lastPathSegment === "" ||
           lastPathSegment === "bireyler-icin" ||
           lastPathSegment === "sifremi-unuttum" ||
+          pathArray.includes("egitim-detaylari") ||
 
 
 

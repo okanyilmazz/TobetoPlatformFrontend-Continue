@@ -28,10 +28,6 @@ class LessonModuleService extends BaseService<
     getByLessonId(lessonId: string): Promise<AxiosResponse<Paginate<GetListLessonModuleResponse>, any>> {
         return axiosInstance.get<Paginate<GetListLessonModuleResponse>>(this.apiUrl + "/GetByLessonId?lessonId=" + lessonId);
     }
-
-    deleteByAccountIdAndLessonId(accountId: any, lessonId: any) {
-        return axiosInstance.delete(this.apiUrl + "/accountId=" + accountId + "&lessonId=" + lessonId);
-    }
 }
 
 export default new LessonModuleService();
