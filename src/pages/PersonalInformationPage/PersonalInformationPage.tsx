@@ -67,10 +67,7 @@ export default function PersonalInformationPage() {
     }, []);
 
     useEffect(() => {
-        accountService.getById(user.id).then(result => {
-            setAccount(result.data);
-        });
-
+        getAccountById(user.id)
         addressService.getByAccountId(user.id).then((result) => {
             setAccountAddress(result.data)
         });
@@ -87,6 +84,11 @@ export default function PersonalInformationPage() {
         return formattedDate
     }
 
+    const getAccountById = (userId: any) => {
+        accountService.getById(userId).then(result => {
+            setAccount(result.data);
+        });
+    }
     const handleCountries = (event: any) => {
         console.log(event.target.value);
 
@@ -128,15 +130,16 @@ export default function PersonalInformationPage() {
         lastName: Yup.string().required(REQUIRED_MESSAGE),
         birthDate: Yup.string().required(REQUIRED_MESSAGE),
         nationalId: Yup.string().required(REQUIRED_MESSAGE),
-        country: Yup.string().required(REQUIRED_MESSAGE),
         city: Yup.string().required(REQUIRED_MESSAGE),
-        district: Yup.string().required(REQUIRED_MESSAGE),
+        country: Yup.string().required(REQUIRED_MESSAGE),
+        district: Yup.string().required(REQUIRED_MESSAGE)
 
     });
 
     const updatePersonalInformation = async (values: any) => {
-        console.log(accountAddress)
-        if (phoneNumberState && accountAddress) {
+
+        if (accountAddress) {
+
             const updateAddress: UpdateAddressRequest = {
                 id: accountAddress?.id,
                 accountId: user.id,
@@ -145,7 +148,7 @@ export default function PersonalInformationPage() {
                 districtId: selectedDistrictId,
                 addressDetail: values.addressDetail
             }
-            await addressService.update(updateAddress);
+            var updateAddressResult = await addressService.update(updateAddress);
 
             const updateAccount: UpdateAccountRequest = {
                 id: user.id,
@@ -153,23 +156,22 @@ export default function PersonalInformationPage() {
                 birthDate: values.birthDate,
                 description: values.about,
                 nationalId: values.nationalId,
-                phoneNumber: phoneNumberState,
+                phoneNumber: phoneNumberState!,
                 profilePhotoPath: "",
 
             }
-            var updateResult = await accountService.update(updateAccount);
+            var updateAccountResult = await accountService.update(updateAccount);
 
             const updateUser: UpdateUserRequest = {
                 id: user.id,
                 email: values.email,
                 firstName: values.firstName,
-                lastName: values.lastName,
-                password: ""
+                lastName: values.lastName
             }
 
-            // var updateResult = await userService.update(updateUser);
+            var updateUserResult = await userService.update(updateUser);
 
-            if (updateResult.data) ProfileToaster({ name: INFO_IS_CHANGED });
+            if (updateAddressResult && updateAccountResult && updateUserResult.data) ProfileToaster({ name: INFO_IS_CHANGED });
         }
         else {
             const addAddress: AddAddressRequest = {
@@ -271,7 +273,7 @@ export default function PersonalInformationPage() {
                                     <Col md={12}>
                                         <span className="input-area-title">Ülke*</span>
                                         <TobetoSelect
-                                            name="countries"
+                                            name="country"
                                             className="mb-4"
                                             component="select"
                                             onChange={(event: any) => {
@@ -310,7 +312,7 @@ export default function PersonalInformationPage() {
                                         <span className="input-area-title">İlçe</span>
                                         <TobetoSelect
                                             disabled={!selectedCityId || selectedCityId === "İl"}
-                                            name="districts"
+                                            name="district"
                                             className="mb-4"
                                             component="select"
                                             onChange={(event: any) => { handleDistricts(event) }}>

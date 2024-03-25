@@ -426,6 +426,11 @@
   color: white !important;
 }
 
+.errorToast {
+  background: #a84444 !important;
+  color: white !important;
+}
+
 /* Work Success Model */
 
 .sm-card {

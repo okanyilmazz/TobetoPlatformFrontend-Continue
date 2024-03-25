@@ -29,13 +29,14 @@ const ProfileToaster = (props: any) => {
             });
             break;
         case TOAST_ERROR:
+            console.log("girdi")
             toast.error(<CustomProfileToaster name={props.name} />, {
                 autoClose: 3000,
                 theme: "light",
                 position: "top-right",
                 hideProgressBar: true,
                 icon: false,
-                className: "copyToast",
+                className: "errorToast",
             });
             break;
         case TOAST_INFO:

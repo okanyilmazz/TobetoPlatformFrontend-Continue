@@ -32,3 +32,6 @@ export const AVAILABLE_SOCIAL_MEDIA = "Sosyal medya kullanılıyor.";
 
 export const DO_NOT_SELECTED_SKILL = " Herhangi bir yetenek seçmediniz.";
 
+export const SERVER_CONNECTION_FAILED = "Sunucuya ulaşılamıyor.";
+
+

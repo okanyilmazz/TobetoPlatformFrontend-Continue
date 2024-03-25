@@ -11,7 +11,9 @@ import userService from '../../services/userService'
 import { useDispatch } from 'react-redux'
 import { authActions } from '../../store/auth/authSlice'
 import ResetTokenUserRequest from '../../models/requests/user/resetTokenRequest'
-import { PASSWORD_IS_CHANGED } from '../../environment/messages'
+import { PASSWORDS_DO_NOT_MATCH, PASSWORD_IS_CHANGED } from '../../environment/messages'
+import ProfileToaster from '../../components/ProfileToaster/ProfileToaster'
+import { TOAST_ERROR } from '../../environment/environment'
 
 
 export default function ResetPassword() {
@@ -21,19 +23,15 @@ export default function ResetPassword() {
     useEffect(() => {
         if (userId && resetToken) {
             const resetTokenUserRequest: ResetTokenUserRequest = {
-                userId: userId,
-                resetToken: resetToken
+                id: userId,
+                passwordReset: resetToken
             }
-            console.log(resetTokenUserRequest)
-
             userService.getByResetToken(resetTokenUserRequest).then((result: any) => {
-                console.log(result.data)
-
                 if (!result.data) navigate("/giris");
             })
         }
         else navigate("/not-found");
-    })
+    }, [])
 
 
     const dispatch = useDispatch();
@@ -66,7 +64,11 @@ export default function ResetPassword() {
                         initialValues={initialValues}
                         onSubmit={(values) => {
                             if (values.newPassword === values.confirmPassword) handleChangePassword(values)
-                            else toast.error("Şifreler uyuşmamaktadır.");
+                            else ProfileToaster({
+                                name: PASSWORDS_DO_NOT_MATCH,
+                                type: TOAST_ERROR
+                            })
+
                         }}>
                         <Form className="login-form ">
                             <Row>
