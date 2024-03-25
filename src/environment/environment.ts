@@ -7,6 +7,6 @@ export const TOAST_INFO = "Info";
 export const SYNCHRONOUS_LESSON = "SANAL SINIF";
 export const ASYNCHRONOUS_LESSON = "VIDEO";
 export const PDF_LESSON = "E-EGITIM";
-
+export const ERR_NETWORK = "ERR_NETWORK";
 
 

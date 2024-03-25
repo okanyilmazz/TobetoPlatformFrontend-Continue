@@ -15,28 +15,20 @@ export default function ForgotPassword() {
     const [user, setUser] = useState<GetUserResponse>();
 
     const handleCheckUser = async (email: any) => {
-        userService.getByMail(email).then(result => {
-            setUser(result.data)
+        userService.getByMail(email).then((result: any) => {
+            if (result.data) {
+                handlePasswordReset(result.data);
+            }
         })
     }
 
 
-    useEffect(() => {
-        const handlePasswordReset = async () => {
-            if (user) {
-                const result = await authService.passwordReset(user.email);
-                if (result.data) {
-                    const passwordResetCheck = await authService.passwordReset(user.email);
-                    if (passwordResetCheck) {
-                        ProfileToaster({ name: EMAIL_SENT });
-                    }
-                }
-            }
-        };
-
-        handlePasswordReset();
-    }, [user]);
-
+    const handlePasswordReset = async (user: any) => {
+        const passwordResetCheck = await authService.passwordReset(user.email);
+        if (passwordResetCheck) {
+            ProfileToaster({ name: EMAIL_SENT });
+        }
+    };
     const initialValues = {
         email: ""
     };

@@ -14,6 +14,7 @@ import { PASSWORDS_DO_NOT_MATCH, PASSWORD_IS_CHANGED, REQUIRED_MESSAGE } from '.
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster'
 import DeleteCard from '../../components/DeleteCard/DeleteCard'
 import userService from '../../services/userService'
+import { TOAST_ERROR } from '../../environment/environment'
 
 export default function SettingsPage() {
     const dispatch = useDispatch();
@@ -60,7 +61,10 @@ export default function SettingsPage() {
                 }}
                 onSubmit={(values) => {
                     if (values.newPassword === values.confirmPassword) handleChangePassword(values)
-                    else ProfileToaster({ name: PASSWORDS_DO_NOT_MATCH });
+                    else ProfileToaster({
+                        name: PASSWORDS_DO_NOT_MATCH,
+                        type: "Error"
+                    })
                 }}>
                 <Form className="login-form">
                     <div className="settings-container row mt-5 col-md-12">
