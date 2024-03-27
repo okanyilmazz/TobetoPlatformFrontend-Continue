@@ -14,6 +14,7 @@ import ResetTokenUserRequest from '../../models/requests/user/resetTokenRequest'
 import { PASSWORDS_DO_NOT_MATCH, PASSWORD_IS_CHANGED } from '../../environment/messages'
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster'
 import { TOAST_ERROR } from '../../environment/environment'
+import ResetPasswordRequest from '../../models/requests/auth/resetPasswordRequest'
 
 
 export default function ResetPassword() {
@@ -41,17 +42,19 @@ export default function ResetPassword() {
     };
 
     const handleChangePassword = async (values: any) => {
-        const changePasswordRequest: ChangePasswordRequest = {
-            userId: userId!,
-            newPassword: values.newPassword,
-            oldPassword: values.newPassword
-        }
+        if (userId) {
 
-        const result = await authService.changePassword(changePasswordRequest)
-        if (result.data) {
-            dispatch(authActions.removeToken());
-            navigate("/giris");
-            toast.success(PASSWORD_IS_CHANGED)
+            const resetPasswordRequest: ResetPasswordRequest = {
+                userId: userId,
+                newPassword: values.newPassword
+            }
+            const result = await authService.changeForgotPassword(resetPasswordRequest)
+
+            if (result.data) {
+                dispatch(authActions.removeToken());
+                navigate("/giris");
+                toast.success(PASSWORD_IS_CHANGED)
+            }
         }
     }
     return (

@@ -13,21 +13,24 @@
 
 .profile-details-img img {
     border-radius: 50%;
+    width: 148px;
+    object-fit: cover;
 }
 
 .profile-img-delete {
     position: absolute;
     background-color: transparent;
-    top: 72%;
-    right: 54%;
+    top: 75%;
+    right: 53%;
+    cursor: pointer;
 }
 
 .profile-img-edit {
     position: absolute;
     background-color: transparent;
-    top: 72%;
+    top: 75%;
     right: 43%;
-
+    cursor: pointer;
 }
 
 .profile-img-edit::after {
@@ -87,4 +90,8 @@
     margin-top: -10px !important;
     margin-bottom: 24px;
     color: #fc5c46;
+}
+
+.profile-details-page .profile-details-area {
+    margin-top: 2rem;
 }
