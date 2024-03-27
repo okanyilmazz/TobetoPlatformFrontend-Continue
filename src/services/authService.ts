@@ -7,6 +7,7 @@ import { jwtDecode } from "jwt-decode";
 import RegisterRequest from "../models/requests/auth/registerRequest";
 import RegisterResponse from "../models/responses/auth/registerResponse";
 import ChangePasswordRequest from "../models/requests/auth/changePasswordRequest";
+import ResetPasswordRequest from "../models/requests/auth/resetPasswordRequest";
 
 interface TokenDetails {
     'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': string;
@@ -59,11 +60,13 @@ class AuthService {
         return axiosInstance.post<boolean>("Auth/ChangePassword", changePasswordRequest);
     }
 
+    changeForgotPassword(resetPasswordRequest: ResetPasswordRequest): Promise<AxiosResponse<boolean, any>> {
+        return axiosInstance.post<boolean>("Auth/ChangeForgotPassword", resetPasswordRequest);
+    }
+
     passwordReset(email: string): Promise<AxiosResponse<boolean, any>> {
         return axiosInstance.get<boolean>("Auth/PasswordReset?email=" + email);
     }
-
-
 }
 
 export default new AuthService()

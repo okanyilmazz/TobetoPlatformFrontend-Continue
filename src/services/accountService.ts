@@ -37,6 +37,18 @@ class AccountService extends BaseService<
     getStudentBySessionId(sessionId: string): Promise<AxiosResponse<Paginate<GetListAccountResponse>, any>> {
         return axiosInstance.get<Paginate<GetListAccountResponse>>(this.apiUrl + "/GetStudentBySessionId?sessionId=" + sessionId)
     }
+
+    uploadProfilePhoto(formData: FormData): Promise<AxiosResponse<boolean, any>> {
+        return axiosInstance.put<boolean>(this.apiUrl + "/Image", formData);
+    }
+
+    addProfilePhoto(formData: FormData): Promise<AxiosResponse<boolean, any>> {
+        return axiosInstance.post<boolean>(this.apiUrl + "/Image", formData);
+    }
+
+    deleteProfilePhoto(id: string) {
+        return axiosInstance.delete(this.apiUrl + "/Image/" + id);
+    }
 }
 
 export default new AccountService();

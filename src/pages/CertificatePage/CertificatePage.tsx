@@ -1,5 +1,4 @@
 import Uppy from '@uppy/core';
-import StatusBar from '@uppy/status-bar';
 import { useEffect, useState } from 'react';
 import certificateService from '../../services/certificateService';
 import GetListCertificateResponse from '../../models/responses/certificate/getListCertificateResponse';
@@ -36,7 +35,6 @@ export default function CertificatePage() {
             allowedFileTypes: ['.pdf', '.jpg', '.jpeg', '.png'],
         }
     });
-    uppy.use(StatusBar);
 
     useEffect(() => {
         getCertificates();

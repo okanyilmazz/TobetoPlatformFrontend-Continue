@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './PersonalInformationPage.css';
 import { useLocation } from 'react-router-dom';
-import { DEFAULT_PROFILE_PHOTO } from '../../environment/environment';
+import { DEFAULT_PROFILE_PHOTO, TOAST_ERROR, TOAST_SUCCESS } from '../../environment/environment';
 import { Form, Formik } from 'formik';
 import { Button, Col, Image, Row } from 'react-bootstrap';
 import { GetListCountryResponse } from '../../models/responses/country/getListCountryResponse';
@@ -29,11 +29,16 @@ import AddAddressRequest from '../../models/requests/address/addAddressRequest';
 import ProfileToaster from '../../components/ProfileToaster/ProfileToaster';
 import * as Yup from 'yup';
 import GetListDistrictResponse from '../../models/responses/district/getListDistrictResponse';
-import { INFO_IS_CHANGED, REQUIRED_MESSAGE } from '../../environment/messages';
+import { DELETED_FILE, INFO_IS_CHANGED, REQUIRED_MESSAGE } from '../../environment/messages';
+import FileUpload from '../../components/FileUpload/FileUpload';
+import { useDispatch } from 'react-redux';
+import { userActions } from '../../store/user/userSlice';
+import DeleteCard from '../../components/DeleteCard/DeleteCard';
 
 export default function PersonalInformationPage() {
 
     const location = useLocation();
+    const dispatch = useDispatch();
     const pathArray = location.pathname.split('/');
     const lastPathSegment = pathArray[pathArray.length - 1];
     const user = authService.getUserInfo();
@@ -50,7 +55,8 @@ export default function PersonalInformationPage() {
     const [selectedCountryId, setSelectedCountryId] = useState<any>("Ülke");
     const [selectedCityId, setSelectedCityId] = useState<any>("İl");
     const [selectedDistrictId, setSelectedDistrictId] = useState<any>("İlçe");
-
+    const [showFileUpload, setShowFileUpload] = useState(false);
+    const [showFileDeleteModal, setShowFileDeleteModal] = useState(false);
 
     useEffect(() => {
         countryService.getAll(0, 10).then((result) => {
@@ -90,8 +96,6 @@ export default function PersonalInformationPage() {
         });
     }
     const handleCountries = (event: any) => {
-        console.log(event.target.value);
-
         setSelectedCountryId(event.target.value)
     }
 
@@ -186,6 +190,34 @@ export default function PersonalInformationPage() {
 
     }
 
+    const handleDataFromFileUpload = async (dataFromFileUpload: any) => {
+        let newProfilePhotoPath;
+        if (account?.profilePhotoPath) {
+            newProfilePhotoPath = await accountService.uploadProfilePhoto(dataFromFileUpload);
+        } else {
+            newProfilePhotoPath = await accountService.addProfilePhoto(dataFromFileUpload);
+        }
+        dispatch(userActions.getUserInfo());
+        getAccountById(user.id);
+
+    };
+
+    const handleShowFileUpload = () => {
+        setShowFileUpload(true);
+    };
+    const handleShowFileDelete = (isShow: boolean) => {
+        setShowFileDeleteModal(isShow)
+    };
+
+    const handleDeleteProfilePhoto = async () => {
+        const result = await accountService.deleteProfilePhoto(user.id);
+        if (result.data) {
+            getAccountById(user.id);
+            ProfileToaster({ name: DELETED_FILE, type: TOAST_SUCCESS })
+        }
+        dispatch(userActions.getUserInfo());
+        handleShowFileDelete(false);
+    }
     return (
         <div className='personal-information-page container'>
 
@@ -200,12 +232,14 @@ export default function PersonalInformationPage() {
                         alt="" />
                     {account?.profilePhotoPath && (
                         <>
-                            <div className="profile-img-delete"></div>
+                            <div className="profile-img-delete" onClick={() => handleShowFileDelete(true)}></div>
                         </>
                     )}
-                    <div className="profile-img-edit"></div>
+                    <div className="profile-img-edit" onClick={handleShowFileUpload}></div>
+
+                    <FileUpload showModal={showFileUpload} setShowModal={setShowFileUpload} onDataFromFileUpload={handleDataFromFileUpload} />
                 </div>
-                <Row>
+                <Row className='profile-details-area'>
                     <div className="col-md-12 formik-form">
                         <Formik
                             enableReinitialize
@@ -352,8 +386,18 @@ export default function PersonalInformationPage() {
                             </Form>
                         </Formik>
                     </div>
+
                 </Row>
             </div>
+            {showFileDeleteModal && (
+                <DeleteCard
+                    show={showFileDeleteModal}
+                    handleClose={() => handleShowFileDelete(false)}
+                    handleDelete={handleDeleteProfilePhoto}
+                    body="Profil fotoğrafını"
+                />
+            )}
         </div>
+
     )
 }

@@ -1,4 +1,4 @@
 export default interface ResetPasswordRequest {
-    email: string;
+    userId: string;
     newPassword: string;
 }
